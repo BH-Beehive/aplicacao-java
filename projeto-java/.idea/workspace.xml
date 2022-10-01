@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b1be80b-171c-4bce-82dd-c2002c61576c" name="Changes" comment="" />
+    <list default="true" id="2b1be80b-171c-4bce-82dd-c2002c61576c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../login-tela/target/classes/.netbeans_automatic_build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../login-tela/target/test-classes/.netbeans_automatic_build" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,7 +26,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/55119/Documents/tela-java/aplicacao-java/projeto-java"
+    "last_opened_file_path": "C:/Users/55119/Documents/Projetos_java/aplicacao-java/projeto-java"
   }
 }]]></component>
   <component name="RunManager">
