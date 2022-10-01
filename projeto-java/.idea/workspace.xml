@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b1be80b-171c-4bce-82dd-c2002c61576c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../login-tela/target/classes/.netbeans_automatic_build" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login-tela/target/test-classes/.netbeans_automatic_build" beforeDir="false" />
+    <list default="true" id="b4de562a-18cb-4e50-adf6-9c365219624e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +16,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="2FUypl8lsA3rSfHpxa8H58dpROk" />
+  <component name="ProjectId" id="2FVaoiFi0YSz2bbz86NQsmXDzUB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -46,11 +46,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="2b1be80b-171c-4bce-82dd-c2002c61576c" name="Changes" comment="" />
-      <created>1664561142231</created>
+      <changelist id="b4de562a-18cb-4e50-adf6-9c365219624e" name="Changes" comment="" />
+      <created>1664579882625</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1664561142231</updated>
+      <updated>1664579882625</updated>
     </task>
     <servers />
   </component>
