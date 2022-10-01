@@ -5,6 +5,7 @@
 package com.sptech.login.tela;
 
 import com.sptech.database.ConexaoComBanco;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -259,6 +260,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
         ConexaoComBanco conect = new ConexaoComBanco();
+        
         email = inputEmail.getText();
         senha = new String(inputSenha.getPassword());
         token = inputToken.getText();
@@ -267,7 +269,6 @@ public class TelaLogin extends javax.swing.JFrame {
         exibirToken.setText(token);
         conect.conectarMySQL();
         conect.validarAcesso(email, senha, token);
-
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     public String getEmail() {
