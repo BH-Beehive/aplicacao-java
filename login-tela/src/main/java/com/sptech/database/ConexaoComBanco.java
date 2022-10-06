@@ -13,7 +13,7 @@ public class ConexaoComBanco {
 
     private String url = "jdbc:mysql://localhost:3306/Beehive";
     private String user = "root";
-    private String password = "";
+    private String password = "meubanco";
     private Connection con = null;
     private PreparedStatement ps = null;
     private ResultSet resultSet = null;
@@ -48,6 +48,8 @@ public class ConexaoComBanco {
             throw new RuntimeException(e);
         }
     }
+    
+   
 
     public boolean validarAcesso(String email, String senha, String token) {
         TelaLogin telaLogin = new TelaLogin();
