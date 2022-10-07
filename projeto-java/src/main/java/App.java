@@ -1,21 +1,45 @@
+
 import com.github.britooo.looca.api.core.Looca;
 import database.ConexaoComBanco;
+import java.sql.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class App {
+
     public static void main(String[] args) {
         Looca looca = new Looca();
-        System.out.println(looca.getMemoria());
-        System.out.println(looca.getProcessador());
-        ConexaoComBanco conect = new ConexaoComBanco();
-        conect.conectarMySQL();
-        conect.selectAll("SELECT * FROM empresa");
-        conect.insert("insert into `maquina` values (null,'633791bb8af21', 1,'Rh',2);");
-        conect.insert("insert into `maquina` values (null,'633791bb8af21', 1,'Ambulatorio',2);");
-        conect.insert("insert into `maquina` values (null,'633791bb8af21', 1,'Uti',2);");
-        conect.insert("insert into `maquina` values (null,'633791bb8af21', 1,'Efermagem',2);");
-        System.out.println("\n\n");
-        conect.selectAll("SELECT * FROM maquina");
-        
-        
+        ConexaoComBanco con = new ConexaoComBanco();
+        con.conectarMySQL();
+        String arquitetura = "x" + looca.getSistema().getArquitetura().toString();
+        String sistemaOperacional = looca.getSistema().getSistemaOperacional().toString();
+        Long memoriaTotal = looca.getMemoria().getTotal();
+        Long discoTotal = looca.getGrupoDeDiscos().getTamanhoTotal();
+        String processador = looca.getProcessador().getNome();
+        String host_name = "asdm123as";
+       String token = "138e813kj1331";
+       con.selectAll();
+        //con.insertDadosMaquina(host_name, token, memoriaTotal, discoTotal, arquitetura, sistemaOperacional,processador);
+
+        Timer timer = new Timer("Timer");
+        final long segundos = (1000 * 3);
+        TimerTask task = new TimerTask() {
+            Long memoriaUsada = null;
+            Long cpuUsada = null;
+            Long discoTotal=null;
+            Long discoDisponivel = null;
+            Long discoUsado = null; 
+            @Override
+            public void run() {
+                memoriaUsada = looca.getMemoria().getEmUso();
+                cpuUsada = looca.getProcessador().getUso().longValue();
+                discoTotal=looca.getGrupoDeDiscos().getVolumes().get(0).getTotal();
+                discoDisponivel = looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel();
+                discoUsado = discoTotal - discoDisponivel; 
+              con.insertRegistro(memoriaUsada, cpuUsada, discoUsado, "amarelo");
+
+            }
+        };
+        timer.scheduleAtFixedRate(task, 0, segundos);
     }
 }
