@@ -64,14 +64,15 @@ public class Queries {    private PreparedStatement ps = null;
         }
     }
 
-    public void insertRegistro(Long memoriaUsada, Long cpuUsada, Long discoUsado, String alerta) {
+    public void insertRegistro(Long  fkMaquina,Long memoriaUsada, Long cpuUsada, Long discoUsado, String alerta) {
         try {
 
-            ps = conexao.getCon().prepareStatement("insert into registro values (null,default,102,?,?,?,?);");
-            ps.setLong(1, memoriaUsada);
-            ps.setLong(2, cpuUsada);
-            ps.setLong(3, discoUsado);
-            ps.setString(4, alerta);
+            ps = conexao.getCon().prepareStatement("insert into registro values (null,default,?,?,?,?,?);");
+            ps.setLong(1, fkMaquina);
+            ps.setLong(2, memoriaUsada);
+            ps.setLong(3, cpuUsada);
+            ps.setLong(4, discoUsado);
+            ps.setString(5, alerta);
             ps.executeUpdate();
 
         } catch (SQLException e) {
@@ -79,9 +80,9 @@ public class Queries {    private PreparedStatement ps = null;
         }
     }
 
-    public void insertDadosMaquina(String host_name, String token, Long memoriaTotal, Long discoTotal, String arquitetura, String so, String processador) {
+    public void insertDadosMaquina(String host_name, String token, Long memoriaTotal, Long discoTotal, String arquitetura, String so, String processador,String setor,Integer prioridade) {
         try {
-            ps = conexao.getCon().prepareStatement(" insert into maquina values (null,?,?,true,?,?,?,?,?,1,'Triagem',2)");
+            ps = conexao.getCon().prepareStatement(" insert into maquina values (null,?,?,true,?,?,?,?,?,1,?,?)");
             ps.setString(1, host_name);
             ps.setString(2, token);
             ps.setLong(3, memoriaTotal);
@@ -89,8 +90,10 @@ public class Queries {    private PreparedStatement ps = null;
             ps.setString(5, arquitetura);
             ps.setString(6, so);
             ps.setString(7, processador);
+            ps.setString(8, setor);
+            ps.setInt(9, prioridade);
             ps.executeUpdate();
-
+            System.out.println("Cadastrado com sucesso!");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -103,7 +106,8 @@ public class Queries {    private PreparedStatement ps = null;
                     +componente
                     +" ,setor from registro join maquina on id_maquina ="
                     + " fk_maquina "
-                    +"where setor = 'triagem'"
+                    +"where setor ="
+                    +"'"+setor+"'"
                     + " order by id_registro desc limit 10;");
             while (resultSet.next()) {
                 System.out.println("\nnome componente:" + componente
