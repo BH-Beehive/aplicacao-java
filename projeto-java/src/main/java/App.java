@@ -1,5 +1,6 @@
 
 import com.github.britooo.looca.api.core.Looca;
+import com.sptech.login.tela.TelaLogin;
 import database.ConexaoComBanco;
 import java.sql.Date;
 import java.util.Timer;
@@ -10,6 +11,9 @@ public class App {
     public static void main(String[] args) {
         Looca looca = new Looca();
         ConexaoComBanco con = new ConexaoComBanco();
+        TelaLogin login = new TelaLogin();
+       
+        
         con.conectarMySQL();
         String arquitetura = "x" + looca.getSistema().getArquitetura().toString();
         String sistemaOperacional = looca.getSistema().getSistemaOperacional().toString();
