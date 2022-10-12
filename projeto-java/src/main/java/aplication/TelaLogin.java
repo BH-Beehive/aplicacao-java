@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.sptech.login.tela;
+package aplication;
 
 import database.ConexaoComBanco;
 import javax.swing.JButton;
@@ -251,9 +251,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         
     }//GEN-LAST:event_CheckBoxConectadoActionPerformed
-private void btnEntrarActionPerformed1(java.awt.event.ActionEvent evt) {
-}
-    
+
     private void inputSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputSenhaActionPerformed

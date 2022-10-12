@@ -1,7 +1,7 @@
 package database;
 
-import com.sptech.login.tela.TelaLogin;
-import static com.sun.tools.javac.tree.TreeInfo.args;
+import aplication.App;
+import aplication.TelaLogin;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -10,8 +10,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
+
 public class ConexaoComBanco {
 
+    private App app = new App();
     private String url = "jdbc:mysql://localhost:3306/Beehive";
     private String user = "root";
     private String password = "meubanco";
@@ -19,12 +21,13 @@ public class ConexaoComBanco {
     private PreparedStatement ps = null;
     private ResultSet resultSet = null;
     private Statement st = null;
+   
 
     public void conectarMySQL() {
         try {
-            System.out.println("Abrindo conex√£o com o banco ...");
+            System.out.println("Abrindo conex„o com o banco ...");
             con = DriverManager.getConnection(url, user, password);
-            System.out.println("Conex√£o realizada com sucesso!");
+            System.out.println("Conex„o realizada com sucesso!");
         } catch (SQLException ex) {
             System.out.println("Falha ao conectar com o banco!" + ex.getMessage());
         }
@@ -51,9 +54,8 @@ public class ConexaoComBanco {
         }
     }
 
-    public Boolean validarAcesso(String email, String senha, String token) {
+    public boolean validarAcesso(String email, String senha, String token) {
         TelaLogin telaLogin = new TelaLogin();
-
         try {
             ps = con.prepareStatement("select id_empresa,email, senha,token_acesso\n"
                     + "from empresa\njoin maquina\non fk_empresa = id_empresa where email"
@@ -71,14 +73,17 @@ public class ConexaoComBanco {
                 System.out.println("senha:" + resultSet.getString("senha"));
                 System.out.println("token_acesso:" + resultSet.getString("token_acesso"));
                 JOptionPane.showMessageDialog(telaLogin, "Login efetuado com sucesso!");
+                app.main();
 
             }
+            
             if (rowCount == 0) {
-                JOptionPane.showMessageDialog(telaLogin, "Usu·rio n„o encontrado!",
+                JOptionPane.showMessageDialog(telaLogin, "Usu?rio n?o encontrado!",
                         "ERRO!", JOptionPane.ERROR_MESSAGE);
             }
         } catch (SQLException e) {
             System.out.println("Erro ao executar o select!" + e.getMessage());
+            
         }
         return false;
     }
@@ -93,10 +98,12 @@ public class ConexaoComBanco {
                         + "\n Arquitetura: " + resultSet.getString("arquitetura")
                         + "\n Token: " + resultSet.getString("token_acesso")
                         + "\n Sistema operacional: " + resultSet.getString("sistema_operacional")
-                        + "\n Mem√≥ria total: " + resultSet.getString("memoria_total")
+                        + "\n MemÛria total: " + resultSet.getString("memoria_total")
                         + "\n CPU total: " + resultSet.getString("processador")
-                        + "\n Disco total: " + resultSet.getString("disco_total")
-                        + "\n Maquina validada: " + resultSet.getString("token_ativo"));
+                +"\n Disco total: " + resultSet.getString("disco_total")
+                        + "\n Maquina validada: " + resultSet.getString("token_ativo")
+            
+         );
             }
         } catch (SQLException e) {
             System.out.println("Erro ao executar o select!" + e.getMessage());
