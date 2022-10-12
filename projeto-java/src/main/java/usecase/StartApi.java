@@ -23,12 +23,13 @@ public class StartApi {
         Long memoriaTotal = looca.getMemoria().getTotal();
         Long discoTotal = looca.getGrupoDeDiscos().getTamanhoTotal();
         String processador = looca.getProcessador().getNome();
-        String host_name = "633791bb8af21";
-        String token = "138e813kj1331";
-       // queries.selectAll();
+        String host_name = "77777745454mls";
+        String token = "138e813kj1323";
+        String tipo = "servidor";
+        queries.selectAll();
        // queries.selectBySetor("disco_uso", "triagem");
-        queries.selectByMaquina(host_name);
-       // queries.insertDadosMaquina(host_name, token, memoriaTotal, discoTotal, arquitetura, sistemaOperacional,processador,"cirurgia",3);
+        //queries.selectByMaquina(host_name);
+        //queries.insertDadosMaquina(host_name, token, tipo, memoriaTotal, discoTotal, arquitetura, sistemaOperacional,processador,"cirurgia",3);
 
         Timer timer = new Timer("Timer");
         final long segundos = (1000 * 3);
@@ -46,7 +47,7 @@ public class StartApi {
                 discoTotal = looca.getGrupoDeDiscos().getVolumes().get(0).getTotal();
                 discoDisponivel = looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel();
                 discoUsado = discoTotal - discoDisponivel;
-                queries.insertRegistro(101L,memoriaUsada, cpuUsada, discoUsado, "amarelo");
+                queries.insertRegistro(102L,memoriaUsada, cpuUsada, discoUsado, "amarelo");
                 
             }
             

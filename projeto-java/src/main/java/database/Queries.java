@@ -49,6 +49,7 @@ public class Queries {    private PreparedStatement ps = null;
                 System.out.println("Host_name:" + resultSet.getString("host_name")
                         + "\nNivel de prioridade: " + resultSet.getString("nivel_prioridade")
                         + "\n Setor:" + resultSet.getString("setor")
+                        + "\n Tipo:" + resultSet.getString("tipo")
                         + "\n Arquitetura: " + resultSet.getString("arquitetura")
                         + "\n Token: " + resultSet.getString("token_acesso")
                         + "\n Sistema operacional: " + resultSet.getString("sistema_operacional")
@@ -80,18 +81,19 @@ public class Queries {    private PreparedStatement ps = null;
         }
     }
 
-    public void insertDadosMaquina(String host_name, String token, Long memoriaTotal, Long discoTotal, String arquitetura, String so, String processador,String setor,Integer prioridade) {
+    public void insertDadosMaquina(String host_name, String token,String tipo, Long memoriaTotal, Long discoTotal, String arquitetura, String so, String processador,String setor,Integer prioridade) {
         try {
-            ps = conexao.getCon().prepareStatement(" insert into maquina values (null,?,?,true,?,?,?,?,?,1,?,?)");
+            ps = conexao.getCon().prepareStatement(" insert into maquina values (null,?,?,true,?,?,?,?,?,?,1,?,?)");
             ps.setString(1, host_name);
             ps.setString(2, token);
-            ps.setLong(3, memoriaTotal);
-            ps.setLong(4, discoTotal);
-            ps.setString(5, arquitetura);
-            ps.setString(6, so);
-            ps.setString(7, processador);
-            ps.setString(8, setor);
-            ps.setInt(9, prioridade);
+            ps.setString(3, tipo);
+            ps.setLong(4, memoriaTotal);
+            ps.setLong(5, discoTotal);
+            ps.setString(6, arquitetura);
+            ps.setString(7, so);
+            ps.setString(8, processador);
+            ps.setString(9, setor);
+            ps.setInt(10, prioridade);
             ps.executeUpdate();
             System.out.println("Cadastrado com sucesso!");
         } catch (SQLException e) {
