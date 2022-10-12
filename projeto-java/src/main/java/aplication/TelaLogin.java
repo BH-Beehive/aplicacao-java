@@ -244,39 +244,34 @@ public class TelaLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_btnSairActionPerformed
-
-    private void CheckBoxConectadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBoxConectadoActionPerformed
-
-        
-    }//GEN-LAST:event_CheckBoxConectadoActionPerformed
+    private void inputEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputEmailActionPerformed
 
     private void inputSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputSenhaActionPerformed
 
-    private void inputEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputEmailActionPerformed
+    private void CheckBoxConectadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBoxConectadoActionPerformed
+
+    }//GEN-LAST:event_CheckBoxConectadoActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
         ConexaoComBanco conect = new ConexaoComBanco();
         conect.conectarMySQL();
         Queries queries = new Queries(conect);
-        
+
         email = inputEmail.getText();
         senha = new String(inputSenha.getPassword());
         token = inputToken.getText();
-        exibirEmail.setText(email);
-        exibirSenha.setText(senha);
-        exibirToken.setText(token);
-        
-        conect.validarAcesso(email, senha, token);
         
 
+        conect.validarAcesso(email, senha, token);
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     public JCheckBox getCheckBoxConectado() {

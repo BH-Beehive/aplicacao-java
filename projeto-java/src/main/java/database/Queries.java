@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 package database;
 
 import aplication.TelaLogin;
@@ -13,17 +12,18 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
+public class Queries {
 
-public class Queries {    private PreparedStatement ps = null;
+    private PreparedStatement ps = null;
     private ResultSet resultSet = null;
     private Statement st = null;
     private ConexaoComBanco conexao = new ConexaoComBanco();
-    
-    public Queries(ConexaoComBanco conexao){
-    this.conexao = conexao;
+
+    public Queries(ConexaoComBanco conexao) {
+        this.conexao = conexao;
     }
 
-  public void selectAll(String query) {
+    public void selectAll(String query) {
         try {
             ps = conexao.getCon().prepareStatement(query);
             resultSet = ps.executeQuery(query);
@@ -35,13 +35,25 @@ public class Queries {    private PreparedStatement ps = null;
         }
     }
 
-    public ResultSet update(String query) {
+    public void update(Long memoriaTotal, Long discoTotal, String arquitetura, String sistemaOperacional, String processador, String tokenAcesso) {
         try {
-            return resultSet = conexao.getCon().createStatement().executeQuery(query);
+            ps = conexao.getCon().prepareStatement("update maquina set memoria_total = ? , "
+                    + "disco_total = ? , arquitetura = ? , "
+                    + "sistema_operacional = ? , processador = ? "
+                    + " where token_acesso = ?;");
+            ps.setLong(1, memoriaTotal);
+            ps.setLong(2, memoriaTotal);
+            ps.setString(3, arquitetura);
+            ps.setString(4, sistemaOperacional);
+            ps.setString(5, processador);
+            ps.setString(6, tokenAcesso);
+            ps.executeUpdate();
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+
     public void selectAll() {
         try {
             resultSet = conexao.getCon().createStatement().executeQuery("select * from maquina");
@@ -55,17 +67,16 @@ public class Queries {    private PreparedStatement ps = null;
                         + "\n Sistema operacional: " + resultSet.getString("sistema_operacional")
                         + "\n Mem�ria total: " + resultSet.getString("memoria_total")
                         + "\n CPU total: " + resultSet.getString("processador")
-                +"\n Disco total: " + resultSet.getString("disco_total")
+                        + "\n Disco total: " + resultSet.getString("disco_total")
                         + "\n Maquina validada: " + resultSet.getString("token_ativo")
-            
-         );
+                );
             }
         } catch (SQLException e) {
             System.out.println("Erro ao executar o select!" + e.getMessage());
         }
     }
 
-    public void insertRegistro(Long  fkMaquina,Long memoriaUsada, Long cpuUsada, Long discoUsado, String alerta) {
+    public void insertRegistro(Long fkMaquina, Long memoriaUsada, Long cpuUsada, Long discoUsado, String alerta) {
         try {
 
             ps = conexao.getCon().prepareStatement("insert into registro values (null,default,?,?,?,?,?);");
@@ -81,7 +92,7 @@ public class Queries {    private PreparedStatement ps = null;
         }
     }
 
-    public void insertDadosMaquina(String host_name, String token,String tipo, Long memoriaTotal, Long discoTotal, String arquitetura, String so, String processador,String setor,Integer prioridade) {
+    public void insertDadosMaquina(String host_name, String token, String tipo, Long memoriaTotal, Long discoTotal, String arquitetura, String so, String processador, String setor, Integer prioridade) {
         try {
             ps = conexao.getCon().prepareStatement(" insert into maquina values (null,?,?,true,?,?,?,?,?,?,1,?,?)");
             ps.setString(1, host_name);
@@ -101,40 +112,40 @@ public class Queries {    private PreparedStatement ps = null;
         }
     }
 
-    public void selectBySetor(String componente, String setor){
-         try {
+    public void selectBySetor(String componente, String setor) {
+        try {
             resultSet = conexao.getCon().createStatement().executeQuery(
                     "select "
-                    +componente
-                    +" ,setor from registro join maquina on id_maquina ="
+                    + componente
+                    + " ,setor from registro join maquina on id_maquina ="
                     + " fk_maquina "
-                    +"where setor ="
-                    +"'"+setor+"'"
+                    + "where setor ="
+                    + "'" + setor + "'"
                     + " order by id_registro desc limit 10;");
             while (resultSet.next()) {
                 System.out.println("\nnome componente:" + componente
-                        + "\nsetor: "+resultSet.getString("setor")
+                        + "\nsetor: " + resultSet.getString("setor")
                         + "\nuso: " + resultSet.getString(componente));
             }
         } catch (SQLException e) {
             System.out.println("Erro ao executar o select!" + e.getMessage());
         }
-    
+
     }
-    
-    public void selectByMaquina(String hostname){
-     try {
+
+    public void selectByMaquina(String hostname) {
+        try {
             resultSet = conexao.getCon().createStatement().executeQuery(
                     "select host_name , memoria_uso ,"
-                            + " cpu_uso, disco_uso "
-                            + " from registro join maquina on id_maquina = fk_maquina where host_name ="
-                            + "'"+hostname+"'"
-                            + " order by id_registro desc limit 1;");
+                    + " cpu_uso, disco_uso "
+                    + " from registro join maquina on id_maquina = fk_maquina where host_name ="
+                    + "'" + hostname + "'"
+                    + " order by id_registro desc limit 1;");
             while (resultSet.next()) {
                 System.out.println("\nnome da máquina:" + hostname
-                        + "\nuso disco: "+resultSet.getString("disco_uso")
-                        + "\nuso cpu: "+resultSet.getString("cpu_uso")
-                        + "\nuso ram: "+resultSet.getString("memoria_uso"));
+                        + "\nuso disco: " + resultSet.getString("disco_uso")
+                        + "\nuso cpu: " + resultSet.getString("cpu_uso")
+                        + "\nuso ram: " + resultSet.getString("memoria_uso"));
             }
         } catch (SQLException e) {
             System.out.println("Erro ao executar o select!" + e.getMessage());

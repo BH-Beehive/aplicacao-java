@@ -26,7 +26,8 @@ public class StartApi {
         String host_name = "77777745454mls";
         String token = "138e813kj1323";
         String tipo = "servidor";
-        queries.selectAll();
+        queries.update(memoriaTotal, discoTotal, arquitetura, sistemaOperacional, processador, token);
+       // queries.selectAll();
        // queries.selectBySetor("disco_uso", "triagem");
         //queries.selectByMaquina(host_name);
         //queries.insertDadosMaquina(host_name, token, tipo, memoriaTotal, discoTotal, arquitetura, sistemaOperacional,processador,"cirurgia",3);
