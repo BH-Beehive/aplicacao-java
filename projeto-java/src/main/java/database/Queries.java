@@ -96,4 +96,42 @@ public class Queries {    private PreparedStatement ps = null;
         }
     }
 
+    public void selectBySetor(String componente, String setor){
+         try {
+            resultSet = conexao.getCon().createStatement().executeQuery(
+                    "select "
+                    +componente
+                    +" ,setor from registro join maquina on id_maquina ="
+                    + " fk_maquina "
+                    +"where setor = 'triagem'"
+                    + " order by id_registro desc limit 10;");
+            while (resultSet.next()) {
+                System.out.println("\nnome componente:" + componente
+                        + "\nsetor: "+resultSet.getString("setor")
+                        + "\nuso: " + resultSet.getString(componente));
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao executar o select!" + e.getMessage());
+        }
+    
+    }
+    
+    public void selectByMaquina(String hostname){
+     try {
+            resultSet = conexao.getCon().createStatement().executeQuery(
+                    "select host_name , memoria_uso ,"
+                            + " cpu_uso, disco_uso "
+                            + " from registro join maquina on id_maquina = fk_maquina where host_name ="
+                            + "'"+hostname+"'"
+                            + " order by id_registro desc limit 1;");
+            while (resultSet.next()) {
+                System.out.println("\nnome da máquina:" + hostname
+                        + "\nuso disco: "+resultSet.getString("disco_uso")
+                        + "\nuso cpu: "+resultSet.getString("cpu_uso")
+                        + "\nuso ram: "+resultSet.getString("memoria_uso"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao executar o select!" + e.getMessage());
+        }
+    }
 }

@@ -26,6 +26,8 @@ public class StartApi {
         String host_name = "asdm123as";
         String token = "138e813kj1331";
         queries.selectAll();
+        //queries.selectBySetor("disco_uso", "triagem");
+        queries.selectByMaquina(host_name);
         //con.insertDadosMaquina(host_name, token, memoriaTotal, discoTotal, arquitetura, sistemaOperacional,processador);
 
         Timer timer = new Timer("Timer");
@@ -45,8 +47,9 @@ public class StartApi {
                 discoDisponivel = looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel();
                 discoUsado = discoTotal - discoDisponivel;
                 queries.insertRegistro(memoriaUsada, cpuUsada, discoUsado, "amarelo");
-
+                
             }
+            
         };
         timer.scheduleAtFixedRate(task, 0, segundos);
     }
