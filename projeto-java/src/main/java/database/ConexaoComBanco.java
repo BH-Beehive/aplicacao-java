@@ -1,6 +1,7 @@
 package database;
 
 import com.sptech.login.tela.TelaLogin;
+import static com.sun.tools.javac.tree.TreeInfo.args;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -50,8 +51,9 @@ public class ConexaoComBanco {
         }
     }
 
-    public boolean validarAcesso(String email, String senha, String token) {
+    public Boolean validarAcesso(String email, String senha, String token) {
         TelaLogin telaLogin = new TelaLogin();
+
         try {
             ps = con.prepareStatement("select id_empresa,email, senha,token_acesso\n"
                     + "from empresa\njoin maquina\non fk_empresa = id_empresa where email"

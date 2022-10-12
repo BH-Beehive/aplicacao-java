@@ -5,6 +5,8 @@
 package com.sptech.login.tela;
 
 import database.ConexaoComBanco;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -40,7 +42,7 @@ public class TelaLogin extends javax.swing.JFrame {
         btnEntrar = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        CheckBoxConectado = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -119,10 +121,10 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Entre com suas crendeciais! ");
 
-        jCheckBox1.setText("Continuar Conectado");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        CheckBoxConectado.setText("Continuar Conectado");
+        CheckBoxConectado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                CheckBoxConectadoActionPerformed(evt);
             }
         });
 
@@ -165,7 +167,7 @@ public class TelaLogin extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jCheckBox1)
+                                .addComponent(CheckBoxConectado)
                                 .addComponent(btnEntrar, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
                                 .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
                                 .addGroup(jPanel2Layout.createSequentialGroup()
@@ -214,7 +216,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(inputToken, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox1)
+                .addComponent(CheckBoxConectado)
                 .addGap(18, 18, 18)
                 .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -245,10 +247,13 @@ public class TelaLogin extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnSairActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    private void CheckBoxConectadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBoxConectadoActionPerformed
 
+        
+    }//GEN-LAST:event_CheckBoxConectadoActionPerformed
+private void btnEntrarActionPerformed1(java.awt.event.ActionEvent evt) {
+}
+    
     private void inputSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputSenhaActionPerformed
@@ -260,7 +265,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
         ConexaoComBanco conect = new ConexaoComBanco();
-        
+
         email = inputEmail.getText();
         senha = new String(inputSenha.getPassword());
         token = inputToken.getText();
@@ -269,7 +274,21 @@ public class TelaLogin extends javax.swing.JFrame {
         exibirToken.setText(token);
         conect.conectarMySQL();
         conect.validarAcesso(email, senha, token);
+        
+
     }//GEN-LAST:event_btnEntrarActionPerformed
+
+    public JCheckBox getCheckBoxConectado() {
+        return CheckBoxConectado;
+    }
+
+    public JButton getBtnEntrar() {
+        return btnEntrar;
+    }
+
+    public JButton getBtnSair() {
+        return btnSair;
+    }
 
     public String getEmail() {
         return email;
@@ -333,6 +352,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox CheckBoxConectado;
     private javax.swing.JButton btnEntrar;
     private javax.swing.JButton btnSair;
     private javax.swing.JLabel exibirEmail;
@@ -341,7 +361,6 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JTextField inputEmail;
     private javax.swing.JPasswordField inputSenha;
     private javax.swing.JTextField inputToken;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
