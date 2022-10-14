@@ -26,7 +26,7 @@ public class StartApi {
         String host_name = "77777745454mls";
         String token = "138e813kj1323";
         String tipo = "servidor";
-        queries.update(memoriaTotal, discoTotal, arquitetura, sistemaOperacional, processador, token);
+       // queries.update(memoriaTotal, discoTotal, arquitetura, sistemaOperacional, processador, token);
         
         queries.selectAll();
        // queries.selectBySetor("disco_uso", "triagem");
@@ -46,7 +46,7 @@ public class StartApi {
             @Override
             public void run() {
                 System.out.println("------------------------------------ \n");
-                System.out.println("Cpu:" +cpuUsada);
+                System.out.println("Cpu:" +cpuUsada+"%");
                 System.out.println("Memoria ram:"+memoriaUsada);
                 System.out.println("Disco Total:" +discoTotal);
                 System.out.println("Disco Usado:" +discoUsado);
@@ -57,7 +57,7 @@ public class StartApi {
                 discoTotal = looca.getGrupoDeDiscos().getVolumes().get(0).getTotal().doubleValue();
                 discoDisponivel = looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel().doubleValue();
                 discoUsado = discoTotal - discoDisponivel;
-                queries.insertRegistro(102L,memoriaUsada, cpuUsada, discoUsado, "amarelo");
+                queries.insertRegistro(101L,memoriaUsada, cpuUsada, discoUsado, "amarelo");
                 
             }
             
