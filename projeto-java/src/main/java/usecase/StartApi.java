@@ -20,14 +20,15 @@ public class StartApi {
 
         String arquitetura = "x" + looca.getSistema().getArquitetura().toString();
         String sistemaOperacional = looca.getSistema().getSistemaOperacional().toString();
-        Long memoriaTotal = looca.getMemoria().getTotal();
-        Long discoTotal = looca.getGrupoDeDiscos().getTamanhoTotal();
+        Double memoriaTotal = looca.getMemoria().getTotal().doubleValue();
+        Double discoTotal = looca.getGrupoDeDiscos().getTamanhoTotal().doubleValue();
         String processador = looca.getProcessador().getNome();
         String host_name = "77777745454mls";
         String token = "138e813kj1323";
         String tipo = "servidor";
         queries.update(memoriaTotal, discoTotal, arquitetura, sistemaOperacional, processador, token);
-       // queries.selectAll();
+        
+        queries.selectAll();
        // queries.selectBySetor("disco_uso", "triagem");
         //queries.selectByMaquina(host_name);
         //queries.insertDadosMaquina(host_name, token, tipo, memoriaTotal, discoTotal, arquitetura, sistemaOperacional,processador,"cirurgia",3);
@@ -35,25 +36,33 @@ public class StartApi {
         Timer timer = new Timer("Timer");
         final long segundos = (1000 * 3);
         TimerTask task = new TimerTask() {
-            Long memoriaUsada = null;
-            Long cpuUsada = null;
-            Long discoTotal = null;
-            Long discoDisponivel = null;
-            Long discoUsado = null;
+            Double memoriaUsada = null;
+            Integer  cpuUsada = null;
+            Double discoTotal = null;
+            Double discoDisponivel = null;
+            Double discoUsado = null;
+            
 
             @Override
             public void run() {
-                memoriaUsada = looca.getMemoria().getEmUso();
-                cpuUsada = looca.getProcessador().getUso().longValue();
-                discoTotal = looca.getGrupoDeDiscos().getVolumes().get(0).getTotal();
-                discoDisponivel = looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel();
+                System.out.println("------------------------------------ \n");
+                System.out.println("Cpu:" +cpuUsada);
+                System.out.println("Memoria ram:"+memoriaUsada);
+                System.out.println("Disco Total:" +discoTotal);
+                System.out.println("Disco Usado:" +discoUsado);
+                System.out.println("Disco Disponivel:" +discoDisponivel);
+                System.out.println("------------------------------------ \n");
+                memoriaUsada = looca.getMemoria().getEmUso().doubleValue();
+                cpuUsada = looca.getProcessador().getUso().intValue();
+                discoTotal = looca.getGrupoDeDiscos().getVolumes().get(0).getTotal().doubleValue();
+                discoDisponivel = looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel().doubleValue();
                 discoUsado = discoTotal - discoDisponivel;
                 queries.insertRegistro(102L,memoriaUsada, cpuUsada, discoUsado, "amarelo");
                 
             }
             
         };
-        timer.scheduleAtFixedRate(task, 0, segundos);
+        timer.scheduleAtFixedRate(task, 2, segundos);
     }
 
 }
