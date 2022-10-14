@@ -1,0 +1,71 @@
+
+_
+java:S1192a"IDefine a constant instead of duplicating this literal "Segoe UI" 3 times.(ÍÆ£¹
+>
+java:S1604g"(Make this anonymous inner class a lambda(©™«ÿ
+>
+java:S1604s"(Make this anonymous inner class a lambda(—°ÓÊ
+>
+java:S1604~"(Make this anonymous inner class a lambda(ªÁÇÉ
+?
+java:S1604”"(Make this anonymous inner class a lambda(©—‚Ê
+D
+java:S1604š"(Make this anonymous inner class a lambda(ğ—Ê¥ûÿÿÿÿ
+D
+java:S1604×"(Make this anonymous inner class a lambda(¨í¡§úÿÿÿÿ
+r	java:S116ß"\Rename this field "CheckBoxConectado" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜‡ö£
+v
+java:S1450â"ZRemove the "exibirEmail" field and declare it as a local variable in the relevant methods.(º¨‰ğıÿÿÿÿ
+v
+java:S1450ã"ZRemove the "exibirSenha" field and declare it as a local variable in the relevant methods.(Ş˜Ö†şÿÿÿÿ
+v
+java:S1450ä"ZRemove the "exibirToken" field and declare it as a local variable in the relevant methods.(Ëç‡œşÿÿÿÿ
+r
+java:S1450è"VRemove the "jLabel1" field and declare it as a local variable in the relevant methods.(°ãÉ¸ÿÿÿÿÿ
+r
+java:S1450é"VRemove the "jLabel2" field and declare it as a local variable in the relevant methods.(™úòˆüÿÿÿÿ
+r
+java:S1450ê"VRemove the "jLabel3" field and declare it as a local variable in the relevant methods.(Îä€øÿÿÿÿ
+m
+java:S1450ë"VRemove the "jLabel4" field and declare it as a local variable in the relevant methods.(«¢•ã
+m
+java:S1450ì"VRemove the "jLabel5" field and declare it as a local variable in the relevant methods.(ó Ù®
+r
+java:S1450í"VRemove the "jLabel6" field and declare it as a local variable in the relevant methods.(¸ôÂøÿÿÿÿ
+m
+java:S1450î"VRemove the "jLabel7" field and declare it as a local variable in the relevant methods.(×ê˜Ÿ
+r
+java:S1450ï"VRemove the "jPanel1" field and declare it as a local variable in the relevant methods.(´œ½ÿÿÿÿÿ
+r
+java:S1450ğ"VRemove the "jPanel2" field and declare it as a local variable in the relevant methods.(õ òçüÿÿÿÿ
+[
+java:S3252“"?Use static access with "javax.swing.SwingConstants" for "LEFT".(»ÅÔùÿÿÿÿ
+F
+java:S1172÷"*Remove this unused method parameter "evt".(±¦ıÿÿÿÿ
+N
+java:S1135ø"2Complete the task associated to this TODO comment.(ÜÀ†áûÿÿÿÿ
+A
+java:S1172û"*Remove this unused method parameter "evt".(ÒÄÇ“
+N
+java:S1135ü"2Complete the task associated to this TODO comment.(ÜÀ†áûÿÿÿÿ
+d	java:S100ÿ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(šóÜ£
+A
+java:S1172ÿ"*Remove this unused method parameter "evt".(šóÜ£
+F
+java:S1172ƒ"*Remove this unused method parameter "evt".(†ÅÌœúÿÿÿÿ
+R
+java:S1854‹";Remove this useless assignment to local variable "queries".(¯¹Û
+A
+java:S1172‡"*Remove this unused method parameter "evt".(æİ„§
+N
+java:S1135ˆ"2Complete the task associated to this TODO comment.(ÜÀ†áûÿÿÿÿ
+C
+java:S1481‹",Remove this unused "queries" local variable.(¯¹Û
+F
+java:S1197¼"*Move the array designators [] to the type.(¡şÏÖøÿÿÿÿ
+\
+java:S2147Í"ECombine this catch with the one at line 331, which has the same body.(¨¦Š½
+\
+java:S2147Ï"ECombine this catch with the one at line 331, which has the same body.(ã€ 
+[
+java:S2147Ñ"ECombine this catch with the one at line 331, which has the same body.(ñÎ¯%

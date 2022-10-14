@@ -10,9 +10,11 @@ import javax.swing.JOptionPane;
 
 public class ConexaoComBanco {
 
+
+    private Boolean isLogado = false;
     private String url = "jdbc:mysql://localhost:3306/Beehive";
     private String user = "root";
-    private String password = "1470";
+    private String password = "BallDragon123";
     private Connection con = null;
     private PreparedStatement ps = null;
     private ResultSet resultSet = null;
@@ -33,6 +35,7 @@ public class ConexaoComBanco {
     }
 
     public boolean validarAcesso(String email, String senha, String token) {
+
         try {
             ps = con.prepareStatement("select id_empresa,email, senha,token_acesso\n"
                     + "from empresa\njoin maquina\non fk_empresa = id_empresa where email"
@@ -50,19 +53,23 @@ public class ConexaoComBanco {
                 System.out.println("senha:" + resultSet.getString("senha"));
                 System.out.println("token_acesso:" + resultSet.getString("token_acesso"));
                 System.out.println("Login efetuado com sucesso!");
+                isLogado = true;
 //                startApi.execute();
 
             }
 
             if (rowCount == 0) {
-                System.out.println("Usu?rio n?o encontrado!" +
-                        "ERRO!");
+                System.out.println("\nUser not found ERROR");
             }
         } catch (SQLException e) {
             System.out.println("Erro ao executar o select!" + e.getMessage());
 
         }
         return false;
+    }
+
+    public Boolean getLogado() {
+        return isLogado;
     }
 
     public Connection getCon() {

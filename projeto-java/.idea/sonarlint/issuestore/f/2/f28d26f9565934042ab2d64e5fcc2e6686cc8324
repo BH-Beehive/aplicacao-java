@@ -1,0 +1,13 @@
+
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñëÏë
+N
+java:S1854"8Remove this useless assignment to local variable "tipo".(ä¡êË
+S
+java:S1854"=Remove this useless assignment to local variable "host_name".(ñëÏë
+e
+java:S1858"O"getSistemaOperacional" returns a string, there's no need to call "toString()".(Ÿä„ü
+D
+java:S1481".Remove this unused "host_name" local variable.(ñëÏë
+?
+java:S1481")Remove this unused "tipo" local variable.(ä¡êË
+V	java:S125"<This block of commented-out lines of code should be removed.(ùî§’şÿÿÿÿ
