@@ -15,7 +15,7 @@ public class ConexaoComBanco {
     private StartApi startApi = new StartApi();
     private String url = "jdbc:mysql://localhost:3306/Beehive";
     private String user = "root";
-    private String password = "";
+    private String password = "123456";
     private Connection con = null;
     private PreparedStatement ps = null;
     private ResultSet resultSet = null;
@@ -26,9 +26,9 @@ public class ConexaoComBanco {
 
     public void conectarMySQL() {
         try {
-            System.out.println("Abrindo conexï¿½o com o banco ...");
+            System.out.println("Abrindo conexao com o banco ...");
             con = DriverManager.getConnection(url, user, password);
-            System.out.println("Conexï¿½o realizada com sucesso!");
+            System.out.println("Conexao realizada com sucesso!");
         } catch (SQLException ex) {
             System.out.println("Falha ao conectar com o banco!" + ex.getMessage());
         }
