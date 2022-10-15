@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.JOptionPane;
+
 
 public class ConexaoComBanco {
 
@@ -14,10 +14,11 @@ public class ConexaoComBanco {
     private Boolean isLogado = false;
     private String url = "jdbc:mysql://localhost:3306/Beehive";
     private String user = "root";
-    private String password = "BallDragon123";
+    private String password = "1470";
     private Connection con = null;
     private PreparedStatement ps = null;
     private ResultSet resultSet = null;
+    
     private Statement st = null;
 
     public ConexaoComBanco() {
