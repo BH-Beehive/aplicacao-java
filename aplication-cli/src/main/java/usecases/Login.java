@@ -33,10 +33,10 @@ public class Login {
         Scanner inNl = new Scanner(System.in);
         Scanner in = new Scanner(System.in);
         ConexaoComBanco conect = new ConexaoComBanco();
-        conect.conectarMySQL();
+//        conect.conectarMySQL();
 //        Queries queries = new Queries(conect);
 
-
+        if (conect.conectarMySQL() == "OK") {
         do {
         System.out.println("Digite seu email: ");
         String email = inNl.next().toLowerCase();
@@ -50,7 +50,10 @@ public class Login {
 
        conect.validarAcesso(email, senha, token);
         } while (!conect.getLogado());
-
+        }
+        else {
+            System.out.println("Falha ao executar aplicacao");
+        }
     }
 
 }

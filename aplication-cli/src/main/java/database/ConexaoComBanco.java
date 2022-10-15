@@ -1,5 +1,7 @@
 package database;
 
+import usecases.InteracaoAPI;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -14,25 +16,26 @@ public class ConexaoComBanco {
     private Boolean isLogado = false;
     private String url = "jdbc:mysql://localhost:3306/Beehive";
     private String user = "root";
-    private String password = "1470";
+    private String password = "";
     private Connection con = null;
     private PreparedStatement ps = null;
     private ResultSet resultSet = null;
-    
+
     private Statement st = null;
 
     public ConexaoComBanco() {
     }
 
-    public void conectarMySQL() {
+    public String conectarMySQL() {
         try {
-            System.out.println("Abrindo conex�o com o banco ...");
+            System.out.println("Abrindo conexao com o banco ...");
             con = DriverManager.getConnection(url, user, password);
-            System.out.println("Conex�o realizada com sucesso!");
+            System.out.println("Conexao realizada com sucesso!");
+            return "OK";
         } catch (SQLException ex) {
-            System.out.println("Falha ao conectar com o banco!" + ex.getMessage());
+            System.out.println("Falha ao conectar com o banco! " + ex.getMessage());
         }
-
+        return "FAILED";
     }
 
     public boolean validarAcesso(String email, String senha, String token) {
@@ -55,7 +58,10 @@ public class ConexaoComBanco {
                 System.out.println("token_acesso:" + resultSet.getString("token_acesso"));
                 System.out.println("Login efetuado com sucesso!");
                 isLogado = true;
-//                startApi.execute();
+                InteracaoAPI interacaoAPI = new InteracaoAPI();
+                interacaoAPI.iniciarAPI();
+
+
 
             }
 
