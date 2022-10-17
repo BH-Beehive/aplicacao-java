@@ -1,0 +1,17 @@
+
+—
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(›®Ö§
+g
+java:S1450"QRemove the "ps" field and declare it as a local variable in the relevant methods.(¼ßŞÉ
+n
+java:S1450"XRemove the "resultSet" field and declare it as a local variable in the relevant methods.(Şşö€
+N	java:S106"9Replace this use of System.out or System.err by a logger.(šû­ 
+M	java:S106"9Replace this use of System.out or System.err by a logger.(àñ
+S	java:S106!"9Replace this use of System.out or System.err by a logger.(ØŞç³úÿÿÿÿ
+N	java:S1064"9Replace this use of System.out or System.err by a logger.(ĞË¦ø
+N	java:S1065"9Replace this use of System.out or System.err by a logger.(¤ê©‘
+N	java:S1066"9Replace this use of System.out or System.err by a logger.(§ìƒ
+N	java:S1067"9Replace this use of System.out or System.err by a logger.(ŸŞÆÍ
+S	java:S106B"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ
+<
+java:S1068"&Remove this unused "st" private field.(øšã”
