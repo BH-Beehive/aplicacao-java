@@ -1,4 +1,3 @@
-database/startApi.class
 usecase/TimerSchedulePeriod.class
 aplication/TelaLogin$1.class
 database/ConexaoComBanco.class
