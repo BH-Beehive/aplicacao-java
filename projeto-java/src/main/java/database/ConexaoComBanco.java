@@ -13,7 +13,7 @@ import usecase.StartApi;
 public class ConexaoComBanco {
 
     private StartApi startApi = new StartApi();
-    private String url = "jdbc:mysql://127.0.0.1:3306/Beehive";
+    private String url = "jdbc:mysql://172.17.0.2:3306/Beehive";
     private String user = "root";
     private String password = "123456";
     private Connection con = null;
