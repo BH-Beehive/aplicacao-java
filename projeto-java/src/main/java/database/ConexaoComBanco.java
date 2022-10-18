@@ -55,11 +55,12 @@ public class ConexaoComBanco {
                 System.out.println("token_acesso:" + resultSet.getString("token_acesso"));
                 JOptionPane.showMessageDialog(telaLogin, "Login efetuado com sucesso!");
                 startApi.execute();
+                telaLogin.hide();
 
             }
 
             if (rowCount == 0) {
-                JOptionPane.showMessageDialog(telaLogin, "Usu?rio n?o encontrado!",
+                JOptionPane.showMessageDialog(telaLogin, "Usuario nao encontrado!",
                         "ERRO!", JOptionPane.ERROR_MESSAGE);
             }
         } catch (SQLException e) {

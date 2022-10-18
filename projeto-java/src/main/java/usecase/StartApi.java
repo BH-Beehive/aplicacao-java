@@ -26,6 +26,7 @@ public class StartApi {
         String host_name = "77777745454mls";
         String token = "138e813kj1323";
         String tipo = "servidor";
+        
        // queries.update(memoriaTotal, discoTotal, arquitetura, sistemaOperacional, processador, token);
         
         queries.selectAll();
@@ -41,28 +42,38 @@ public class StartApi {
             Double discoTotal = null;
             Double discoDisponivel = null;
             Double discoUsado = null;
-            
+            Integer cont = 0;
 
             @Override
             public void run() {
-                System.out.println("------------------------------------ \n");
-                System.out.println("Cpu:" +cpuUsada+"%");
-                System.out.println("Memoria ram:"+memoriaUsada);
-                System.out.println("Disco Total:" +discoTotal);
-                System.out.println("Disco Usado:" +discoUsado);
-                System.out.println("Disco Disponivel:" +discoDisponivel);
-                System.out.println("------------------------------------ \n");
+               
                 memoriaUsada = looca.getMemoria().getEmUso().doubleValue();
                 cpuUsada = looca.getProcessador().getUso().intValue();
                 discoTotal = looca.getGrupoDeDiscos().getVolumes().get(0).getTotal().doubleValue();
                 discoDisponivel = looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel().doubleValue();
                 discoUsado = discoTotal - discoDisponivel;
-                queries.insertRegistro(101L,memoriaUsada, cpuUsada, discoUsado, "amarelo");
+                int temperaturaAtual =looca.getTemperatura().getTemperatura().intValue();
+                queries.insertRegistro(memoriaUsada, cpuUsada, discoUsado, "VERDE");
+                
+                
+                System.out.println("------------------------------------ \n");
+                System.out.println("Cpu:" +cpuUsada+"%");
+                System.out.println(String.format("Memoria ram: %.2f Gi", (memoriaUsada.longValue()/1000000000.0)));
+                System.out.println(String.format("Disco Total: %.2f Gi",discoTotal.longValue()/1000000000.0));
+                System.out.println(String.format("Temperatura atual:"+ temperaturaAtual +"°C"));
+                if(cpuUsada > 10){
+                cont++;
+                if(cont> 4){
+                    System.out.println("Alerta: Uso de CPU acima da média" );
+                }
+                }
+               
+                System.out.println("------------------------------------ \n");
                 
             }
-            
+           
         };
-        timer.scheduleAtFixedRate(task, 2, segundos);
+        timer.scheduleAtFixedRate(task, 4, segundos);
     }
 
 }

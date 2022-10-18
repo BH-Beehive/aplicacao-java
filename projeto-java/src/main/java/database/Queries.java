@@ -76,15 +76,14 @@ public class Queries {
         }
     }
 
-    public void insertRegistro(Long fkMaquina, Double memoriaUsada, Integer cpuUsada, Double discoUsado, String alerta) {
+    public void insertRegistro(Double memoriaUsada, Integer cpuUsada, Double discoUsado, String alerta) {
         try {
 
-            ps = conexao.getCon().prepareStatement("insert into registro values (null,default,?,?,?,?,?);");
-            ps.setLong(1, fkMaquina);
-            ps.setDouble(2, memoriaUsada);
-            ps.setInt(3, cpuUsada);
-            ps.setDouble(4, discoUsado);
-            ps.setString(5, alerta);
+            ps = conexao.getCon().prepareStatement("insert into registro values (null,default,(select id_maquina from maquina order by id_maquina  desc),?,?,?,?);");
+            ps.setDouble(1, memoriaUsada);
+            ps.setInt(2, cpuUsada);
+            ps.setDouble(3, discoUsado);
+            ps.setString(4, alerta);
             ps.executeUpdate();
 
         } catch (SQLException e) {
