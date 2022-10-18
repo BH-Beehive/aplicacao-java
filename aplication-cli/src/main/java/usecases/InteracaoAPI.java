@@ -3,7 +3,7 @@ package usecases;
 import com.github.britooo.looca.api.core.Looca;
 import database.ConexaoComBanco;
 import database.Queries;
-import utils.ConvertByteToGB;
+import utils.Conversor;
 
 import java.util.List;
 import java.util.Scanner;
@@ -48,11 +48,11 @@ public class InteracaoAPI {
                 queries.insertRegistro(100L, memoriaUsada, cpuUsada, discoUsado, "amarelo");
             }
         };
-        timer.scheduleAtFixedRate(task, 0, segundos);
+        timer.scheduleAtFixedRate(task, 3, segundos);
 
 
         do {
-            ConvertByteToGB convertByteToGB = new ConvertByteToGB();
+            Conversor conversor = new Conversor();
 
             Scanner scan1 = new Scanner(System.in);
             Scanner scan2 = new Scanner(System.in);
@@ -78,16 +78,14 @@ public class InteracaoAPI {
                 escolhaSub = scan2.nextInt();
                 switch (escolhaSub) {
                     case 1:
-                        memoria = convertByteToGB.execute(looca.getMemoria().getTotal());
-                        System.out.println(String.format("Memoria total: %.2f GBs", (float) memoria));
+                        System.out.println(Conversor.formatarBytes(looca.getMemoria().getTotal()));
                         break;
                     case 2:
-                        memoria = convertByteToGB.execute(looca.getMemoria().getEmUso());
-                        System.out.println(String.format("\nMemoria em uso: %d GBs", memoria));
+                        System.out.println(Conversor.formatarBytes(looca.getMemoria().getEmUso()));
                         break;
                     case 3:
-                        memoria = convertByteToGB.execute(looca.getMemoria().getDisponivel());
-                        System.out.println(String.format("\nMemoria disponivel: %d GBs", memoria));
+                        memoria = (looca.getMemoria().getDisponivel());
+                        System.out.println(Conversor.formatarBytes(looca.getMemoria().getDisponivel()));
                         break;
                     default:
                         System.out.println("\nEscolha invalida!");
@@ -129,7 +127,7 @@ public class InteracaoAPI {
                     case 5:
                         tamanhoTotal = looca.getGrupoDeDiscos().getTamanhoTotal();
                         System.out.println("\nTamanho total: ");
-                        System.out.println(tamanhoTotal);
+                        System.out.println(Conversor.formatarBytes(looca.getGrupoDeDiscos().getTamanhoTotal()));
                         break;
                     default:
                         System.out.println("\nEscolha invalida!");
@@ -152,13 +150,13 @@ public class InteracaoAPI {
                     switch (escolhaSub) {
                         case 1:
                             usoProcessador = looca.getProcessador().getUso();
-                            System.out.println(usoProcessador);
+                            System.out.println(String.format("%.1f", usoProcessador));
                             break;
                         case 2:
                             System.out.println(looca.getProcessador().getFabricante());
                             break;
                         case 3:
-                            System.out.println(looca.getProcessador().getFrequencia());
+                            System.out.println(looca.getProcessador().getFrequencia() + "hz");
                             break;
                         case 4:
                             System.out.println(looca.getProcessador().getIdentificador());
