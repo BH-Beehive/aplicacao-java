@@ -1,27 +1,0 @@
-
-O
-java:S1854""9Remove this useless assignment to local variable "token".(£ÿœŸ
-O
-java:S1854"9Remove this useless assignment to local variable "senha".(æµå¹
-O
-java:S1854"9Remove this useless assignment to local variable "email".(ê¾¢
-L
-java:S1854"6Remove this useless assignment to local variable "in".(äÆ¾Ó
-T
-java:S1854"9Remove this useless assignment to local variable "looca".(¼Æ®©şÿÿÿÿ
-E
-java:S1481"*Remove this unused "looca" local variable.(¼Æ®©şÿÿÿÿ
-=
-java:S1481"'Remove this unused "in" local variable.(äÆ¾Ó
-S	java:S106"9Replace this use of System.out or System.err by a logger.(Òó¤õıÿÿÿÿ
-M
-java:S6126"2Replace this String concatenation with Text block.(Òó¤õıÿÿÿÿ
-S	java:S106"9Replace this use of System.out or System.err by a logger.(ª‚ÿäüÿÿÿÿ
-@
-java:S1481"*Remove this unused "email" local variable.(ê¾¢
-N	java:S106"9Replace this use of System.out or System.err by a logger.(Œøğà
-@
-java:S1481"*Remove this unused "senha" local variable.(æµå¹
-S	java:S106!"9Replace this use of System.out or System.err by a logger.(¦ÏãØùÿÿÿÿ
-@
-java:S1481""*Remove this unused "token" local variable.(£ÿœŸ
