@@ -1,0 +1,33 @@
+
+g	java:S1125"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ßßŒÂ0
+g	java:S112Z"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8àßŒÂ0
+g	java:S112n"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8àßŒÂ0
+}
+java:S1192""[Define a constant instead of duplicating this literal "Erro ao executar o select!" 4 times.(«ì±Áıÿÿÿÿ8áßŒÂ0
+^	java:S107^"=Method has 10 parameters, which is greater than 7 authorized.(ëİŠ¸úÿÿÿÿ8âßŒÂ0
+r	java:S117^"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëİŠ¸úÿÿÿÿ8âßŒÂ0
+i
+java:S2095t"GUse try-with-resources or close this "Statement" in a "finally" clause.(¢ÒÒúúÿÿÿÿ8¨·¤ŒÂ0
+j
+java:S2095‰"GUse try-with-resources or close this "Statement" in a "finally" clause.(¢ÒÒúúÿÿÿÿ8ª·¤ŒÂ0
+i
+java:S2095;"GUse try-with-resources or close this "Statement" in a "finally" clause.(—Å§€úÿÿÿÿ8¬·¤ŒÂ0
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(Â¸Ÿ±ÿÿÿÿÿ8ˆàŒÂ0
+Z	java:S106""9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ8‰àŒÂ0
+N
+java:S1172&"1Remove this unused method parameter "discoTotal".(ø™”‰8ŠàŒÂ0
+Z	java:S106="9Replace this use of System.out or System.err by a logger.(¶şø¥ıÿÿÿÿ8àŒÂ0
+Z	java:S106K"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ8àŒÂ0
+U	java:S106l"9Replace this use of System.out or System.err by a logger.(Øø…Œ8•àŒÂ0
+Z	java:S106}"9Replace this use of System.out or System.err by a logger.(î˜ìúşÿÿÿÿ8—àŒÂ0
+[	java:S106‚"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ8˜àŒÂ0
+[	java:S106"9Replace this use of System.out or System.err by a logger.(ª¾†³ÿÿÿÿÿ8šàŒÂ0
+[	java:S106–"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ8›àŒÂ0
+N
+java:S1128"1Remove this unused import 'aplication.TelaLogin'.(ğ°ş×8¹¤ŒÂ0
+M
+java:S1128"0Remove this unused import 'java.sql.Connection'.(¥ËôÖ8 ¹¤ŒÂ0
+Q
+java:S1128"4Remove this unused import 'javax.swing.JOptionPane'.(÷‰Îé8¬¹¤ŒÂ0
+C
+java:S1068"&Remove this unused "st" private field.(øšã”8›àŒÂ0
