@@ -42,16 +42,26 @@ public class InteracaoAPI {
             public void run() {
                 Conversor conversor = new Conversor();
                 long prefixo = conversor.getMEBI();
+                String alert = "";
 
                 Long valorMemoriaUsada = looca.getMemoria().getEmUso();
                 memoriaUsada = conversor.formatarUnidades(valorMemoriaUsada, prefixo);
-
+                Long memoriaPercentual = 0L;
+                Long memoriaTotal = conversor.formatarUnidades(looca.getMemoria().getTotal(), prefixo);
+                memoriaPercentual = (memoriaUsada * 100) / memoriaTotal;
+                System.out.println(memoriaPercentual);
                 Long valorCpuUsada = looca.getProcessador().getUso().longValue();
                 cpuUsada = valorCpuUsada;
-
+                if (cpuUsada >= 90 || memoriaPercentual >= 90) {
+                    alert = "Vermelho";
+                } else if (cpuUsada >= 80 || memoriaPercentual >= 80) {
+                    alert = "Amarelo";
+                } else {
+                    alert = "Verde";
+                }
                 Long valorDiscoUsado = looca.getGrupoDeDiscos().getVolumes().get(0).getTotal() - looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel();
                 discoUsado = conversor.formatarUnidades(valorDiscoUsado, prefixo);
-                queries.insertRegistro(100L, memoriaUsada, cpuUsada, discoUsado, "amarelo");
+                queries.insertRegistro(100L, memoriaUsada, cpuUsada, discoUsado, alert);
             }
         };
         timer.scheduleAtFixedRate(task, 3, segundos);
