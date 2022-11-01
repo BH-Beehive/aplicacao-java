@@ -9,3 +9,5 @@ java:S1481".Remove this unused "host_name" local variable.(ñëÏë
 ?
 java:S1481 ")Remove this unused "tipo" local variable.(ä¡êË
 ]	java:S125""<This block of commented-out lines of code should be removed.(ùî§’şÿÿÿÿ8­¢ÛĞÂ0
+g
+java:S18545"ERemove this useless assignment to local variable "memoriaPercentual".(ûëÓƒüÿÿÿÿ8°Ëˆ¨Ã0
