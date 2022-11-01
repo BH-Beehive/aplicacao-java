@@ -1,0 +1,8 @@
+database\ConexaoComBanco.class
+usecase\TimerSchedulePeriod.class
+utils\Conversor.class
+aplication\CLI.class
+usecases\InteracaoAPI.class
+database\Queries.class
+usecases\InteracaoAPI$1.class
+usecases\Login.class
