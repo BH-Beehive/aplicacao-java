@@ -14,9 +14,9 @@ public class ConexaoComBanco {
 
 
     private Boolean isLogado = false;
-    private String url = "jdbc:mysql://172.17.0.3:3306/Beehive";
+    private String url = "jdbc:mysql://172.17.0.2:3306/Beehive";
     private String user = "root";
-    private String password = "23456";
+    private String password = "123456";
     private Connection con = null;
     private PreparedStatement ps = null;
     private ResultSet resultSet = null;

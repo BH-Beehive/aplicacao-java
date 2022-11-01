@@ -32,20 +32,38 @@ public class InteracaoAPI {
         final long segundos = (1000 * 3);
         Boolean finalIsEnded = isEnded;
         TimerTask task = new TimerTask() {
-            Long memoriaUsada = null;
-            Long cpuUsada = null;
-            Long discoTotal = null;
-            Long discoDisponivel = null;
-            Long discoUsado = null;
+            Long memoriaUsada = 0L;
+            Long cpuUsada = 0L;
+            Long discoTotal = 0L;
+            Long discoDisponivel = 0L;
+            Long discoUsado = 0L;
 
             @Override
             public void run() {
-                memoriaUsada = looca.getMemoria().getEmUso();
-                cpuUsada = looca.getProcessador().getUso().longValue();
-                discoTotal = looca.getGrupoDeDiscos().getVolumes().get(0).getTotal();
-                discoDisponivel = looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel();
-                discoUsado = discoTotal - discoDisponivel;
-                queries.insertRegistro(100L, memoriaUsada, cpuUsada, discoUsado, "amarelo");
+                Conversor conversor = new Conversor();
+                long prefixo = conversor.getMEBI();
+                String alert = "";
+
+                Long valorMemoriaUsada = looca.getMemoria().getEmUso();
+                memoriaUsada = conversor.formatarUnidades(valorMemoriaUsada, prefixo);
+
+                Long memoriaPercentual = 0L;
+                Long memoriaTotal = conversor.formatarUnidades(looca.getMemoria().getTotal(), prefixo);
+                memoriaPercentual = (memoriaUsada * 100) / memoriaTotal;
+
+                Long valorCpuUsada = looca.getProcessador().getUso().longValue();
+                cpuUsada = valorCpuUsada;
+
+                if (cpuUsada >= 90 || memoriaPercentual >= 90) {
+                    alert = "Vermelho";
+                } else if (cpuUsada >= 80 || memoriaPercentual >= 80) {
+                    alert = "Amarelo";
+                } else {
+                    alert = "Verde";
+                }
+                Long valorDiscoUsado = looca.getGrupoDeDiscos().getVolumes().get(0).getTotal() - looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel();
+                discoUsado = conversor.formatarUnidades(valorDiscoUsado, prefixo);
+                queries.insertRegistro(100L, memoriaUsada, cpuUsada, discoUsado, alert);
             }
         };
         timer.scheduleAtFixedRate(task, 3, segundos);
@@ -69,8 +87,10 @@ public class InteracaoAPI {
                     "7 - FINALIZAR APLICACAO");
             System.out.println("Escolha o componente: ");
             escolhaMain = scan1.nextInt();
+            long valor = 0L;
+            long prefixo = conversor.getGIBI();
+            String invalidOption = "\nEscolha invalida!";
             if (escolhaMain == 1) {
-                Long memoria;
                 System.out.println("\nMEMORIA\n" +
                         "1 - Total\n" +
                         "2 - Em uso\n" +
@@ -78,24 +98,25 @@ public class InteracaoAPI {
                 escolhaSub = scan2.nextInt();
                 switch (escolhaSub) {
                     case 1:
-                        System.out.println(Conversor.formatarBytes(looca.getMemoria().getTotal()));
+                         valor = looca.getMemoria().getTotal();
+                        System.out.println(conversor.formatarUnidades(valor, prefixo, "GB"));
                         break;
                     case 2:
-                        System.out.println(Conversor.formatarBytes(looca.getMemoria().getEmUso()));
+                        valor = looca.getMemoria().getEmUso();
+                        System.out.println(conversor.formatarUnidades(valor, prefixo, "GB"));
                         break;
                     case 3:
-                        memoria = (looca.getMemoria().getDisponivel());
-                        System.out.println(Conversor.formatarBytes(looca.getMemoria().getDisponivel()));
+                        valor = looca.getMemoria().getDisponivel();
+                        System.out.println(conversor.formatarUnidades(valor, prefixo, "GB"));
                         break;
                     default:
-                        System.out.println("\nEscolha invalida!");
+                        System.out.println(invalidOption);
                         break;
                 }
             }
                else if (escolhaMain == 2) {
                 List disco;
                 Integer quantidade;
-                Long tamanhoTotal;
                 System.out.println("\nDISCOS\n" +
                         "1 - Volumes\n" +
                         "2 - Discos\n" +
@@ -125,12 +146,12 @@ public class InteracaoAPI {
                         System.out.println(quantidade);
                         break;
                     case 5:
-                        tamanhoTotal = looca.getGrupoDeDiscos().getTamanhoTotal();
+                        valor = looca.getGrupoDeDiscos().getTamanhoTotal();
                         System.out.println("\nTamanho total: ");
-                        System.out.println(Conversor.formatarBytes(looca.getGrupoDeDiscos().getTamanhoTotal()));
+                        System.out.println(conversor.formatarUnidades(valor, prefixo, "GB"));
                         break;
                     default:
-                        System.out.println("\nEscolha invalida!");
+                        System.out.println(invalidOption);
                         break;
 
                 }
@@ -171,7 +192,7 @@ public class InteracaoAPI {
                             System.out.println(looca.getProcessador().getNumeroCpusLogicas());
                             break;
                         default:
-                            System.out.println("\nEscolha invalida!");
+                            System.out.println(invalidOption);
                             break;
                     }
                 }
@@ -218,7 +239,7 @@ public class InteracaoAPI {
                         System.out.println(quantidadeServicos);
                         break;
                     default:
-                        System.out.println("\nEscolha invalida!");
+                        System.out.println(invalidOption);
                         break;
                 }
             }
@@ -239,7 +260,7 @@ public class InteracaoAPI {
                         System.out.println(looca.getGrupoDeProcessos().getTotalThreads());
                         break;
                     default:
-                        System.out.println("\nEscolha invalida!");
+                        System.out.println(invalidOption);
                         break;
                 }
             }
@@ -268,7 +289,7 @@ public class InteracaoAPI {
                         System.out.println(looca.getSistema().getTempoDeAtividade());
                         break;
                     default:
-                        System.out.println("\nEscolha invalida!");
+                        System.out.println(invalidOption);
                         break;
                 }
             }
@@ -279,7 +300,7 @@ public class InteracaoAPI {
                 timer.cancel();
             }
                 else {
-                System.out.println("\nEscolha invalida!");
+                System.out.println(invalidOption);
             }
         } while (!isEnded);
         return isEnded;

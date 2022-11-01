@@ -35,14 +35,18 @@ public class Queries {
         }
     }
 
+<<<<<<< HEAD
+    public void update(Double memoriaTotal, Double discoTotal, String arquitetura, String sistemaOperacional, String processador, String tokenAcesso) {
+=======
     public void update(Long memoriaTotal, Long discoTotal, String arquitetura, String sistemaOperacional, String processador, String tokenAcesso) {
+>>>>>>> main
         try {
             ps = conexao.getCon().prepareStatement("update maquina set memoria_total = ? , "
                     + "disco_total = ? , arquitetura = ? , "
                     + "sistema_operacional = ? , processador = ? "
                     + " where token_acesso = ?;");
-            ps.setLong(1, memoriaTotal);
-            ps.setLong(2, memoriaTotal);
+            ps.setDouble(1, memoriaTotal);
+            ps.setDouble(2, memoriaTotal);
             ps.setString(3, arquitetura);
             ps.setString(4, sistemaOperacional);
             ps.setString(5, processador);
@@ -76,15 +80,26 @@ public class Queries {
         }
     }
 
-    public void insertRegistro(Long fkMaquina, Long memoriaUsada, Long cpuUsada, Long discoUsado, String alerta) {
+<<<<<<< HEAD
+    public void insertRegistro(Long fkMaquina, Double memoriaUsada, Integer cpuUsada, Double discoUsado, String alerta) {
         try {
 
             ps = conexao.getCon().prepareStatement("insert into registro values (null,default,?,?,?,?,?);");
             ps.setLong(1, fkMaquina);
-            ps.setLong(2, memoriaUsada);
-            ps.setLong(3, cpuUsada);
-            ps.setLong(4, discoUsado);
+            ps.setDouble(2, memoriaUsada);
+            ps.setInt(3, cpuUsada);
+            ps.setDouble(4, discoUsado);
             ps.setString(5, alerta);
+=======
+    public void insertRegistro(Long memoriaUsada, Long cpuUsada, Long discoUsado, String alerta) {
+        try {
+
+            ps = conexao.getCon().prepareStatement("insert into registro values (null,default,(select id_maquina from maquina order by id_maquina  desc),?,?,?,?);");
+            ps.setLong(1, memoriaUsada);
+            ps.setLong(2, cpuUsada);
+            ps.setLong(3, discoUsado);
+            ps.setString(4, alerta);
+>>>>>>> main
             ps.executeUpdate();
 
         } catch (SQLException e) {
@@ -92,14 +107,14 @@ public class Queries {
         }
     }
 
-    public void insertDadosMaquina(String host_name, String token, String tipo, Long memoriaTotal, Long discoTotal, String arquitetura, String so, String processador, String setor, Integer prioridade) {
+    public void insertDadosMaquina(String host_name, String token, String tipo, Double memoriaTotal, Double discoTotal, String arquitetura, String so, String processador, String setor, Integer prioridade) {
         try {
             ps = conexao.getCon().prepareStatement(" insert into maquina values (null,?,?,true,?,?,?,?,?,?,1,?,?)");
             ps.setString(1, host_name);
             ps.setString(2, token);
             ps.setString(3, tipo);
-            ps.setLong(4, memoriaTotal);
-            ps.setLong(5, discoTotal);
+            ps.setDouble(4, memoriaTotal);
+            ps.setDouble(5, discoTotal);
             ps.setString(6, arquitetura);
             ps.setString(7, so);
             ps.setString(8, processador);

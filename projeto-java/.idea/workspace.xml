@@ -4,12 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4de562a-18cb-4e50-adf6-9c365219624e" name="Changes" comment="">
+    <list default="true" id="b4de562a-18cb-4e50-adf6-9c365219624e" name="Changes" comment="Docker-compose adicionado">
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/database/ConexaoComBanco.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/database/ConexaoComBanco.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/InteracaoAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/InteracaoAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/4/04e11777074e1fd5260b2e60d7e3dceb658248d7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/7/375e16dc284ed3a291b56b603b70297c5fea4c6e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/2/a2bdaad715af6e0d36f19c00ca4c029da8169e8a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/7/d7e2db9548a6ce3a761bf255711b85b8ac325351" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/2/f2728042d6bb9889942d3528d07b9050a0958f77" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/2/f28d26f9565934042ab2d64e5fcc2e6686cc8324" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/StartApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/StartApi.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +25,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -28,13 +38,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/gusta/OneDrive/Ambiente de Trabalho/SPTECH/Projetos/BEEHIVE/aplicacao-java/projeto-java&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/gusta/OneDrive/Ambiente de Trabalho/SPTECH/Projetos/BEEHIVE/aplicacao-java/aplication-cli",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
@@ -43,8 +67,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TelaLogin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="aplication.TelaLogin" />
+      <module name="projeto-java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="aplication.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="containerName" value="" />
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.App" />
+      <item itemvalue="Application.TelaLogin" />
+      <item itemvalue="Docker.Dockerfile" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="Application.TelaLogin" />
         <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
@@ -57,7 +110,36 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1664579882625</updated>
+      <workItem from="1667009500074" duration="426000" />
+      <workItem from="1667009942794" duration="9000" />
+      <workItem from="1667336291836" duration="742000" />
     </task>
+    <task id="LOCAL-00001" summary="Docker-compose adicionado">
+      <created>1665953307436</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1665953307436</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Docker-compose adicionado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Docker-compose adicionado" />
   </component>
 </project>

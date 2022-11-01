@@ -13,9 +13,13 @@ import usecase.StartApi;
 public class ConexaoComBanco {
 
     private StartApi startApi = new StartApi();
+<<<<<<< HEAD
     private String url = "jdbc:mysql://localhost:3306/Beehive";
+=======
+    private String url = "jdbc:mysql://172.17.0.2:3306/Beehive";
+>>>>>>> main
     private String user = "root";
-    private String password = "meubanco";
+    private String password = "123456";
     private Connection con = null;
     private PreparedStatement ps = null;
     private ResultSet resultSet = null;
@@ -26,9 +30,9 @@ public class ConexaoComBanco {
 
     public void conectarMySQL() {
         try {
-            System.out.println("Abrindo conex�o com o banco ...");
+            System.out.println("Abrindo conexao com o banco ...");
             con = DriverManager.getConnection(url, user, password);
-            System.out.println("Conex�o realizada com sucesso!");
+            System.out.println("Conexao realizada com sucesso!");
         } catch (SQLException ex) {
             System.out.println("Falha ao conectar com o banco!" + ex.getMessage());
         }
@@ -55,11 +59,19 @@ public class ConexaoComBanco {
                 System.out.println("token_acesso:" + resultSet.getString("token_acesso"));
                 JOptionPane.showMessageDialog(telaLogin, "Login efetuado com sucesso!");
                 startApi.execute();
+<<<<<<< HEAD
+=======
+                telaLogin.hide();
+>>>>>>> main
 
             }
 
             if (rowCount == 0) {
+<<<<<<< HEAD
                 JOptionPane.showMessageDialog(telaLogin, "Usu?rio n?o encontrado!",
+=======
+                JOptionPane.showMessageDialog(telaLogin, "Usuario nao encontrado!",
+>>>>>>> main
                         "ERRO!", JOptionPane.ERROR_MESSAGE);
             }
         } catch (SQLException e) {
