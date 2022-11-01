@@ -35,7 +35,7 @@ public class Queries {
         }
     }
 
-    public void update(Long memoriaTotal, Long discoTotal, String arquitetura, String sistemaOperacional, String processador, String tokenAcesso) {
+    public void update(Double memoriaTotal, Double discoTotal, String arquitetura, String sistemaOperacional, String processador, String tokenAcesso) {
         try {
             ps = conexao.getCon().prepareStatement("update maquina set memoria_total = ? , "
                     + "disco_total = ? , arquitetura = ? , "
@@ -76,14 +76,15 @@ public class Queries {
         }
     }
 
-    public void insertRegistro(Long memoriaUsada, Long cpuUsada, Long discoUsado, String alerta) {
+    public void insertRegistro(Long fkMaquina, Double memoriaUsada, Integer cpuUsada, Double discoUsado, String alerta) {
         try {
 
-            ps = conexao.getCon().prepareStatement("insert into registro values (null,default,(select id_maquina from maquina order by id_maquina  desc),?,?,?,?);");
-            ps.setLong(1, memoriaUsada);
-            ps.setLong(2, cpuUsada);
-            ps.setLong(3, discoUsado);
-            ps.setString(4, alerta);
+            ps = conexao.getCon().prepareStatement("insert into registro values (null,default,?,?,?,?,?);");
+            ps.setLong(1, fkMaquina);
+            ps.setDouble(2, memoriaUsada);
+            ps.setInt(3, cpuUsada);
+            ps.setDouble(4, discoUsado);
+            ps.setString(5, alerta);
             ps.executeUpdate();
 
         } catch (SQLException e) {
