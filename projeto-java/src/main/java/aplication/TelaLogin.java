@@ -272,6 +272,7 @@ public class TelaLogin extends javax.swing.JFrame {
         
 
         conect.validarAcesso(email, senha, token);
+        conect.setToken(token);
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     public JCheckBox getCheckBoxConectado() {

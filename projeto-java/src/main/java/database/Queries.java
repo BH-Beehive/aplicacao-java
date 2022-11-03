@@ -23,17 +23,7 @@ public class Queries {
         this.conexao = conexao;
     }
 
-    public void selectAll(String query) {
-        try {
-            ps = conexao.getCon().prepareStatement(query);
-            resultSet = ps.executeQuery(query);
-            while (resultSet.next()) {
-                System.out.println("Nome:" + resultSet.getString("nome_empresa"));
-            }
-        } catch (SQLException e) {
-            System.out.println("Erro ao executar o select!" + e.getMessage());
-        }
-    }
+
 
     public void update(Double memoriaTotal, Double discoTotal, String arquitetura, String sistemaOperacional, String processador, String tokenAcesso) {
         try {
@@ -59,8 +49,6 @@ public class Queries {
             resultSet = conexao.getCon().createStatement().executeQuery("select * from maquina");
             while (resultSet.next()) {
                 System.out.println("Host_name:" + resultSet.getString("host_name")
-                        + "\nNivel de prioridade: " + resultSet.getString("nivel_prioridade")
-                        + "\n Setor:" + resultSet.getString("setor")
                         + "\n Tipo:" + resultSet.getString("tipo")
                         + "\n Arquitetura: " + resultSet.getString("arquitetura")
                         + "\n Token: " + resultSet.getString("token_acesso")
@@ -150,5 +138,23 @@ public class Queries {
         } catch (SQLException e) {
             System.out.println("Erro ao executar o select!" + e.getMessage());
         }
+    }
+    public String selectColumn(String coluna){
+        try {
+            resultSet = conexao.getCon().createStatement().executeQuery(
+                    "select "+ coluna +" from maquina;");
+            
+            while(resultSet.next()){
+            String colunaResultado = resultSet.getString(coluna);
+                System.out.println("colunaaaaa"+ colunaResultado);
+            return colunaResultado;
+            }
+            
+        } catch (SQLException e) {
+            System.out.println("Erro ao executar o select!" + e.getMessage());
+
+        }
+        return "Erro ao executar select";
+
     }
 }

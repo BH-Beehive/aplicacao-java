@@ -15,11 +15,12 @@ public class ConexaoComBanco {
     private StartApi startApi = new StartApi();
     private String url = "jdbc:mysql://localhost:3306/Beehive";
     private String user = "root";
-    private String password = "123456";
+    private String password = "";
     private Connection con = null;
     private PreparedStatement ps = null;
     private ResultSet resultSet = null;
     private Statement st = null;
+    private String token;
 
     public ConexaoComBanco() {
     }
@@ -69,8 +70,16 @@ public class ConexaoComBanco {
         return false;
     }
 
-    public Connection getCon() {
-        return con;
+    public String getToken() {
+        return token;
     }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+public Connection getCon() {
+        return con;
+    }    
 
 }
