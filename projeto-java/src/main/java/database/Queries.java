@@ -18,7 +18,7 @@ public class Queries {
     private ResultSet resultSet = null;
     private Statement st = null;
     private ConexaoComBanco conexao = new ConexaoComBanco();
-
+    
     public Queries(ConexaoComBanco conexao) {
         this.conexao = conexao;
     }

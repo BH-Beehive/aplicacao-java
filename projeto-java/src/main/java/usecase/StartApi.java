@@ -65,12 +65,6 @@ public class StartApi {
                 System.out.println("Disco Usado:" +discoUsado);
                 System.out.println("Disco Disponivel:" +discoDisponivel);
                 System.out.println("------------------------------------ \n");
-                memoriaUsada = looca.getMemoria().getEmUso().doubleValue();
-                cpuUsada = looca.getProcessador().getUso().intValue();
-                discoTotal = looca.getGrupoDeDiscos().getVolumes().get(0).getTotal().doubleValue();
-                discoDisponivel = looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel().doubleValue();
-                discoUsado = discoTotal - discoDisponivel;
-                queries.insertRegistro(101L,memoriaUsada, cpuUsada, discoUsado, "amarelo");
                 
             }
             
