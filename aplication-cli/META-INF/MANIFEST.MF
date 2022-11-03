@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: aplication.CLI
+Class-Path: aplication-cli/src/main/java/aplication/CLI.java
+
