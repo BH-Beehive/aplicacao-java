@@ -24,8 +24,8 @@ public class StartApi {
 
         String arquitetura = "x" + looca.getSistema().getArquitetura().toString();
         String sistemaOperacional = looca.getSistema().getSistemaOperacional();
-        Long memoriaTotal = conversor.formatarUnidades(looca.getMemoria().getTotal(), prefixo);
-        Long discoTotal = conversor.formatarUnidades(looca.getGrupoDeDiscos().getTamanhoTotal(), prefixo);
+        Double memoriaTotal = conversor.formatarUnidades(looca.getMemoria().getTotal(), prefixo).doubleValue();
+        Double discoTotal = conversor.formatarUnidades(looca.getGrupoDeDiscos().getTamanhoTotal(), prefixo).doubleValue();
         String processador = looca.getProcessador().getNome();
         String host_name = "77777745454mls";
         String token = "138e813kj1323";
@@ -68,7 +68,7 @@ public class StartApi {
                 Long valorDiscoUsado = looca.getGrupoDeDiscos().getVolumes().get(0).getTotal() - looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel();
                 discoUsado = conversor.formatarUnidades(valorDiscoUsado, prefixo);
 
-                queries.insertRegistro(memoriaUsada, cpuUsada, discoUsado, alert);
+                queries.insertRegistro(100L,memoriaUsada.doubleValue(), cpuUsada.intValue(), discoUsado.doubleValue(), alert);
 
             }
 
