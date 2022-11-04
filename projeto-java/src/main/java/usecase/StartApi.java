@@ -8,6 +8,8 @@ package usecase;
 import com.github.britooo.looca.api.core.Looca;
 import database.ConexaoComBanco;
 import database.Queries;
+import enums.TipoMaquina;
+import model.Maquina;
 import utils.Conversor;
 
 import java.util.Timer;
@@ -29,11 +31,27 @@ public class StartApi {
         Double memoriaTotal = conversor.formatarUnidades(looca.getMemoria().getTotal(), prefixo).doubleValue();
         Double discoTotal = conversor.formatarUnidades(looca.getGrupoDeDiscos().getTamanhoTotal(), prefixo).doubleValue();
         String processador = looca.getProcessador().getNome();
+
         String host_name = queries.selectColumn("host_name",token);
-        System.out.println("xxxxxxxxxxxxxxxxxxxxx"+host_name+"XXXXXXXXXXXXXXXX");
-        String token = "138e813kj1323";
-        String tipo = "servidor";
-        queries.update(memoriaTotal, discoTotal, arquitetura, sistemaOperacional, processador, token);
+        String arquiteturaMaq = queries.selectColumn("arquitetura",token);
+        String soMaq = queries.selectColumn("sistema_operacional ",token);
+        Double discoTotalMaq = Double.valueOf(queries.selectColumn("disco_total ",token));
+        String processadorMaq = queries.selectColumn("processador",token);
+        String tipo = queries.selectColumn("tipo",token);
+
+        if(arquiteturaMaq == null || soMaq == null || discoTotalMaq == null || processadorMaq == null) {
+            queries.update(memoriaTotal, discoTotal, arquitetura, sistemaOperacional, processador, token);
+        }
+
+        Maquina maquina = new Maquina(host_name,token);
+
+        if(tipo.equalsIgnoreCase("servidor")){
+        maquina.setTipoMaquina(TipoMaquina.SERVIDOR);
+        }
+        else{
+            maquina.setTipoMaquina(TipoMaquina.MAQUINA);
+        }
+
         // queries.selectAll();
         // queries.selectBySetor("disco_uso", "triagem");
         //queries.selectByMaquina(host_name);

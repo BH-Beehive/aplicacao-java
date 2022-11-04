@@ -38,7 +38,7 @@ public class ConexaoComBanco {
     public boolean validarAcesso(String email, String senha, String token) {
         TelaLogin telaLogin = new TelaLogin();
         try {
-            ps = con.prepareStatement("select id_empresa,email, senha,token_acesso\n"
+            ps = con.prepareStatement("select id_empresa,email, senha,token_acesso, token_ativo \n"
                     + "from empresa\njoin maquina\non fk_empresa = id_empresa where email"
                     + " = ? and senha = ? and token_acesso = ?;");
             ps.setString(1, email);
@@ -55,9 +55,14 @@ public class ConexaoComBanco {
                 System.out.println("token_acesso:" + resultSet.getString("token_acesso"));
                 JOptionPane.showMessageDialog(telaLogin, "Login efetuado com sucesso!");
                 System.out.println(token);
-                startApi.setToken(resultSet.getString("token_acesso"));
-                startApi.execute();
-                
+                if(resultSet.getBoolean("token_ativo")) {
+                    startApi.setToken(resultSet.getString("token_acesso"));
+                    startApi.execute();
+                }
+                else{
+                    JOptionPane.showMessageDialog(telaLogin, "Token inválido!",
+                            "ERRO!", JOptionPane.ERROR_MESSAGE);
+                }
 
             }
 
