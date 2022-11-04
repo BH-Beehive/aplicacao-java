@@ -4,6 +4,7 @@
  */
 package usecase;
 
+
 import com.github.britooo.looca.api.core.Looca;
 import database.ConexaoComBanco;
 import database.Queries;
@@ -13,6 +14,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class StartApi {
+    private String token;
 
     public void execute() {
         Looca looca = new Looca();
@@ -27,7 +29,8 @@ public class StartApi {
         Double memoriaTotal = conversor.formatarUnidades(looca.getMemoria().getTotal(), prefixo).doubleValue();
         Double discoTotal = conversor.formatarUnidades(looca.getGrupoDeDiscos().getTamanhoTotal(), prefixo).doubleValue();
         String processador = looca.getProcessador().getNome();
-        String host_name = "77777745454mls";
+        String host_name = queries.selectColumn("host_name",token);
+        System.out.println("xxxxxxxxxxxxxxxxxxxxx"+host_name+"XXXXXXXXXXXXXXXX");
         String token = "138e813kj1323";
         String tipo = "servidor";
         queries.update(memoriaTotal, discoTotal, arquitetura, sistemaOperacional, processador, token);
@@ -67,14 +70,27 @@ public class StartApi {
 
                 Long valorDiscoUsado = looca.getGrupoDeDiscos().getVolumes().get(0).getTotal() - looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel();
                 discoUsado = conversor.formatarUnidades(valorDiscoUsado, prefixo);
-
                 queries.insertRegistro(100L,memoriaUsada.doubleValue(), cpuUsada.intValue(), discoUsado.doubleValue(), alert);
-
+                System.out.println("\n-------------------------------------------");
+                System.out.println("\nCPU USADA:"+cpuUsada+"%\n");
+                System.out.println("\nMEMORiA USADA:"+memoriaUsada+"\n");
+                System.out.println("\nDISCO USADO:"+discoUsado+"\n");
+                System.out.println("-------------------------------------------\n");    
             }
 
         };
         timer.scheduleAtFixedRate(task, 0, segundos);
     }
 
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    
+    
 }
 

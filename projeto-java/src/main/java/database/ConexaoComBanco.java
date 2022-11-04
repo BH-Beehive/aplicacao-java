@@ -20,7 +20,6 @@ public class ConexaoComBanco {
     private PreparedStatement ps = null;
     private ResultSet resultSet = null;
     private Statement st = null;
-    private String token;
 
     public ConexaoComBanco() {
     }
@@ -55,8 +54,10 @@ public class ConexaoComBanco {
                 System.out.println("senha:" + resultSet.getString("senha"));
                 System.out.println("token_acesso:" + resultSet.getString("token_acesso"));
                 JOptionPane.showMessageDialog(telaLogin, "Login efetuado com sucesso!");
+                System.out.println(token);
+                startApi.setToken(resultSet.getString("token_acesso"));
                 startApi.execute();
-                telaLogin.hide();
+                
 
             }
 
@@ -65,19 +66,12 @@ public class ConexaoComBanco {
                         "ERRO!", JOptionPane.ERROR_MESSAGE);
             }
         } catch (SQLException e) {
-            System.out.println("Erro ao executar o select!" + e.getMessage());
+            System.out.println("Erro ao executar validação!" + e.getMessage());
 
         }
         return false;
     }
 
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
 
 public Connection getCon() {
         return con;

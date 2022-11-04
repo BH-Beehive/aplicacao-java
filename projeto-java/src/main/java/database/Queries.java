@@ -18,12 +18,11 @@ public class Queries {
     private ResultSet resultSet = null;
     private Statement st = null;
     private ConexaoComBanco conexao = new ConexaoComBanco();
-    
+    private TelaLogin tela = new TelaLogin();
+
     public Queries(ConexaoComBanco conexao) {
         this.conexao = conexao;
     }
-
-
 
     public void update(Double memoriaTotal, Double discoTotal, String arquitetura, String sistemaOperacional, String processador, String tokenAcesso) {
         try {
@@ -139,22 +138,26 @@ public class Queries {
             System.out.println("Erro ao executar o select!" + e.getMessage());
         }
     }
-    public String selectColumn(String coluna){
+
+    public String selectColumn(String coluna, String token) {
         try {
-            resultSet = conexao.getCon().createStatement().executeQuery(
-                    "select "+ coluna +" from maquina;");
-            
-            while(resultSet.next()){
-            String colunaResultado = resultSet.getString(coluna);
-                System.out.println("colunaaaaa"+ colunaResultado);
-            return colunaResultado;
+
+            resultSet = conexao.getCon().createStatement().executeQuery("SELECT "
+                    + coluna+" from maquina where token_acesso='" + token+"';");
+
+            while (resultSet.next()) {
+                String colunaResultado = resultSet.getString("host_name");
+                System.out.println("-------------------------" + colunaResultado);
+                System.out.println("-------------------------"+ coluna);
+                return colunaResultado;
             }
-            
+
         } catch (SQLException e) {
-            System.out.println("Erro ao executar o select!" + e.getMessage());
+            System.out.println("Erro ao executar o select!" + e.getMessage() + "\n" + this.getClass());
 
         }
         return "Erro ao executar select";
 
     }
+
 }
