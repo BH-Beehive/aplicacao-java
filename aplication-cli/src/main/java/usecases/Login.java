@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Login {
 
-
+    public static String token = "";
     public void execute() {
 
         System.out.println("\n" +
@@ -45,7 +45,7 @@ public class Login {
         String senha = inNl.next().toLowerCase();
 
         System.out.println("Digite sua token: \n");
-        String token = inNl.next().toLowerCase();
+         token = inNl.next().toLowerCase();
 
 
        conect.validarAcesso(email, senha, token);
@@ -55,5 +55,4 @@ public class Login {
             System.out.println("Falha ao executar aplicacao");
         }
     }
-
 }

@@ -4,22 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4de562a-18cb-4e50-adf6-9c365219624e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_11_2022_20_12__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_11_2022_20_12__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_11_2022_20_12__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_11_2022_20_12__Changes_1.xml" afterDir="false" />
+    <list default="true" id="b4de562a-18cb-4e50-adf6-9c365219624e" name="Changes" comment="Docker-compose adicionado">
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/3/7/375e16dc284ed3a291b56b603b70297c5fea4c6e" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/3/7/375e16dc284ed3a291b56b603b70297c5fea4c6e" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/b/3/b34a332a0d215948d20ac37d33c40edf2ad28f73" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/b/3/b34a332a0d215948d20ac37d33c40edf2ad28f73" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/b/8/b8ddf26b270b7c4b4313b76fd3bf61648ab81e3f" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/b/8/b8ddf26b270b7c4b4313b76fd3bf61648ab81e3f" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/f/2/f2728042d6bb9889942d3528d07b9050a0958f77" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/f/2/f2728042d6bb9889942d3528d07b9050a0958f77" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/database/ConexaoComBanco.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/database/ConexaoComBanco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/database/Queries.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/database/Queries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/InteracaoAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/InteracaoAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/4/04e11777074e1fd5260b2e60d7e3dceb658248d7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/7/375e16dc284ed3a291b56b603b70297c5fea4c6e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/2/a2bdaad715af6e0d36f19c00ca4c029da8169e8a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/7/d7e2db9548a6ce3a761bf255711b85b8ac325351" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/2/f2728042d6bb9889942d3528d07b9050a0958f77" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/2/f28d26f9565934042ab2d64e5fcc2e6686cc8324" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aplication/TelaLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aplication/TelaLogin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/database/ConexaoComBanco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/ConexaoComBanco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Maquina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Maquina.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/Queries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/Queries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/startApi.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/usecase/StartApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/StartApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/.netbeans_automatic_build" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/.netbeans_automatic_build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/TimerSchedulePeriod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/TimerSchedulePeriod.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -27,22 +48,8 @@
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
   </component>
-  <component name="GithubProjectSettings">
-    <option name="branchProtectionPatterns">
-      <list>
-        <option value="main" />
-      </list>
-    </option>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
   </component>
   <component name="ProjectId" id="2FVaoiFi0YSz2bbz86NQsmXDzUB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -50,28 +57,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/gusta/OneDrive/Ambiente de Trabalho/SPTECH/Projetos/BEEHIVE/aplicacao-java/aplication-cli&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/gusta/OneDrive/Ambiente de Trabalho/SPTECH/Projetos/BEEHIVE/aplicacao-java/projeto-java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TelaLogin">
+  <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="projeto-java" />
@@ -104,9 +111,11 @@
     <list>
       <item itemvalue="Application.App" />
       <item itemvalue="Application.TelaLogin" />
+      <item itemvalue="Docker.Dockerfile" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.Dockerfile" />
         <item itemvalue="Application.TelaLogin" />
         <item itemvalue="Application.App" />
       </list>
@@ -123,6 +132,7 @@
       <workItem from="1667009500074" duration="426000" />
       <workItem from="1667009942794" duration="9000" />
       <workItem from="1667336291836" duration="742000" />
+      <workItem from="1667601855634" duration="19303000" />
     </task>
     <task id="LOCAL-00001" summary="Docker-compose adicionado">
       <created>1665953307436</created>
@@ -151,5 +161,40 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Docker-compose adicionado" />
     <option name="LAST_COMMIT_MESSAGE" value="Docker-compose adicionado" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/usecase/StartApi.java</url>
+          <line>17</line>
+          <properties class="usecase.StartApi" method="returnToken">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/usecase/StartApi.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/usecase/StartApi.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/usecase/StartApi.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/projeto_java$TelaLogin.ic" NAME="TelaLogin Coverage Results" MODIFIED="1667691684361" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>aplication.*</FILTER>
+    </SUITE>
   </component>
 </project>

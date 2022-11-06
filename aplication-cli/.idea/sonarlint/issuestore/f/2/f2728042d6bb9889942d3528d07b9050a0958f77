@@ -8,11 +8,11 @@ java:S1450"XRemove the "resultSet" field and declare it as a local variable in
 N	java:S106"9Replace this use of System.out or System.err by a logger.(šû­ 
 M	java:S106!"9Replace this use of System.out or System.err by a logger.(àñ
 S	java:S106$"9Replace this use of System.out or System.err by a logger.(ØŞç³úÿÿÿÿ
-N	java:S1067"9Replace this use of System.out or System.err by a logger.(ĞË¦ø
-N	java:S1068"9Replace this use of System.out or System.err by a logger.(¤ê©‘
-N	java:S1069"9Replace this use of System.out or System.err by a logger.(§ìƒ
-N	java:S106:"9Replace this use of System.out or System.err by a logger.(ŸŞÆÍ
-N	java:S106;"9Replace this use of System.out or System.err by a logger.(º¾ŒÂ
+N	java:S1068"9Replace this use of System.out or System.err by a logger.(ĞË¦ø
+N	java:S1069"9Replace this use of System.out or System.err by a logger.(¤ê©‘
+N	java:S106:"9Replace this use of System.out or System.err by a logger.(§ìƒ
+N	java:S106;"9Replace this use of System.out or System.err by a logger.(ŸŞÆÍ
+N	java:S106<"9Replace this use of System.out or System.err by a logger.(º¾ŒÂ
 S	java:S106E"9Replace this use of System.out or System.err by a logger.(±Îå¸ûÿÿÿÿ
 S	java:S106H"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ
 <

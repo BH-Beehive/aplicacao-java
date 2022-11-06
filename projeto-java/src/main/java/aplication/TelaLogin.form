@@ -276,7 +276,7 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Beehive"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Cursor Padr&#xe3;o"/>
+              <Color id="Southeast Resize Cursor"/>
             </Property>
             <Property name="debugGraphicsOptions" type="int" value="-1"/>
           </Properties>

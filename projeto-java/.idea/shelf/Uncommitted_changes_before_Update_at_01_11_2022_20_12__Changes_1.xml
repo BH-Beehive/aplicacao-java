@@ -1,9 +1,0 @@
-<changelist name="Uncommitted_changes_before_Update_at_01_11_2022_20_12_[Changes]1" date="1667344362151" recycled="false" toDelete="true">
-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_11_2022_20_12_[Changes]1/shelved.patch" />
-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 01/11/2022 20:12 [Changes]" />
-  <binary>
-    <option name="BEFORE_PATH" value="target/projeto-java-1.0-SNAPSHOT-jar-with-dependencies.jar" />
-    <option name="AFTER_PATH" value="target/projeto-java-1.0-SNAPSHOT-jar-with-dependencies.jar" />
-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_11_2022_20_12_[Changes]1/projeto-java-1.0-SNAPSHOT-jar-with-dependencies.jar" />
-  </binary>
-</changelist>

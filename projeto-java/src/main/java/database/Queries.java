@@ -4,13 +4,10 @@
  */
 package database;
 
-import aplication.TelaLogin;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.JOptionPane;
 
 public class Queries {
 
@@ -18,10 +15,21 @@ public class Queries {
     private ResultSet resultSet = null;
     private Statement st = null;
     private ConexaoComBanco conexao = new ConexaoComBanco();
-    private TelaLogin tela = new TelaLogin();
 
     public Queries(ConexaoComBanco conexao) {
         this.conexao = conexao;
+    }
+
+    public void selectAll(String query) {
+        try {
+            ps = conexao.getCon().prepareStatement(query);
+            resultSet = ps.executeQuery(query);
+            while (resultSet.next()) {
+                System.out.println("Nome:" + resultSet.getString("nome_empresa"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao executar o select!" + e.getMessage());
+        }
     }
 
     public void update(Double memoriaTotal, Double discoTotal, String arquitetura, String sistemaOperacional, String processador, String tokenAcesso) {
@@ -48,6 +56,8 @@ public class Queries {
             resultSet = conexao.getCon().createStatement().executeQuery("select * from maquina");
             while (resultSet.next()) {
                 System.out.println("Host_name:" + resultSet.getString("host_name")
+                        + "\nNivel de prioridade: " + resultSet.getString("nivel_prioridade")
+                        + "\n Setor:" + resultSet.getString("setor")
                         + "\n Tipo:" + resultSet.getString("tipo")
                         + "\n Arquitetura: " + resultSet.getString("arquitetura")
                         + "\n Token: " + resultSet.getString("token_acesso")
@@ -63,14 +73,14 @@ public class Queries {
         }
     }
 
-    public void insertRegistro(Long fkMaquina, Double memoriaUsada, Integer cpuUsada, Double discoUsado, String alerta) {
+    public void insertRegistro(String fkMaquina, Long memoriaUsada, Long cpuUsada, Long discoUsado, String alerta) {
         try {
 
             ps = conexao.getCon().prepareStatement("insert into registro values (null,default,?,?,?,?,?);");
-            ps.setLong(1, fkMaquina);
-            ps.setDouble(2, memoriaUsada);
-            ps.setInt(3, cpuUsada);
-            ps.setDouble(4, discoUsado);
+            ps.setString(1, fkMaquina);
+            ps.setLong(2, memoriaUsada);
+            ps.setLong(3, cpuUsada);
+            ps.setLong(4, discoUsado);
             ps.setString(5, alerta);
             ps.executeUpdate();
 
@@ -78,6 +88,7 @@ public class Queries {
             throw new RuntimeException(e);
         }
     }
+
 
     public void insertDadosMaquina(String host_name, String token, String tipo, Double memoriaTotal, Double discoTotal, String arquitetura, String so, String processador, String setor, Integer prioridade) {
         try {
@@ -139,25 +150,17 @@ public class Queries {
         }
     }
 
-    public String selectColumn(String coluna, String token) {
+    public String selectFkMaquinaByToken(String token) {
+        String idMaquina = null;
         try {
-
-            resultSet = conexao.getCon().createStatement().executeQuery("SELECT "
-                    + coluna+" from maquina where token_acesso='" + token+"';");
-
+            resultSet = conexao.getCon().createStatement().executeQuery("select * from maquina where token_acesso = " +
+                    "'" + token + "'");
             while (resultSet.next()) {
-                String colunaResultado = resultSet.getString("host_name");
-                System.out.println("-------------------------" + colunaResultado);
-                System.out.println("-------------------------"+ coluna);
-                return colunaResultado;
+                idMaquina = resultSet.getString("id_maquina");
             }
-
         } catch (SQLException e) {
-            System.out.println("Erro ao executar o select!" + e.getMessage() + "\n" + this.getClass());
-
+            System.out.println("Erro ao executar o select!" + e.getMessage());
         }
-        return "Erro ao executar select";
-
+        return idMaquina;
     }
-
 }

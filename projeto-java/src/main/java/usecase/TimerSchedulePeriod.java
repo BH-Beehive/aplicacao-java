@@ -12,6 +12,7 @@ import java.util.TimerTask;
 public class TimerSchedulePeriod extends TimerTask {
 
     public TimerSchedulePeriod() {
+        //Is necessary to use timer task
     }
 
     @Override

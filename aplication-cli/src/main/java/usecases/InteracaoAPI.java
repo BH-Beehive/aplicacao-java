@@ -3,6 +3,7 @@ package usecases;
 import com.github.britooo.looca.api.core.Looca;
 import database.ConexaoComBanco;
 import database.Queries;
+import org.checkerframework.checker.units.qual.C;
 import utils.Conversor;
 
 import java.util.List;
@@ -11,44 +12,52 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class InteracaoAPI {
+
+    String tokenFk_Maquina = "";
+    public void returnToken(String token) {
+        tokenFk_Maquina = token;
+    }
+
     public Boolean iniciarAPI() {
        Boolean isEnded = false;
         Looca looca = new Looca();
         ConexaoComBanco con = new ConexaoComBanco();
         con.conectarMySQL();
         Queries queries = new Queries(con);
-
+        Conversor conversor = new Conversor();
+        long prefixoMB = conversor.getMEBI();
         String arquitetura = "x" + looca.getSistema().getArquitetura().toString();
-        String sistemaOperacional = looca.getSistema().getSistemaOperacional().toString();
-        Long memoriaTotal = looca.getMemoria().getTotal();
-        Long discoTotal = looca.getGrupoDeDiscos().getTamanhoTotal();
+        String sistemaOperacional = looca.getSistema().getSistemaOperacional();
+        Double memoriaTotal = Double.valueOf(conversor.formatarUnidades(looca.getMemoria().getTotal(), prefixoMB));
+        Double discoTotal = Double.valueOf(conversor.formatarUnidades(looca.getGrupoDeDiscos().getTamanhoTotal(), prefixoMB));
         String processador = looca.getProcessador().getNome();
         String host_name = "77777745454mls";
         String token = "138e813kj1323";
         String tipo = "servidor";
         queries.update(memoriaTotal, discoTotal, arquitetura, sistemaOperacional, processador, token);
+        // queries.selectAll();
+        // queries.selectBySetor("disco_uso", "triagem");
+        //queries.selectByMaquina(host_name);
+        //queries.insertDadosMaquina(host_name, token, tipo, memoriaTotal, discoTotal, arquitetura, sistemaOperacional,processador,"cirurgia",3);
 
         Timer timer = new Timer("Timer");
         final long segundos = (1000 * 3);
         Boolean finalIsEnded = isEnded;
         TimerTask task = new TimerTask() {
-            Long memoriaUsada = 0L;
-            Long cpuUsada = 0L;
-            Long discoTotal = 0L;
-            Long discoDisponivel = 0L;
-            Long discoUsado = 0L;
+            Long memoriaUsada = null;
+            Long cpuUsada = null;
+            Long discoTotal = null;
+            Long discoDisponivel = null;
+            Long discoUsado = null;
+            String alert = "";
 
             @Override
             public void run() {
-                Conversor conversor = new Conversor();
-                long prefixo = conversor.getMEBI();
-                String alert = "";
-
                 Long valorMemoriaUsada = looca.getMemoria().getEmUso();
-                memoriaUsada = conversor.formatarUnidades(valorMemoriaUsada, prefixo);
+                memoriaUsada = conversor.formatarUnidades(valorMemoriaUsada, prefixoMB);
 
                 Long memoriaPercentual = 0L;
-                Long memoriaTotal = conversor.formatarUnidades(looca.getMemoria().getTotal(), prefixo);
+                Long memoriaTotal = conversor.formatarUnidades(looca.getMemoria().getTotal(), prefixoMB);
                 memoriaPercentual = (memoriaUsada * 100) / memoriaTotal;
 
                 Long valorCpuUsada = looca.getProcessador().getUso().longValue();
@@ -62,16 +71,15 @@ public class InteracaoAPI {
                     alert = "Verde";
                 }
                 Long valorDiscoUsado = looca.getGrupoDeDiscos().getVolumes().get(0).getTotal() - looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel();
-                discoUsado = conversor.formatarUnidades(valorDiscoUsado, prefixo);
-                queries.insertRegistro(100L, memoriaUsada, cpuUsada, discoUsado, alert);
+                discoUsado = conversor.formatarUnidades(valorDiscoUsado, prefixoMB);
+                String fk_maquina = queries.selectFkMaquinaByToken(Login.token);
+                queries.insertRegistro(fk_maquina, memoriaUsada, cpuUsada, discoUsado, alert);
             }
         };
         timer.scheduleAtFixedRate(task, 3, segundos);
 
 
         do {
-            Conversor conversor = new Conversor();
-
             Scanner scan1 = new Scanner(System.in);
             Scanner scan2 = new Scanner(System.in);
 

@@ -9,5 +9,3 @@ h
 8projeto-java/src/main/java/database/ConexaoComBanco.java,e\c\ec2ca9f26d1577265df6cacf67d1d8807335ccc7
 _
 /projeto-java/src/main/java/utils/Conversor.java,b\3\b3525ad39acdb44e21c335f250943e5f34415447
-`
-0aplication-cli/src/main/java/aplication/CLI.java,1\e\1eca45bea51dfd44c459103a7e6845b8d28cb804

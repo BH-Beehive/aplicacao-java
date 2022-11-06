@@ -4,54 +4,37 @@
  */
 package usecase;
 
-
+import aplication.TelaLogin;
 import com.github.britooo.looca.api.core.Looca;
 import database.ConexaoComBanco;
 import database.Queries;
-import enums.TipoMaquina;
-import model.Maquina;
 import utils.Conversor;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class StartApi {
-    private String token;
-
+    String tokenFk_Maquina = "";
+public void returnToken(String token) {
+    tokenFk_Maquina = token;
+}
     public void execute() {
         Looca looca = new Looca();
         ConexaoComBanco con = new ConexaoComBanco();
         Conversor conversor = new Conversor();
+        TelaLogin tl = new TelaLogin();
         con.conectarMySQL();
         Queries queries = new Queries(con);
         long prefixo = conversor.getMEBI();
-
         String arquitetura = "x" + looca.getSistema().getArquitetura().toString();
         String sistemaOperacional = looca.getSistema().getSistemaOperacional();
-        Double memoriaTotal = conversor.formatarUnidades(looca.getMemoria().getTotal(), prefixo).doubleValue();
-        Double discoTotal = conversor.formatarUnidades(looca.getGrupoDeDiscos().getTamanhoTotal(), prefixo).doubleValue();
+        Double memoriaTotal = Double.valueOf(conversor.formatarUnidades(looca.getMemoria().getTotal(), prefixo));
+        Double discoTotal = Double.valueOf(conversor.formatarUnidades(looca.getGrupoDeDiscos().getTamanhoTotal(), prefixo));
         String processador = looca.getProcessador().getNome();
-
-        String host_name = queries.selectColumn("host_name",token);
-        String arquiteturaMaq = queries.selectColumn("arquitetura",token);
-        String soMaq = queries.selectColumn("sistema_operacional ",token);
-        Double discoTotalMaq = Double.valueOf(queries.selectColumn("disco_total ",token));
-        String processadorMaq = queries.selectColumn("processador",token);
-        String tipo = queries.selectColumn("tipo",token);
-
-        if(arquiteturaMaq == null || soMaq == null || discoTotalMaq == null || processadorMaq == null) {
-            queries.update(memoriaTotal, discoTotal, arquitetura, sistemaOperacional, processador, token);
-        }
-
-        Maquina maquina = new Maquina(host_name,token);
-
-        if(tipo.equalsIgnoreCase("servidor")){
-        maquina.setTipoMaquina(TipoMaquina.SERVIDOR);
-        }
-        else{
-            maquina.setTipoMaquina(TipoMaquina.MAQUINA);
-        }
-
+        String host_name = "77777745454mls";
+        String token = "138e813kj1323";
+        String tipo = "servidor";
+        queries.update(memoriaTotal, discoTotal, arquitetura, sistemaOperacional, processador, token);
         // queries.selectAll();
         // queries.selectBySetor("disco_uso", "triagem");
         //queries.selectByMaquina(host_name);
@@ -85,30 +68,16 @@ public class StartApi {
                 } else {
                     alert = "Verde";
                 }
-
                 Long valorDiscoUsado = looca.getGrupoDeDiscos().getVolumes().get(0).getTotal() - looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel();
                 discoUsado = conversor.formatarUnidades(valorDiscoUsado, prefixo);
-                queries.insertRegistro(100L,memoriaUsada.doubleValue(), cpuUsada.intValue(), discoUsado.doubleValue(), alert);
-                System.out.println("\n-------------------------------------------");
-                System.out.println("\nCPU USADA:"+cpuUsada+"%\n");
-                System.out.println("\nMEMORiA USADA:"+memoriaUsada+"\n");
-                System.out.println("\nDISCO USADO:"+discoUsado+"\n");
-                System.out.println("-------------------------------------------\n");    
+                String fk_maquina = queries.selectFkMaquinaByToken(tokenFk_Maquina);
+                queries.insertRegistro(fk_maquina, memoriaUsada, cpuUsada, discoUsado, alert);
+
             }
 
         };
         timer.scheduleAtFixedRate(task, 0, segundos);
     }
 
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    
-    
 }
 

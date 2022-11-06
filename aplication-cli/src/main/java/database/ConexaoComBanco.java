@@ -12,7 +12,7 @@ import java.sql.Statement;
 
 public class ConexaoComBanco {
 
-
+    InteracaoAPI api = new InteracaoAPI();
     private Boolean isLogado = false;
     private String url = "jdbc:mysql://172.17.0.2:3306/Beehive";
     private String user = "root";
@@ -41,6 +41,7 @@ public class ConexaoComBanco {
     public boolean validarAcesso(String email, String senha, String token) {
 
         try {
+            InteracaoAPI interacaoAPI = new InteracaoAPI();
             ps = con.prepareStatement("select id_empresa,email, senha,token_acesso\n"
                     + "from empresa\njoin maquina\non fk_empresa = id_empresa where email"
                     + " = ? and senha = ? and token_acesso = ?;");
@@ -49,7 +50,7 @@ public class ConexaoComBanco {
             ps.setString(3, token);
             resultSet = ps.executeQuery();
             int rowCount = 0;
-
+           api.returnToken(token);
             while (resultSet.next()) {
                 rowCount++;
                 System.out.println("COUNT::" + rowCount);
@@ -58,7 +59,6 @@ public class ConexaoComBanco {
                 System.out.println("token_acesso:" + resultSet.getString("token_acesso"));
                 System.out.println("Login efetuado com sucesso!");
                 isLogado = true;
-                InteracaoAPI interacaoAPI = new InteracaoAPI();
                 interacaoAPI.iniciarAPI();
 
 

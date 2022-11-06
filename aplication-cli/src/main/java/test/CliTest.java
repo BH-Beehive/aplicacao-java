@@ -1,17 +1,13 @@
-package test;
+package Test;
 
-import org.json.JSONObject;
-import usecases.Slack;
+import com.github.britooo.looca.api.core.Looca;
+
+import javax.swing.*;
 
 public class CliTest {
 
-    public static void main(String[] args) throws Exception {
-
-        Slack slack = new Slack();
-        JSONObject message = new JSONObject();
-
-        message.put("text", "s");
-
-        slack.sendMessage(message);
+    public static void main(String[] args) {
+        Looca looca = new Looca();
+        System.out.println();
     }
 }

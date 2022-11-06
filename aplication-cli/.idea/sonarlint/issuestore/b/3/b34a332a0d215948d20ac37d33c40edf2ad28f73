@@ -1,0 +1,21 @@
+
+s
+java:S1104	"QMake token a static final constant or non-public and provide accessors if needed.(¸ºÅ…øÿÿÿÿ8×ğöÔÄ0
+M
+java:S1444	"+Make this "public static token" field final(¸ºÅ…øÿÿÿÿ8û¾üÔÄ0
+@
+java:S54114"*Use the primitive boolean expression here.(‰¶”Ê
+R
+java:S4973'"<Strings and Boxed types should be compared using "equals()".(èÇú
+L
+java:S1854""6Remove this useless assignment to local variable "in".(äÆ¾Ó
+N	java:S106"9Replace this use of System.out or System.err by a logger.(§ş¢
+=
+java:S1481""'Remove this unused "in" local variable.(äÆ¾Ó
+V	java:S125$"<This block of commented-out lines of code should be removed.(Íğ¡˜øÿÿÿÿ
+S	java:S106)"9Replace this use of System.out or System.err by a logger.(ª‚ÿäüÿÿÿÿ
+N	java:S106,"9Replace this use of System.out or System.err by a logger.(Œøğà
+N	java:S106/"9Replace this use of System.out or System.err by a logger.(¥¾¬ª
+X
+java:S26960"6Make the enclosing method "static" or remove this set.(½‰äóşÿÿÿÿ8®¿üÔÄ0
+N	java:S1067"9Replace this use of System.out or System.err by a logger.(”‡Ñ±

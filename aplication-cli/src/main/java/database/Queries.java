@@ -32,14 +32,14 @@ public class Queries {
         }
     }
 
-    public void update(Long memoriaTotal, Long discoTotal, String arquitetura, String sistemaOperacional, String processador, String tokenAcesso) {
+    public void update(Double memoriaTotal, Double discoTotal, String arquitetura, String sistemaOperacional, String processador, String tokenAcesso) {
         try {
             ps = conexao.getCon().prepareStatement("update maquina set memoria_total = ? , "
                     + "disco_total = ? , arquitetura = ? , "
                     + "sistema_operacional = ? , processador = ? "
                     + " where token_acesso = ?;");
-            ps.setLong(1, memoriaTotal);
-            ps.setLong(2, memoriaTotal);
+            ps.setDouble(1, memoriaTotal);
+            ps.setDouble(2, memoriaTotal);
             ps.setString(3, arquitetura);
             ps.setString(4, sistemaOperacional);
             ps.setString(5, processador);
@@ -73,11 +73,11 @@ public class Queries {
         }
     }
 
-    public void insertRegistro(Long fkMaquina, Long memoriaUsada, Long cpuUsada, Long discoUsado, String alerta) {
+    public void insertRegistro(String fkMaquina, Long memoriaUsada, Long cpuUsada, Long discoUsado, String alerta) {
         try {
 
             ps = conexao.getCon().prepareStatement("insert into registro values (null,default,?,?,?,?,?);");
-            ps.setLong(1, fkMaquina);
+            ps.setString(1, fkMaquina);
             ps.setLong(2, memoriaUsada);
             ps.setLong(3, cpuUsada);
             ps.setLong(4, discoUsado);
@@ -86,19 +86,18 @@ public class Queries {
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        } catch (NullPointerException e) {
-            throw new NullPointerException();
         }
     }
 
-    public void insertDadosMaquina(String host_name, String token, String tipo, Long memoriaTotal, Long discoTotal, String arquitetura, String so, String processador, String setor, Integer prioridade) {
+
+    public void insertDadosMaquina(String host_name, String token, String tipo, Double memoriaTotal, Double discoTotal, String arquitetura, String so, String processador, String setor, Integer prioridade) {
         try {
             ps = conexao.getCon().prepareStatement(" insert into maquina values (null,?,?,true,?,?,?,?,?,?,1,?,?)");
             ps.setString(1, host_name);
             ps.setString(2, token);
             ps.setString(3, tipo);
-            ps.setLong(4, memoriaTotal);
-            ps.setLong(5, discoTotal);
+            ps.setDouble(4, memoriaTotal);
+            ps.setDouble(5, discoTotal);
             ps.setString(6, arquitetura);
             ps.setString(7, so);
             ps.setString(8, processador);
@@ -115,12 +114,12 @@ public class Queries {
         try {
             resultSet = conexao.getCon().createStatement().executeQuery(
                     "select "
-                    + componente
-                    + " ,setor from registro join maquina on id_maquina ="
-                    + " fk_maquina "
-                    + "where setor ="
-                    + "'" + setor + "'"
-                    + " order by id_registro desc limit 10;");
+                            + componente
+                            + " ,setor from registro join maquina on id_maquina ="
+                            + " fk_maquina "
+                            + "where setor ="
+                            + "'" + setor + "'"
+                            + " order by id_registro desc limit 10;");
             while (resultSet.next()) {
                 System.out.println("\nnome componente:" + componente
                         + "\nsetor: " + resultSet.getString("setor")
@@ -136,10 +135,10 @@ public class Queries {
         try {
             resultSet = conexao.getCon().createStatement().executeQuery(
                     "select host_name , memoria_uso ,"
-                    + " cpu_uso, disco_uso "
-                    + " from registro join maquina on id_maquina = fk_maquina where host_name ="
-                    + "'" + hostname + "'"
-                    + " order by id_registro desc limit 1;");
+                            + " cpu_uso, disco_uso "
+                            + " from registro join maquina on id_maquina = fk_maquina where host_name ="
+                            + "'" + hostname + "'"
+                            + " order by id_registro desc limit 1;");
             while (resultSet.next()) {
                 System.out.println("\nnome da máquina:" + hostname
                         + "\nuso disco: " + resultSet.getString("disco_uso")
@@ -149,5 +148,19 @@ public class Queries {
         } catch (SQLException e) {
             System.out.println("Erro ao executar o select!" + e.getMessage());
         }
+    }
+
+    public String selectFkMaquinaByToken(String token) {
+        String idMaquina = null;
+        try {
+            resultSet = conexao.getCon().createStatement().executeQuery("select * from maquina where token_acesso = " +
+                    "'" + token + "'");
+            while (resultSet.next()) {
+                idMaquina = resultSet.getString("id_maquina");
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao executar o select!" + e.getMessage());
+        }
+        return idMaquina;
     }
 }

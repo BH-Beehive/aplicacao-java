@@ -14,10 +14,6 @@ public class Maquina {
     private String sistemaOperacional;
     private String processador;
 
-    public Maquina() {
-    }
-
-    
     public Maquina(String hostName, String tokenAcesso, TipoMaquina tipoMaquina) {
         this.hostName = hostName;
         this.tokenAcesso = tokenAcesso;

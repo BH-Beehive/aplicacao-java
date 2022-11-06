@@ -1,11 +1,19 @@
 
-f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñëÏë
+f	java:S117""QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñëÏë
+r	java:S117I"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íÂÏØşÿÿÿÿ8»ö°ÕÄ0
+v	java:S116"ZRename this field "tokenFk_Maquina" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§Õœˆ8Œ÷°ÕÄ0
 N
-java:S1854 "8Remove this useless assignment to local variable "tipo".(ä¡êË
+java:S1854$"8Remove this useless assignment to local variable "tipo".(ä¡êË
 S
-java:S1854"=Remove this useless assignment to local variable "host_name".(ñëÏë
+java:S1854""=Remove this useless assignment to local variable "host_name".(ñëÏë
+X
+java:S1854"6Remove this useless assignment to local variable "tl".(İ°ùşÿÿÿÿ8£÷°ÕÄ0
+I
+java:S1481"'Remove this unused "tl" local variable.(İ°ùşÿÿÿÿ8§÷°ÕÄ0
 D
-java:S1481".Remove this unused "host_name" local variable.(ñëÏë
+java:S1481"".Remove this unused "host_name" local variable.(ñëÏë
 ?
-java:S1481 ")Remove this unused "tipo" local variable.(ä¡êË
-V	java:S125""<This block of commented-out lines of code should be removed.(ùî§’şÿÿÿÿ
+java:S1481$")Remove this unused "tipo" local variable.(ä¡êË
+V	java:S125&"<This block of commented-out lines of code should be removed.(ùî§’şÿÿÿÿ
+g
+java:S18549"ERemove this useless assignment to local variable "memoriaPercentual".(ûëÓƒüÿÿÿÿ8È÷°ÕÄ0
