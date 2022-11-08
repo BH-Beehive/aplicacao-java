@@ -8,6 +8,7 @@ package usecase;
 import com.github.britooo.looca.api.core.Looca;
 import database.ConexaoComBanco;
 import database.Queries;
+import enums.Alertas;
 import enums.TipoMaquina;
 import model.Maquina;
 import utils.Conversor;
@@ -17,7 +18,10 @@ import java.util.TimerTask;
 
 public class StartApi {
     private String token;
-
+    private String tokenFk_Maquina = "";
+    public void returnToken(String token) {
+        this.tokenFk_Maquina = token;
+    }
     public void execute() {
         Looca looca = new Looca();
         ConexaoComBanco con = new ConexaoComBanco();
@@ -34,16 +38,16 @@ public class StartApi {
 
         String host_name = queries.selectColumn("host_name",token);
         String arquiteturaMaq = queries.selectColumn("arquitetura",token);
-        String soMaq = queries.selectColumn("sistema_operacional ",token);
-        Double discoTotalMaq = Double.valueOf(queries.selectColumn("disco_total ",token));
+        String soMaq = queries.selectColumn("sistema_operacional",token);
+        Double discoTotalMaq = Double.valueOf(queries.selectColumn("disco_total",token));
         String processadorMaq = queries.selectColumn("processador",token);
-        String tipo = queries.selectColumn("tipo",token);
+        String tipo = queries.selectColumn("tipo", token);
 
         if(arquiteturaMaq == null || soMaq == null || discoTotalMaq == null || processadorMaq == null) {
             queries.update(memoriaTotal, discoTotal, arquitetura, sistemaOperacional, processador, token);
         }
 
-        Maquina maquina = new Maquina(host_name,token);
+        Maquina maquina = new Maquina(host_name, token, null);
 
         if(tipo.equalsIgnoreCase("servidor")){
         maquina.setTipoMaquina(TipoMaquina.SERVIDOR);
@@ -79,17 +83,21 @@ public class StartApi {
                 cpuUsada = valorCpuUsada;
 
                 if (cpuUsada >= 90 || memoriaPercentual >= 90) {
-                    alert = "Vermelho";
+                     alert = Alertas.VERMELHO.toString();
                 } else if (cpuUsada >= 80 || memoriaPercentual >= 80) {
-                    alert = "Amarelo";
+                    alert = Alertas.AMARELO.toString();
                 } else {
-                    alert = "Verde";
+                    alert = Alertas.VERDE.toString();
                 }
 
                 Long valorDiscoUsado = looca.getGrupoDeDiscos().getVolumes().get(0).getTotal() - looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel();
                 discoUsado = conversor.formatarUnidades(valorDiscoUsado, prefixo);
-                queries.insertRegistro(100L,memoriaUsada.doubleValue(), cpuUsada.intValue(), discoUsado.doubleValue(), alert);
+                String fk_maquina = queries.selectColumn("id_maquina", tokenFk_Maquina);
+                queries.insertRegistro(fk_maquina, memoriaUsada.doubleValue(), cpuUsada.intValue(), discoUsado.doubleValue(), alert);
                 System.out.println("\n-------------------------------------------");
+
+
+
                 System.out.println("\nCPU USADA:"+cpuUsada+"%\n");
                 System.out.println("\nMEMORiA USADA:"+memoriaUsada+"\n");
                 System.out.println("\nDISCO USADO:"+discoUsado+"\n");

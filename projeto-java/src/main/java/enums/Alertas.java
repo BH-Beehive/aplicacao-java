@@ -1,6 +1,8 @@
 package enums;
 
 public enum Alertas {
-    AVISO,
-    CRITICO
+    AMARELO,
+    VERMELHO,
+    VERDE;
+
 }

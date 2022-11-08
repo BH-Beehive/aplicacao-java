@@ -13,9 +13,9 @@ import usecase.StartApi;
 public class ConexaoComBanco {
 
     private StartApi startApi = new StartApi();
-    private String url = "jdbc:mysql://172.17.0.2:3306/Beehive";
+    private String url = "jdbc:mysql://localhost:3306/Beehive";
     private String user = "root";
-    private String password = "";
+    private String password = "1470";
     private Connection con = null;
     private PreparedStatement ps = null;
     private ResultSet resultSet = null;
@@ -46,7 +46,7 @@ public class ConexaoComBanco {
             ps.setString(3, token);
             resultSet = ps.executeQuery();
             int rowCount = 0;
-
+            startApi.returnToken(token);
             while (resultSet.next()) {
                 rowCount++;
                 System.out.println("COUNT::" + rowCount);

@@ -63,11 +63,11 @@ public class Queries {
         }
     }
 
-    public void insertRegistro(Long fkMaquina, Double memoriaUsada, Integer cpuUsada, Double discoUsado, String alerta) {
+    public void insertRegistro(String fkMaquina, Double memoriaUsada, Integer cpuUsada, Double discoUsado, String alerta) {
         try {
 
             ps = conexao.getCon().prepareStatement("insert into registro values (null,default,?,?,?,?,?);");
-            ps.setLong(1, fkMaquina);
+            ps.setString(1, fkMaquina);
             ps.setDouble(2, memoriaUsada);
             ps.setInt(3, cpuUsada);
             ps.setDouble(4, discoUsado);
@@ -146,7 +146,7 @@ public class Queries {
                     + coluna+" from maquina where token_acesso='" + token+"';");
 
             while (resultSet.next()) {
-                String colunaResultado = resultSet.getString("host_name");
+                String colunaResultado = resultSet.getString(coluna);
                 System.out.println("-------------------------" + colunaResultado);
                 System.out.println("-------------------------"+ coluna);
                 return colunaResultado;
@@ -158,6 +158,20 @@ public class Queries {
         }
         return "Erro ao executar select";
 
+    }
+
+    public String selectFkMaquinaByToken(String token) {
+        String idMaquina = null;
+        try {
+            resultSet = conexao.getCon().createStatement().executeQuery("select * from maquina where token_acesso = " +
+                    "'" + token + "'");
+            while (resultSet.next()) {
+                idMaquina = resultSet.getString("id_maquina");
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao executar o select!" + e.getMessage());
+        }
+        return idMaquina;
     }
 
 }
