@@ -57,7 +57,7 @@ public class Conversor {
         return String.format("%.1f %s", (double) valor / prefixo, unidade);
     }
 
-    public Long formatarUnidades(long valor, long prefixo) {
+    public static Long formatarUnidades(long valor, long prefixo) {
         if (valor % prefixo == 0) {
             return valor / prefixo;
         }

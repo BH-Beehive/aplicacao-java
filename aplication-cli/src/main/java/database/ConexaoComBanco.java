@@ -2,6 +2,7 @@ package database;
 
 import usecases.InteracaoAPI;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,7 +13,7 @@ import java.sql.Statement;
 
 public class ConexaoComBanco {
 
-
+    InteracaoAPI interacaoAPI = new InteracaoAPI();
     private Boolean isLogado = false;
     private String url = "jdbc:mysql://172.17.0.2:3306/Beehive";
     private String user = "root";
@@ -20,10 +21,10 @@ public class ConexaoComBanco {
     private Connection con = null;
     private PreparedStatement ps = null;
     private ResultSet resultSet = null;
-
     private Statement st = null;
 
     public ConexaoComBanco() {
+        // TODO necessary to initialize
     }
 
     public String conectarMySQL() {
@@ -39,9 +40,8 @@ public class ConexaoComBanco {
     }
 
     public boolean validarAcesso(String email, String senha, String token) {
-
         try {
-            ps = con.prepareStatement("select id_empresa,email, senha,token_acesso\n"
+            ps = con.prepareStatement("select id_empresa,email, senha,token_acesso, token_ativo \n"
                     + "from empresa\njoin maquina\non fk_empresa = id_empresa where email"
                     + " = ? and senha = ? and token_acesso = ?;");
             ps.setString(1, email);
@@ -49,27 +49,28 @@ public class ConexaoComBanco {
             ps.setString(3, token);
             resultSet = ps.executeQuery();
             int rowCount = 0;
-
             while (resultSet.next()) {
                 rowCount++;
                 System.out.println("COUNT::" + rowCount);
                 System.out.println("email:" + resultSet.getString("email"));
                 System.out.println("senha:" + resultSet.getString("senha"));
                 System.out.println("token_acesso:" + resultSet.getString("token_acesso"));
-                System.out.println("Login efetuado com sucesso!");
+                System.out.println("Logado com sucesso!");
                 isLogado = true;
-                InteracaoAPI interacaoAPI = new InteracaoAPI();
-                interacaoAPI.iniciarAPI();
-
-
+                if (resultSet.getBoolean("token_ativo")) {
+                    interacaoAPI.setToken(resultSet.getString("token_acesso"));
+                    interacaoAPI.execute();
+                } else {
+                    System.out.println("Token inválido!");
+                }
 
             }
 
             if (rowCount == 0) {
-                System.out.println("\nUser not found ERROR");
+                System.out.println("User not found");
             }
         } catch (SQLException e) {
-            System.out.println("Erro ao executar o select!" + e.getMessage());
+            System.out.println("Erro ao executar validação!" + e.getMessage());
 
         }
         return false;
