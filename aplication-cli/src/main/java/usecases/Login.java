@@ -1,13 +1,17 @@
 package usecases;
 
 import database.ConexaoComBanco;
+import java.io.DataOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 import java.util.Scanner;
 
 public class Login {
 
 
-    public void execute() {
+    public void execute() throws FileNotFoundException, IOException {
 
         System.out.println("\n" +
                 "                                                                                                                                                                                     \n" +
@@ -46,14 +50,14 @@ public class Login {
 
         System.out.println("Digite sua token: \n");
         String token = inNl.next().toLowerCase();
-
-
+        
+        
        conect.validarAcesso(email, senha, token);
         } while (!conect.getLogado());
         }
         else {
+        
             System.out.println("Falha ao executar aplicacao");
         }
     }
-
 }

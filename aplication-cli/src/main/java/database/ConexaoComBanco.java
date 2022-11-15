@@ -1,5 +1,9 @@
 package database;
 
+import java.io.DataOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import usecases.InteracaoAPI;
 
 import java.sql.Connection;
@@ -9,12 +13,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
 public class ConexaoComBanco {
 
-
     private Boolean isLogado = false;
-    private String url = "jdbc:mysql://172.17.0.2:3306/Beehive";
+    private String url = "jdbc:mysql://localhost:3306/Beehive";
     private String user = "root";
     private String password = "123456";
     private Connection con = null;
@@ -38,7 +40,7 @@ public class ConexaoComBanco {
         return "FAILED";
     }
 
-    public boolean validarAcesso(String email, String senha, String token) {
+    public boolean validarAcesso(String email, String senha, String token) throws FileNotFoundException, IOException {
 
         try {
             ps = con.prepareStatement("select id_empresa,email, senha,token_acesso\n"
@@ -59,16 +61,14 @@ public class ConexaoComBanco {
                 System.out.println("Login efetuado com sucesso!");
                 isLogado = true;
                 InteracaoAPI interacaoAPI = new InteracaoAPI();
-                interacaoAPI.iniciarAPI();
-
-
-
+                interacaoAPI.iniciarAPI(email, token);
             }
 
             if (rowCount == 0) {
                 System.out.println("\nUser not found ERROR");
             }
         } catch (SQLException e) {
+
             System.out.println("Erro ao executar o select!" + e.getMessage());
 
         }

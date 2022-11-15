@@ -1,7 +1,10 @@
-C:\Users\gusta\OneDrive\Ambiente de Trabalho\SPTECH\Projetos\BEEHIVE\aplicacao-java\aplication-cli\src\main\java\aplication\CLI.java
-C:\Users\gusta\OneDrive\Ambiente de Trabalho\SPTECH\Projetos\BEEHIVE\aplicacao-java\aplication-cli\src\main\java\database\Queries.java
-C:\Users\gusta\OneDrive\Ambiente de Trabalho\SPTECH\Projetos\BEEHIVE\aplicacao-java\aplication-cli\src\main\java\database\ConexaoComBanco.java
-C:\Users\gusta\OneDrive\Ambiente de Trabalho\SPTECH\Projetos\BEEHIVE\aplicacao-java\aplication-cli\src\main\java\usecases\Login.java
-C:\Users\gusta\OneDrive\Ambiente de Trabalho\SPTECH\Projetos\BEEHIVE\aplicacao-java\aplication-cli\src\main\java\usecases\TimerSchedulePeriod.java
-C:\Users\gusta\OneDrive\Ambiente de Trabalho\SPTECH\Projetos\BEEHIVE\aplicacao-java\aplication-cli\src\main\java\usecases\InteracaoAPI.java
-C:\Users\gusta\OneDrive\Ambiente de Trabalho\SPTECH\Projetos\BEEHIVE\aplicacao-java\aplication-cli\src\main\java\utils\Conversor.java
+C:\Users\ferra\Documents\aplicacao-java\aplication-cli\src\main\java\database\Queries.java
+C:\Users\ferra\Documents\aplicacao-java\aplication-cli\src\main\java\usecases\Login.java
+C:\Users\ferra\Documents\aplicacao-java\aplication-cli\src\main\java\Test\CliTest.java
+C:\Users\ferra\Documents\aplicacao-java\aplication-cli\src\main\java\database\ConexaoComBanco.java
+C:\Users\ferra\Documents\aplicacao-java\aplication-cli\src\main\java\utils\logsFile.java
+C:\Users\ferra\Documents\aplicacao-java\aplication-cli\src\main\java\utils\Conversor.java
+C:\Users\ferra\Documents\aplicacao-java\aplication-cli\src\main\java\utils\SetupLog.java
+C:\Users\ferra\Documents\aplicacao-java\aplication-cli\src\main\java\usecases\TimerSchedulePeriod.java
+C:\Users\ferra\Documents\aplicacao-java\aplication-cli\src\main\java\usecases\InteracaoAPI.java
+C:\Users\ferra\Documents\aplicacao-java\aplication-cli\src\main\java\aplication\CLI.java
