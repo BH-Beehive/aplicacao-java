@@ -159,19 +159,4 @@ public class Queries {
         return "Erro ao executar select";
 
     }
-
-    public String selectFkMaquinaByToken(String token) {
-        String idMaquina = null;
-        try {
-            resultSet = conexao.getCon().createStatement().executeQuery("select * from maquina where token_acesso = " +
-                    "'" + token + "'");
-            while (resultSet.next()) {
-                idMaquina = resultSet.getString("id_maquina");
-            }
-        } catch (SQLException e) {
-            System.out.println("Erro ao executar o select!" + e.getMessage());
-        }
-        return idMaquina;
-    }
-
 }

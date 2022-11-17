@@ -3,6 +3,10 @@ package usecases;
 import com.github.britooo.looca.api.core.Looca;
 import database.ConexaoComBanco;
 import database.Queries;
+import enums.Alertas;
+import enums.TipoMaquina;
+import model.Maquina;
+import org.checkerframework.checker.units.qual.C;
 import utils.Conversor;
 
 import java.util.List;
@@ -11,39 +15,61 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class InteracaoAPI {
-    public Boolean iniciarAPI() {
+    private String token;
+    public Boolean execute() {
        Boolean isEnded = false;
+       Conversor conversor = new Conversor();
         Looca looca = new Looca();
         ConexaoComBanco con = new ConexaoComBanco();
         con.conectarMySQL();
         Queries queries = new Queries(con);
+        long prefixo = conversor.getMEBI();
 
         String arquitetura = "x" + looca.getSistema().getArquitetura().toString();
-        String sistemaOperacional = looca.getSistema().getSistemaOperacional().toString();
-        Long memoriaTotal = looca.getMemoria().getTotal();
-        Long discoTotal = looca.getGrupoDeDiscos().getTamanhoTotal();
+        String sistemaOperacional = looca.getSistema().getSistemaOperacional();
+        Double memoriaTotal = conversor.formatarUnidades(looca.getMemoria().getTotal(), prefixo).doubleValue();
+        Double discoTotal = conversor.formatarUnidades(looca.getGrupoDeDiscos().getTamanhoTotal(), prefixo).doubleValue();
         String processador = looca.getProcessador().getNome();
-        String host_name = "77777745454mls";
-        String token = "138e813kj1323";
-        String tipo = "servidor";
-        queries.update(memoriaTotal, discoTotal, arquitetura, sistemaOperacional, processador, token);
+
+        String host_name = queries.selectColumn("host_name",token);
+        String arquiteturaMaq = queries.selectColumn("arquitetura",token);
+        String soMaq = queries.selectColumn("sistema_operacional",token);
+        Double discoTotalMaq = Double.valueOf(queries.selectColumn("disco_total",token));
+        String processadorMaq = queries.selectColumn("processador",token);
+        String tipo = queries.selectColumn("tipo", token);
+
+
+        if(arquiteturaMaq == null || soMaq == null || discoTotalMaq == null || processadorMaq == null) {
+            queries.update(memoriaTotal, discoTotal, arquitetura, sistemaOperacional, processador, token);
+        }
+
+        Maquina maquina = new Maquina(host_name, token, null);
+
+        if(tipo.equalsIgnoreCase("servidor")){
+            maquina.setTipoMaquina(TipoMaquina.SERVIDOR);
+        }
+        else{
+            maquina.setTipoMaquina(TipoMaquina.MAQUINA);
+        }
+
+        // queries.selectAll();
+        // queries.selectBySetor("disco_uso", "triagem");
+        //queries.selectByMaquina(host_name);
+        //queries.insertDadosMaquina(host_name, token, tipo, memoriaTotal, discoTotal, arquitetura, sistemaOperacional,processador,"cirurgia",3);
+
 
         Timer timer = new Timer("Timer");
         final long segundos = (1000 * 3);
-        Boolean finalIsEnded = isEnded;
         TimerTask task = new TimerTask() {
-            Long memoriaUsada = 0L;
-            Long cpuUsada = 0L;
-            Long discoTotal = 0L;
-            Long discoDisponivel = 0L;
-            Long discoUsado = 0L;
+            Long memoriaUsada = null;
+            Long cpuUsada = null;
+            Long discoTotal = null;
+            Long discoDisponivel = null;
+            Long discoUsado = null;
+            String alert = "";
 
             @Override
             public void run() {
-                Conversor conversor = new Conversor();
-                long prefixo = conversor.getMEBI();
-                String alert = "";
-
                 Long valorMemoriaUsada = looca.getMemoria().getEmUso();
                 memoriaUsada = conversor.formatarUnidades(valorMemoriaUsada, prefixo);
 
@@ -55,23 +81,23 @@ public class InteracaoAPI {
                 cpuUsada = valorCpuUsada;
 
                 if (cpuUsada >= 90 || memoriaPercentual >= 90) {
-                    alert = "Vermelho";
+                    alert = Alertas.VERMELHO.toString();
                 } else if (cpuUsada >= 80 || memoriaPercentual >= 80) {
-                    alert = "Amarelo";
+                    alert = Alertas.AMARELO.toString();
                 } else {
-                    alert = "Verde";
+                    alert = Alertas.VERDE.toString();
                 }
+
                 Long valorDiscoUsado = looca.getGrupoDeDiscos().getVolumes().get(0).getTotal() - looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel();
                 discoUsado = conversor.formatarUnidades(valorDiscoUsado, prefixo);
-                queries.insertRegistro(100L, memoriaUsada, cpuUsada, discoUsado, alert);
+                String fk_maquina = queries.selectColumn("id_maquina", getToken());
+                queries.insertRegistro(fk_maquina, memoriaUsada.doubleValue(), cpuUsada.intValue(), discoUsado.doubleValue(), alert);
             }
         };
         timer.scheduleAtFixedRate(task, 3, segundos);
 
 
         do {
-            Conversor conversor = new Conversor();
-
             Scanner scan1 = new Scanner(System.in);
             Scanner scan2 = new Scanner(System.in);
 
@@ -88,7 +114,7 @@ public class InteracaoAPI {
             System.out.println("Escolha o componente: ");
             escolhaMain = scan1.nextInt();
             long valor = 0L;
-            long prefixo = conversor.getGIBI();
+            long prefixoGB = conversor.getGIBI();
             String invalidOption = "\nEscolha invalida!";
             if (escolhaMain == 1) {
                 System.out.println("\nMEMORIA\n" +
@@ -99,15 +125,15 @@ public class InteracaoAPI {
                 switch (escolhaSub) {
                     case 1:
                          valor = looca.getMemoria().getTotal();
-                        System.out.println(conversor.formatarUnidades(valor, prefixo, "GB"));
+                        System.out.println(conversor.formatarUnidades(valor, prefixoGB, "GB"));
                         break;
                     case 2:
                         valor = looca.getMemoria().getEmUso();
-                        System.out.println(conversor.formatarUnidades(valor, prefixo, "GB"));
+                        System.out.println(conversor.formatarUnidades(valor, prefixoGB, "GB"));
                         break;
                     case 3:
                         valor = looca.getMemoria().getDisponivel();
-                        System.out.println(conversor.formatarUnidades(valor, prefixo, "GB"));
+                        System.out.println(conversor.formatarUnidades(valor, prefixoGB, "GB"));
                         break;
                     default:
                         System.out.println(invalidOption);
@@ -148,7 +174,7 @@ public class InteracaoAPI {
                     case 5:
                         valor = looca.getGrupoDeDiscos().getTamanhoTotal();
                         System.out.println("\nTamanho total: ");
-                        System.out.println(conversor.formatarUnidades(valor, prefixo, "GB"));
+                        System.out.println(conversor.formatarUnidades(valor, prefixoGB, "GB"));
                         break;
                     default:
                         System.out.println(invalidOption);
@@ -304,6 +330,14 @@ public class InteracaoAPI {
             }
         } while (!isEnded);
         return isEnded;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
 }
