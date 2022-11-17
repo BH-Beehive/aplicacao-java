@@ -13,7 +13,7 @@ public class Maquina {
     private String arquitetura;
     private String sistemaOperacional;
     private String processador;
-
+    private List<Registro> registros;
     public Maquina() {
     }
 
@@ -22,6 +22,7 @@ public class Maquina {
         this.hostName = hostName;
         this.tokenAcesso = tokenAcesso;
         this.tipoMaquina = tipoMaquina;
+        this.registros = new ArrayList<>();
     }
 
     public Long getId() {
