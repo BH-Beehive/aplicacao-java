@@ -2,6 +2,9 @@ package model;
 
 import enums.TipoMaquina;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Maquina {
     private Long id;
     private String hostName;
