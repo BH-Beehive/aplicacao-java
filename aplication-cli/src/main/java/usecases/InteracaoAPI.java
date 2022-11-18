@@ -19,16 +19,13 @@ import java.util.logging.Logger;
 import utils.ConfigLog;
 
 public class InteracaoAPI {
-    
-    private Integer contador = 0;
 
     public Boolean iniciarAPI(String email, String tokenUsuario) throws FileNotFoundException, IOException {
         Boolean isEnded = false;
         Looca looca = new Looca();
         ConexaoComBanco con = new ConexaoComBanco();
         con.conectarMySQL();
-        contador++;
-        FileOutputStream arq = new FileOutputStream("C:\\Users\\ferra\\Documents\\aplicacao-java\\aplication-cli\\src\\main\\java\\logs\\Log" + contador + ".txt");
+        FileOutputStream arq = new FileOutputStream("C:\\Users\\ferra\\Documents\\aplicacao-java\\aplication-cli\\src\\main\\java\\logs\\logConexao.txt");
         DataOutputStream gravarArq = new DataOutputStream(arq);
         Date data = new Date();
         String dataConvertida = data.toString();
@@ -50,7 +47,7 @@ public class InteracaoAPI {
         String token = "138e813kj1323";
         String tipo = "servidor";
         queries.update(memoriaTotal, discoTotal, arquitetura, sistemaOperacional, processador, token);
-
+        
         Timer timer = new Timer("Timer");
         final long segundos = (1000 * 3);
         Boolean finalIsEnded = isEnded;
@@ -79,7 +76,9 @@ public class InteracaoAPI {
 
                 if (cpuUsada >= 90 || memoriaPercentual >= 90) {
                     alert = "Vermelho";
-                    ConfigLog conLog = new ConfigLog(contador);
+                    Queries qr = new Queries(con);
+                    String hostName = qr.selectColumn("host_name", tokenUsuario);
+                    ConfigLog conLog = new ConfigLog(hostName);
                     try {
                         conLog.logEstadoMaquina("Vermelho");
                     } catch (IOException ex) {
@@ -88,7 +87,9 @@ public class InteracaoAPI {
                     
                 } else if (cpuUsada >= 80 || memoriaPercentual >= 80) {
                     alert = "Amarelo";
-                    ConfigLog conLog = new ConfigLog(contador);
+                    Queries qr = new Queries(con);
+                    String hostName = qr.selectColumn("host_name", tokenUsuario);
+                    ConfigLog conLog = new ConfigLog(hostName);
                     try {
                         conLog.logEstadoMaquina("Amarelo");
                     } catch (IOException ex) {
@@ -96,7 +97,9 @@ public class InteracaoAPI {
                     }
                 } else {
                     alert = "Verde";
-                    ConfigLog conLog = new ConfigLog(contador);
+                    Queries qr = new Queries(con);
+                    String hostName = qr.selectColumn("host_name", tokenUsuario);
+                    ConfigLog conLog = new ConfigLog(hostName);
                     try {
                         conLog.logEstadoMaquina("Verde");
                     } catch (IOException ex) {

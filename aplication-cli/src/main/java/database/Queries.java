@@ -150,4 +150,23 @@ public class Queries {
             System.out.println("Erro ao executar o select!" + e.getMessage());
         }
     }
+    
+    public String selectColumn(String coluna, String token) {
+        try {
+
+            resultSet = conexao.getCon().createStatement().executeQuery("SELECT "
+                    + coluna+" from maquina where token_acesso='" + token+"';");
+
+            while (resultSet.next()) {
+                String colunaResultado = resultSet.getString(coluna);
+                return colunaResultado;
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Erro ao executar o select!" + e.getMessage() + "\n" + this.getClass());
+
+        }
+        return "Erro ao executar select";
+
+    }
 }
