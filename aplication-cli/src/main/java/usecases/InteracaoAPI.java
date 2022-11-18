@@ -7,6 +7,7 @@ import enums.Alertas;
 import enums.TipoMaquina;
 import model.Maquina;
 import org.checkerframework.checker.units.qual.C;
+import org.json.JSONObject;
 import utils.Conversor;
 
 import java.util.List;
@@ -21,6 +22,8 @@ public class InteracaoAPI {
        Conversor conversor = new Conversor();
         Looca looca = new Looca();
         ConexaoComBanco con = new ConexaoComBanco();
+        Slack slack = new Slack();
+        JSONObject message = new JSONObject();
         con.conectarMySQL();
         Queries queries = new Queries(con);
         long prefixo = conversor.getMEBI();
@@ -69,6 +72,10 @@ public class InteracaoAPI {
             Long discoUsado = null;
             String alert = "";
 
+            Integer contadorSlack = null;
+
+            Integer contadorAlertaCritico = 0;
+
             @Override
             public void run() {
                 Long valorMemoriaUsada = looca.getMemoria().getEmUso();
@@ -83,7 +90,23 @@ public class InteracaoAPI {
 
                 if (cpuUsada >= 90 || memoriaPercentual >= 90) {
                     alert = Alertas.VERMELHO.toString();
-                } else if (cpuUsada >= 80 || memoriaPercentual >= 80) {
+                    contadorAlertaCritico++;
+                    if (contadorAlertaCritico > 4 && contadorSlack == null) {
+                        contadorSlack = 0;
+                        message.put("text", String.format("%s esta em estado critico no setor %s! ", host_name, queries.selectSetorFromMaquina(host_name)));
+                        try {
+                            slack.sendMessage(message);
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                    if (contadorSlack != null) {
+                        if (contadorSlack == 20) {
+                            contadorSlack = null;
+                        }
+                    }
+                }
+                else if (cpuUsada >= 80 || memoriaPercentual >= 80) {
                     alert = Alertas.AMARELO.toString();
                 } else {
                     alert = Alertas.VERDE.toString();
@@ -93,6 +116,10 @@ public class InteracaoAPI {
                 discoUsado = conversor.formatarUnidades(valorDiscoUsado, prefixo);
                 String fk_maquina = queries.selectColumn("id_maquina", getToken());
                 queries.insertRegistro(fk_maquina, memoriaUsada.doubleValue(), cpuUsada.intValue(), discoUsado.doubleValue(), alert);
+
+                if (contadorSlack != null) {
+                    contadorSlack++;
+                }
             }
         };
         timer.scheduleAtFixedRate(task, 3, segundos);

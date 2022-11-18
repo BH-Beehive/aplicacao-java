@@ -9,13 +9,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class Slack {
-
     private String url = "https://hooks.slack.com/services/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";
-
     public void sendMessage(JSONObject message) throws Exception {
-
         URL obj = new URL(this.url);
-
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
         con.setRequestMethod("POST");
