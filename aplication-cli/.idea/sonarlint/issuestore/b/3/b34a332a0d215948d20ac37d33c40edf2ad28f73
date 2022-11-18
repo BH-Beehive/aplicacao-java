@@ -1,13 +1,0 @@
-
-S
-java:S1854""6Remove this useless assignment to local variable "in".(äÆ¾Ó8¸Á«ÄÆ0
-U	java:S106"9Replace this use of System.out or System.err by a logger.(§ş¢8ºÁ«ÄÆ0
-O
-java:S6126"2Replace this String concatenation with Text block.(§ş¢8»Á«ÄÆ0
-D
-java:S1481""'Remove this unused "in" local variable.(äÆ¾Ó8ÄÁ«ÄÆ0
-]	java:S125$"<This block of commented-out lines of code should be removed.(Íğ¡˜øÿÿÿÿ8ÆÁ«ÄÆ0
-Z	java:S106)"9Replace this use of System.out or System.err by a logger.(ª‚ÿäüÿÿÿÿ8ÇÁ«ÄÆ0
-U	java:S106,"9Replace this use of System.out or System.err by a logger.(Œøğà8ÉÁ«ÄÆ0
-U	java:S106/"9Replace this use of System.out or System.err by a logger.(¥¾¬ª8ÌÁ«ÄÆ0
-U	java:S1067"9Replace this use of System.out or System.err by a logger.(”‡Ñ±8ĞÁ«ÄÆ0

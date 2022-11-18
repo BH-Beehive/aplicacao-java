@@ -43,6 +43,7 @@ public class InteracaoAPI {
             queries.update(memoriaTotal, discoTotal, arquitetura, sistemaOperacional, processador, token);
         }
 
+
         Maquina maquina = new Maquina(host_name, token, null);
 
         if(tipo.equalsIgnoreCase("servidor")){

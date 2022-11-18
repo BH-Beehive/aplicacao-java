@@ -10,7 +10,7 @@ public class CliTest {
         Slack slack = new Slack();
         JSONObject message = new JSONObject();
 
-        message.put("text", "s");
+        message.put("text", "Eu sou o deus da guerra");
 
         slack.sendMessage(message);
     }

@@ -157,6 +157,24 @@ public class Queries {
 
         }
         return "Erro ao executar select";
-
     }
+
+    public String selectSetorFromMaquina(String hostname) {
+        try {
+            resultSet = conexao.getCon().createStatement().executeQuery(
+                    "select nome_setor "
+                            + " from setor join maquina on id_setor = fk_setor where host_name ="
+                            + "'" + hostname + "'"
+                            + ";");
+            while (resultSet.next()) {
+                String colunaResultado = resultSet.getString("nome_setor");
+                return colunaResultado;
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao executar o select!" + e.getMessage());
+        }
+        return "Erro ao executar select";
+    }
+
+
 }
