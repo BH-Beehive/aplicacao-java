@@ -5,8 +5,8 @@ import database.ConexaoComBanco;
 import database.Queries;
 import enums.Alertas;
 import enums.TipoMaquina;
+import java.io.IOException;
 import model.Maquina;
-import org.checkerframework.checker.units.qual.C;
 import org.json.JSONObject;
 import utils.Conversor;
 
@@ -14,6 +14,9 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import utils.ConfigLog;
 
 public class InteracaoAPI {
     private String token;
@@ -25,6 +28,7 @@ public class InteracaoAPI {
         Slack slack = new Slack();
         JSONObject message = new JSONObject();
         con.conectarMySQL();
+        
         Queries queries = new Queries(con);
         long prefixo = conversor.getMEBI();
 
@@ -91,6 +95,15 @@ public class InteracaoAPI {
                 if (cpuUsada >= 90 || memoriaPercentual >= 90) {
                     alert = Alertas.VERMELHO.toString();
                     contadorAlertaCritico++;
+                    Queries qr = new Queries(con);
+                    String hostName = qr.selectColumn("host_name", token);
+                    String sistem = qr.selectColumn("sistema_operacional", token);
+                    ConfigLog conLog = new ConfigLog(hostName, sistem);
+                    try {
+                        conLog.logEstadoMaquina(alert);
+                    } catch (IOException ex) {
+                        Logger.getLogger(InteracaoAPI.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     if (contadorAlertaCritico > 4 && contadorSlack == null) {
                         contadorSlack = 0;
                         message.put("text", String.format("%s esta em estado critico no setor %s! ", host_name, queries.selectSetorFromMaquina(host_name)));
@@ -108,8 +121,26 @@ public class InteracaoAPI {
                 }
                 else if (cpuUsada >= 80 || memoriaPercentual >= 80) {
                     alert = Alertas.AMARELO.toString();
+                    Queries qr = new Queries(con);
+                    String hostName = qr.selectColumn("host_name", token);
+                    String sistem = qr.selectColumn("sistema_operacional", token);
+                    ConfigLog conLog = new ConfigLog(hostName, sistem);
+                    try {
+                        conLog.logEstadoMaquina(alert);
+                    } catch (IOException ex) {
+                        Logger.getLogger(InteracaoAPI.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 } else {
                     alert = Alertas.VERDE.toString();
+                     Queries qr = new Queries(con);
+                    String hostName = qr.selectColumn("host_name", token);
+                    String sistem = qr.selectColumn("sistema_operacional", token);
+                    ConfigLog conLog = new ConfigLog(hostName, sistem);
+                    try {
+                        conLog.logEstadoMaquina(alert);
+                    } catch (IOException ex) {
+                        Logger.getLogger(InteracaoAPI.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
 
                 Long valorDiscoUsado = looca.getGrupoDeDiscos().getVolumes().get(0).getTotal() - looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel();

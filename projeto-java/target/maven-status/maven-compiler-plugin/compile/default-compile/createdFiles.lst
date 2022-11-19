@@ -4,6 +4,9 @@ aplication\TelaLogin$5.class
 aplication\TelaLogin$2.class
 enums\TipoMaquina.class
 database\Queries.class
+enums\Prioridade.class
+model\Setor.class
+model\Log.class
 usecase\StartApi$1.class
 aplication\TelaLogin$6.class
 database\ConexaoComBanco.class
@@ -14,5 +17,6 @@ model\Empresa.class
 enums\Alertas.class
 usecase\StartApi.class
 aplication\TelaLogin$4.class
+model\Registro.class
 aplication\TelaLogin.class
 model\Suporte.class
