@@ -3,10 +3,18 @@ package usecases;
 import com.github.britooo.looca.api.core.Looca;
 import database.ConexaoComBanco;
 import database.Queries;
+import java.io.BufferedWriter;
 import java.io.DataOutputStream;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import utils.Conversor;
 
@@ -25,17 +33,33 @@ public class InteracaoAPI {
         Looca looca = new Looca();
         ConexaoComBanco con = new ConexaoComBanco();
         con.conectarMySQL();
-        FileOutputStream arq = new FileOutputStream("C:\\Users\\ferra\\Documents\\aplicacao-java\\aplication-cli\\src\\main\\java\\logs\\logConexao.txt");
-        DataOutputStream gravarArq = new DataOutputStream(arq);
-        Date data = new Date();
-        String dataConvertida = data.toString();
+        Path path = Paths.get("C:\\Users\\ferra\\Documents\\aplicacao-java\\aplication-cli\\src\\main\\java\\logs");
+		
+        if(!Files.exists(path)) {
+			
+            Files.createDirectory(path);
+			
+	}
+	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        String dataConvertida = dtf.format(LocalDateTime.now());
+	File log = new File("C:\\Users\\ferra\\Documents\\aplicacao-java\\aplication-cli\\src\\main\\java\\logs\\logConexaoBanco");
+		
+	if(!log.exists()) {
+			
+            log.createNewFile();
+		
+	}
+		
+	FileWriter fw = new FileWriter(log, true);
+	BufferedWriter bw = new BufferedWriter(fw);
+		
+        bw.write(email + "\n");
+        bw.write(tokenUsuario + "\n");
+        bw.write(dataConvertida + "\n\n");
+        bw.newLine();
 
-        gravarArq.writeUTF(email);
-        gravarArq.writeChars(tokenUsuario);
-        gravarArq.writeChars(dataConvertida);
-
-        arq.close();
-        System.out.printf("\n Teste \n");
+	bw.close();
+	fw.close();
         Queries queries = new Queries(con);
 
         String arquitetura = "x" + looca.getSistema().getArquitetura().toString();

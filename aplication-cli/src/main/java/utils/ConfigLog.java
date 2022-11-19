@@ -1,17 +1,16 @@
 package utils;
 
-import java.io.DataOutputStream;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.Date;
-
-
 
 public class ConfigLog {
     
@@ -21,34 +20,36 @@ public class ConfigLog {
     public ConfigLog(String maquina) {
         this.maquina = maquina;
     }
-    Integer contador = 1;
+    
     public void logEstadoMaquina(String estado) throws FileNotFoundException, IOException {
         
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-        Date hora = Calendar.getInstance().getTime(); // Ou qualquer outra forma que tem
-        String dataFormatada = sdf.format(hora);
-        
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYY-MM-DD");
-        FileOutputStream logs = new FileOutputStream("C:\\Users\\ferra\\Documents\\aplicacao-java\\aplication-cli\\src\\main\\java\\logs\\logEstadoMaquina"+formatter.format(dataAgora)+".txt", true);
-        DataOutputStream gravarArq = new DataOutputStream(logs);
-            
-        gravarArq.writeUTF("\n" + maquina);
-        gravarArq.writeUTF(estado);
-        gravarArq.writeUTF(dataFormatada);
-        
-        logs.close();
-        
-        System.out.println("\n Teste \n");
-        contador++;
-        
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYY-MM-DD");
-//        DateTimeFormatter formatterTime = DateTimeFormatter.;
-//        
-//        FileWriter log = new FileWriter("C:\\Users\\ferra\\Documents\\aplicacao-java\\aplication-cli\\src\\main\\java\\logs\\logEstadoMaquina"
-//                +formatter.format(dataAgora)+".txt", true);
-//        
-//        PrintWriter arquivo = new PrintWriter(log);
-//        arquivo.printf("%s", estado);
+        Path path = Paths.get("C:\\Users\\ferra\\Documents\\aplicacao-java\\aplication-cli\\src\\main\\java\\logs");
+		
+		if(!Files.exists(path)) {
+			
+			Files.createDirectory(path);
+			
+		}
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                String dataConvertida = dtf.format(LocalDateTime.now());
+		File log = new File("C:\\Users\\ferra\\Documents\\aplicacao-java\\aplication-cli\\src\\main\\java\\logs\\logEstadoMaquina"+dataAgora);
+		
+		if(!log.exists()) {
+			
+			log.createNewFile();
+		
+		}
+		
+		FileWriter fw = new FileWriter(log, true);
+		BufferedWriter bw = new BufferedWriter(fw);
+		
+                bw.write(maquina + "\n");
+		bw.write(estado + "\n");
+                bw.write(dataConvertida + "\n\n");
+		bw.newLine();
+
+		bw.close();
+		fw.close();
         }
                   
  }
