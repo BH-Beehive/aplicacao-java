@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2b3389f-2d60-462d-ba18-92d1f3ea0702" name="Changes" comment="Alertas dinamicos de acordo com a memoria ou CPU">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/6/96d46542588e1dc68e381a165811e8a2daa34835" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/ConexaoComBanco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/ConexaoComBanco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/Queries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/Queries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/usecases/InteracaoAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecases/InteracaoAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/usecases/Slack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecases/Slack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projeto-java/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../projeto-java/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../projeto-java/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../projeto-java/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +48,7 @@
     "WebServerToolWindowFactoryState": "false",
     "dart.analysis.tool.window.visible": "false",
     "jdk.selected.JAVA_MODULE": "18",
-    "last_opened_file_path": "C:/Users/gusta/OneDrive/Ambiente de Trabalho/Estudos/Projetos/BEEHIVE/aplicacao-java/aplication-cli",
+    "last_opened_file_path": "C:/Users/gusta/OneDrive/Ambiente de Trabalho/Estudos/Projetos/BEEHIVE/aplicacao-java/projeto-java",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -132,7 +127,7 @@
       <workItem from="1667336408512" duration="629000" />
       <workItem from="1668201216205" duration="2686000" />
       <workItem from="1668280089053" duration="1104000" />
-      <workItem from="1668726139905" duration="3638000" />
+      <workItem from="1668726139905" duration="4458000" />
     </task>
     <task id="LOCAL-00001" summary="Alertas dinamicos de acordo com a memoria ou CPU">
       <created>1667159929898</created>

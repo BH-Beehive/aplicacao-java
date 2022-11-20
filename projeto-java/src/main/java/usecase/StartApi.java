@@ -21,6 +21,9 @@ import java.util.logging.Logger;
 import utils.ConfigLog;
 
 public class StartApi {
+    static String azure = "producao";
+    static String local = "desenvolvimento";
+    private static String ambiente = azure;
     private String token;
     private String tokenFk_Maquina = "";
 
@@ -32,9 +35,9 @@ public class StartApi {
         Looca looca = new Looca();
         ConexaoComBanco con = new ConexaoComBanco();
         Conversor conversor = new Conversor();
-//        Slack slack = new Slack();
+        Slack slack = new Slack();
         JSONObject message = new JSONObject();
-        con.conectarMySQL();
+        con.conectarBanco();
         Queries queries = new Queries(con);
         long prefixo = conversor.getMEBI();
 
@@ -111,20 +114,20 @@ public class StartApi {
                     } catch (IOException ex) {
                         Logger.getLogger(StartApi.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    if (contadorAlertaCritico > 4 && contadorSlack == null) {
-                        contadorSlack = 0;
-                        message.put("text", String.format("%s esta em estado critico no setor %s! ", host_name, queries.selectSetorFromMaquina(host_name)));
-                        try {
-//                            slack.sendMessage(message);
-                        } catch (Exception e) {
-                            throw new RuntimeException(e);
+                        if (contadorAlertaCritico > 4 && contadorSlack == null) {
+                            contadorSlack = 0;
+                            message.put("text", String.format(":red_circle: %s esta em estado critico no setor %s! ", host_name, queries.selectSetorFromMaquina(host_name)));
+                            try {
+                            slack.sendMessage(message);
+                            } catch (Exception e) {
+                                throw new RuntimeException(e);
+                            }
                         }
-                    }
-                    if (contadorSlack != null) {
-                        if (contadorSlack == 20) {
-                            contadorSlack = null;
+                        if (contadorSlack != null) {
+                            if (contadorSlack == 20) {
+                                contadorSlack = null;
+                            }
                         }
-                    }
                 }
                 else if (cpuUsada >= 80 || memoriaPercentual >= 80) {
                     alert = Alertas.AMARELO.toString();
@@ -177,6 +180,10 @@ public class StartApi {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public static String getAmbiente() {
+        return ambiente;
     }
 
 

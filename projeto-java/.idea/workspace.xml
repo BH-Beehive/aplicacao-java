@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4de562a-18cb-4e50-adf6-9c365219624e" name="Changes" comment="Enviando alertas para o SLACK de acordo com os estados criticos.">
-      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/9/6/96d46542588e1dc68e381a165811e8a2daa34835" beforeDir="false" />
+    <list default="true" id="b4de562a-18cb-4e50-adf6-9c365219624e" name="Changes" comment="Enviando alertas para o SLACK de acordo com os estados criticos (CLI).">
       <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/database/Queries.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/database/Queries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/InteracaoAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/InteracaoAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/Slack.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/Slack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aplication/TelaLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aplication/TelaLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/ConexaoComBanco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/ConexaoComBanco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/Queries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/Queries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/StartApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/StartApi.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,29 +56,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "false",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/gusta/OneDrive/Ambiente de Trabalho/Estudos/Projetos/BEEHIVE/aplicacao-java/aplication-cli",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/gusta/OneDrive/Ambiente de Trabalho/Estudos/Projetos/BEEHIVE/aplicacao-java/projeto-java&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="database" />
       <recent name="usecase" />
     </key>
   </component>
@@ -151,7 +154,10 @@
       <workItem from="1667944563754" duration="5419000" />
       <workItem from="1668024407449" duration="535000" />
       <workItem from="1668201216205" duration="4498000" />
-      <workItem from="1668715026766" duration="20809000" />
+      <workItem from="1668715026766" duration="20893000" />
+      <workItem from="1668814372618" duration="32000" />
+      <workItem from="1668820493736" duration="393000" />
+      <workItem from="1668823406086" duration="21267000" />
     </task>
     <task id="LOCAL-00001" summary="Docker-compose adicionado">
       <created>1665953307436</created>
@@ -188,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668812328535</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Enviando alertas para o SLACK de acordo com os estados criticos (CLI).">
+      <created>1668814319378</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1668814319378</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,6 +223,23 @@
     <MESSAGE value="Inserindo Registros, diferenciando pelo id da maquina" />
     <MESSAGE value="Aplicação CLI ajustada de acordo com a Aplicação com interface gráfica" />
     <MESSAGE value="Enviando alertas para o SLACK de acordo com os estados criticos." />
-    <option name="LAST_COMMIT_MESSAGE" value="Enviando alertas para o SLACK de acordo com os estados criticos." />
+    <MESSAGE value="Enviando alertas para o SLACK de acordo com os estados criticos (CLI)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Enviando alertas para o SLACK de acordo com os estados criticos (CLI)." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/usecase/StartApi.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/database/Queries.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

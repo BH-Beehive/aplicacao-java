@@ -11,3 +11,15 @@ T
 $src/main/java/enums/TipoMaquina.java,3\9\399b60bc9e1ffeefaf059df4c2ad8cf804c7158b
 W
 'src/main/java/aplication/TelaLogin.form,f\b\fbf094bec96e6eb249cd9b8525d204f22ca17710
+P
+ src/main/java/model/Suporte.java,9\5\95fcbcdde059ca509bd77de3c07685208e8b6d25
+P
+ src/main/java/model/Empresa.java,5\3\5332d8e2869bc85aac9751a20ae896dd2fd2edf4
+R
+"src/main/java/utils/Conversor.java,0\4\04e11777074e1fd5260b2e60d7e3dceb658248d7
+N
+src/main/java/model/Setor.java,0\4\04d42496cf5568aa7e7f621e7eb4adbefc59c651
+P
+ src/main/java/model/Maquina.java,e\1\e1173fe8491c09be277f287694cd2fd5e842929c
+L
+src/main/java/model/Log.java,7\6\76b190aeda7a4deb06b4a4c065c2effc7e6cfac0

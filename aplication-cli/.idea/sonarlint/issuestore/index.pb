@@ -3,3 +3,23 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 _
 /src/main/java/usecases/TimerSchedulePeriod.java,3\0\30ea00fb0fb06e0217bbba115c4b7846232865b7
+Q
+!src/main/java/usecases/Login.java,b\3\b34a332a0d215948d20ac37d33c40edf2ad28f73
+P
+ src/main/java/model/Suporte.java,9\5\95fcbcdde059ca509bd77de3c07685208e8b6d25
+O
+src/main/java/test/CliTest.java,6\f\6fc847a19bd6644b211c6a1feca64ff817eecffb
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+R
+"src/main/java/utils/Conversor.java,0\4\04e11777074e1fd5260b2e60d7e3dceb658248d7
+Q
+!src/main/java/aplication/CLI.java,9\6\96d46542588e1dc68e381a165811e8a2daa34835
+S
+#src/main/java/database/Queries.java,3\7\375e16dc284ed3a291b56b603b70297c5fea4c6e
+Q
+!src/main/java/usecases/Slack.java,2\7\273d933e40a688c86a10a5c5c08c3847293c9675
+X
+(src/main/java/usecases/InteracaoAPI.java,b\8\b8ddf26b270b7c4b4313b76fd3bf61648ab81e3f
+[
++src/main/java/database/ConexaoComBanco.java,f\2\f2728042d6bb9889942d3528d07b9050a0958f77

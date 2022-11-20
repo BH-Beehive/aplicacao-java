@@ -8,7 +8,6 @@ import database.ConexaoComBanco;
 import database.Queries;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -262,16 +261,16 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
-        ConexaoComBanco conect = new ConexaoComBanco();
-        conect.conectarMySQL();
-        Queries queries = new Queries(conect);
+        ConexaoComBanco con = new ConexaoComBanco();
+        con.conectarBanco();
+        Queries queries = new Queries(con);
 
         email = inputEmail.getText();
         senha = new String(inputSenha.getPassword());
         token = inputToken.getText();
 
 
-        conect.validarAcesso(email, senha, token);
+        con.validarAcesso(email, senha, token);
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     public JCheckBox getCheckBoxConectado() {

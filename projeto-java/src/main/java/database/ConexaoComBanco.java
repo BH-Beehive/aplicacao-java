@@ -12,6 +12,7 @@ import usecase.StartApi;
 
 public class ConexaoComBanco {
 
+
     private StartApi startApi = new StartApi();
     private String url = "jdbc:mysql://172.17.0.2:3306/Beehive";
     private String user = "root";
@@ -24,16 +25,34 @@ public class ConexaoComBanco {
     public ConexaoComBanco() {
     }
 
-    public void conectarMySQL() {
-        try {
-            System.out.println("Abrindo conexao com o banco ...");
-            con = DriverManager.getConnection(url, user, password);
-            System.out.println("Conexao realizada com sucesso!");
-        } catch (SQLException ex) {
-            System.out.println("Falha ao conectar com o banco!" + ex.getMessage());
+    public void conectarBanco() {
+        if (StartApi.getAmbiente().equals("producao")) {
+            url = "jdbc:sqlserver://projeto-beehive.database.windows.net:1433;" +
+                    "database=bd-beehive;" +
+                    "user=admin-beehive@projeto-beehive;" +
+                    "password={#Gfgrupo7};" +
+                    "encrypt=true;" +
+                    "trustServerCertificate=false;" +
+                    "hostNameInCertificate=*.database.windows.net;" +
+                    "loginTimeout=30;";
+            try {
+                System.out.println("Abrindo conexao com o banco Azure...");
+                con = DriverManager.getConnection(url);
+                System.out.println("Conexao realizada na Azure com sucesso!");
+            } catch (SQLException ex) {
+                System.out.println("Falha ao conectar com o banco Azure!" + ex.getMessage());
+            }
+        } else {
+            try {
+                System.out.println("Abrindo conexao com o banco Local...");
+                con = DriverManager.getConnection(url, user, password);
+                System.out.println("Conexao local realizada com sucesso!");
+            } catch (SQLException ex) {
+                System.out.println("Falha ao conectar localmente com o banco!" + ex.getMessage());
+            }
         }
-
     }
+
 
     public boolean validarAcesso(String email, String senha, String token) {
         TelaLogin telaLogin = new TelaLogin();
