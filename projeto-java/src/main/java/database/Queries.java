@@ -5,6 +5,8 @@
 package database;
 
 import aplication.TelaLogin;
+import usecase.StartApi;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,23 +19,15 @@ public class Queries {
     private PreparedStatement ps = null;
     private ResultSet resultSet = null;
     private Statement st = null;
-    private ConexaoComBanco conexao = new ConexaoComBanco();
+    private ConexaoComBanco conexao = null;
 
     public Queries(ConexaoComBanco conexao) {
         this.conexao = conexao;
     }
+    private TelaLogin tela = new TelaLogin();
 
-    public void selectAll(String query) {
-        try {
-            ps = conexao.getCon().prepareStatement(query);
-            resultSet = ps.executeQuery(query);
-            while (resultSet.next()) {
-                System.out.println("Nome:" + resultSet.getString("nome_empresa"));
-            }
-        } catch (SQLException e) {
-            System.out.println("Erro ao executar o select!" + e.getMessage());
-        }
-    }
+
+
 
     public void update(Double memoriaTotal, Double discoTotal, String arquitetura, String sistemaOperacional, String processador, String tokenAcesso) {
         try {
@@ -59,8 +53,6 @@ public class Queries {
             resultSet = conexao.getCon().createStatement().executeQuery("select * from maquina");
             while (resultSet.next()) {
                 System.out.println("Host_name:" + resultSet.getString("host_name")
-                        + "\nNivel de prioridade: " + resultSet.getString("nivel_prioridade")
-                        + "\n Setor:" + resultSet.getString("setor")
                         + "\n Tipo:" + resultSet.getString("tipo")
                         + "\n Arquitetura: " + resultSet.getString("arquitetura")
                         + "\n Token: " + resultSet.getString("token_acesso")
@@ -76,41 +68,75 @@ public class Queries {
         }
     }
 
-    public void insertRegistro(Long fkMaquina, Double memoriaUsada, Integer cpuUsada, Double discoUsado, String alerta) {
-        try {
-
-            ps = conexao.getCon().prepareStatement("insert into registro values (null,default,?,?,?,?,?);");
-            ps.setLong(1, fkMaquina);
-            ps.setDouble(2, memoriaUsada);
-            ps.setInt(3, cpuUsada);
-            ps.setDouble(4, discoUsado);
-            ps.setString(5, alerta);
-            ps.executeUpdate();
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+    public void insertRegistro(String fkMaquina, Double memoriaUsada, Integer cpuUsada, Double discoUsado, String alerta) {
+        if (StartApi.getAmbiente().equals("producao")) {
+            try {
+                ps = conexao.getCon().prepareStatement("insert into registro values (default,?,?,?,?,?);");
+                ps.setString(1, fkMaquina);
+                ps.setDouble(2, memoriaUsada);
+                ps.setInt(3, cpuUsada);
+                ps.setDouble(4, discoUsado);
+                ps.setString(5, alerta);
+                ps.executeUpdate();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            try {
+                ps = conexao.getCon().prepareStatement("insert into registro values (null,default,?,?,?,?,?);");
+                ps.setString(1, fkMaquina);
+                ps.setDouble(2, memoriaUsada);
+                ps.setInt(3, cpuUsada);
+                ps.setDouble(4, discoUsado);
+                ps.setString(5, alerta);
+                ps.executeUpdate();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
-    }
+        }
+
 
     public void insertDadosMaquina(String host_name, String token, String tipo, Double memoriaTotal, Double discoTotal, String arquitetura, String so, String processador, String setor, Integer prioridade) {
-        try {
-            ps = conexao.getCon().prepareStatement(" insert into maquina values (null,?,?,true,?,?,?,?,?,?,1,?,?)");
-            ps.setString(1, host_name);
-            ps.setString(2, token);
-            ps.setString(3, tipo);
-            ps.setDouble(4, memoriaTotal);
-            ps.setDouble(5, discoTotal);
-            ps.setString(6, arquitetura);
-            ps.setString(7, so);
-            ps.setString(8, processador);
-            ps.setString(9, setor);
-            ps.setInt(10, prioridade);
-            ps.executeUpdate();
-            System.out.println("Cadastrado com sucesso!");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        if (StartApi.getAmbiente().equals("producao")) {
+            try {
+                ps = conexao.getCon().prepareStatement(" insert into maquina values (?,?,1,?,?,?,?,?,?,1,?,?)");
+                ps.setString(1, host_name);
+                ps.setString(2, token);
+                ps.setString(3, tipo);
+                ps.setDouble(4, memoriaTotal);
+                ps.setDouble(5, discoTotal);
+                ps.setString(6, arquitetura);
+                ps.setString(7, so);
+                ps.setString(8, processador);
+                ps.setString(9, setor);
+                ps.setInt(10, prioridade);
+                ps.executeUpdate();
+                System.out.println("Cadastrado com sucesso!");
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            try {
+                ps = conexao.getCon().prepareStatement(" insert into maquina values (null,?,?,true,?,?,?,?,?,?,1,?,?)");
+                ps.setString(1, host_name);
+                ps.setString(2, token);
+                ps.setString(3, tipo);
+                ps.setDouble(4, memoriaTotal);
+                ps.setDouble(5, discoTotal);
+                ps.setString(6, arquitetura);
+                ps.setString(7, so);
+                ps.setString(8, processador);
+                ps.setString(9, setor);
+                ps.setInt(10, prioridade);
+                ps.executeUpdate();
+                System.out.println("Cadastrado com sucesso!");
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
-    }
+        }
+
 
     public void selectBySetor(String componente, String setor) {
         try {
@@ -151,4 +177,42 @@ public class Queries {
             System.out.println("Erro ao executar o select!" + e.getMessage());
         }
     }
+
+    public String selectColumn(String coluna, String token) {
+        try {
+            resultSet = conexao.getCon().createStatement().executeQuery("SELECT "
+                    + coluna+" from maquina where token_acesso='" + token+"';");
+
+            while (resultSet.next()) {
+                String colunaResultado = resultSet.getString(coluna);
+                System.out.println("-------------------------" + colunaResultado);
+                System.out.println("-------------------------"+ coluna);
+                return colunaResultado;
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Erro ao executar o select!" + e.getMessage() + "\n" + this.getClass());
+
+        }
+        return "Erro ao executar select";
+    }
+
+    public String selectSetorFromMaquina(String hostname) {
+        try {
+            resultSet = conexao.getCon().createStatement().executeQuery(
+                    "select nome_setor "
+                            + " from setor join maquina on id_setor = fk_setor where host_name ="
+                            + "'" + hostname + "'"
+                            + ";");
+            while (resultSet.next()) {
+                String colunaResultado = resultSet.getString("nome_setor");
+                return colunaResultado;
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao executar o select!" + e.getMessage());
+        }
+        return "Erro ao executar select";
+    }
+
+
 }

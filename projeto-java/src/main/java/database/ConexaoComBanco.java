@@ -12,6 +12,7 @@ import usecase.StartApi;
 
 public class ConexaoComBanco {
 
+
     private StartApi startApi = new StartApi();
     private String url = "jdbc:mysql://172.17.0.2:3306/Beehive";
     private String user = "root";
@@ -24,21 +25,39 @@ public class ConexaoComBanco {
     public ConexaoComBanco() {
     }
 
-    public void conectarMySQL() {
-        try {
-            System.out.println("Abrindo conexao com o banco ...");
-            con = DriverManager.getConnection(url, user, password);
-            System.out.println("Conexao realizada com sucesso!");
-        } catch (SQLException ex) {
-            System.out.println("Falha ao conectar com o banco!" + ex.getMessage());
+    public void conectarBanco() {
+        if (StartApi.getAmbiente().equals("producao")) {
+            url = "jdbc:sqlserver://projeto-beehive.database.windows.net:1433;" +
+                    "database=bd-beehive;" +
+                    "user=admin-beehive@projeto-beehive;" +
+                    "password={#Gfgrupo7};" +
+                    "encrypt=true;" +
+                    "trustServerCertificate=false;" +
+                    "hostNameInCertificate=*.database.windows.net;" +
+                    "loginTimeout=30;";
+            try {
+                System.out.println("Abrindo conexao com o banco Azure...");
+                con = DriverManager.getConnection(url);
+                System.out.println("Conexao realizada na Azure com sucesso!");
+            } catch (SQLException ex) {
+                System.out.println("Falha ao conectar com o banco Azure!" + ex.getMessage());
+            }
+        } else {
+            try {
+                System.out.println("Abrindo conexao com o banco Local...");
+                con = DriverManager.getConnection(url, user, password);
+                System.out.println("Conexao local realizada com sucesso!");
+            } catch (SQLException ex) {
+                System.out.println("Falha ao conectar localmente com o banco!" + ex.getMessage());
+            }
         }
-
     }
+
 
     public boolean validarAcesso(String email, String senha, String token) {
         TelaLogin telaLogin = new TelaLogin();
         try {
-            ps = con.prepareStatement("select id_empresa,email, senha,token_acesso\n"
+            ps = con.prepareStatement("select id_empresa,email, senha,token_acesso, token_ativo \n"
                     + "from empresa\njoin maquina\non fk_empresa = id_empresa where email"
                     + " = ? and senha = ? and token_acesso = ?;");
             ps.setString(1, email);
@@ -46,7 +65,7 @@ public class ConexaoComBanco {
             ps.setString(3, token);
             resultSet = ps.executeQuery();
             int rowCount = 0;
-
+            startApi.returnToken(token);
             while (resultSet.next()) {
                 rowCount++;
                 System.out.println("COUNT::" + rowCount);
@@ -54,8 +73,15 @@ public class ConexaoComBanco {
                 System.out.println("senha:" + resultSet.getString("senha"));
                 System.out.println("token_acesso:" + resultSet.getString("token_acesso"));
                 JOptionPane.showMessageDialog(telaLogin, "Login efetuado com sucesso!");
-                startApi.execute();
-                telaLogin.hide();
+                System.out.println(token);
+                if(resultSet.getBoolean("token_ativo")) {
+                    startApi.setToken(resultSet.getString("token_acesso"));
+                    startApi.execute();
+                }
+                else{
+                    JOptionPane.showMessageDialog(telaLogin, "Token inválido!",
+                            "ERRO!", JOptionPane.ERROR_MESSAGE);
+                }
 
             }
 
@@ -64,14 +90,15 @@ public class ConexaoComBanco {
                         "ERRO!", JOptionPane.ERROR_MESSAGE);
             }
         } catch (SQLException e) {
-            System.out.println("Erro ao executar o select!" + e.getMessage());
+            System.out.println("Erro ao executar validação!" + e.getMessage());
 
         }
         return false;
     }
 
-    public Connection getCon() {
+
+public Connection getCon() {
         return con;
-    }
+    }    
 
 }

@@ -2,6 +2,9 @@ package model;
 
 import enums.TipoMaquina;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Maquina {
     private Long id;
     private String hostName;
@@ -13,11 +16,16 @@ public class Maquina {
     private String arquitetura;
     private String sistemaOperacional;
     private String processador;
+    private List<Registro> registros;
+    public Maquina() {
+    }
 
+    
     public Maquina(String hostName, String tokenAcesso, TipoMaquina tipoMaquina) {
         this.hostName = hostName;
         this.tokenAcesso = tokenAcesso;
         this.tipoMaquina = tipoMaquina;
+        this.registros = new ArrayList<>();
     }
 
     public Long getId() {

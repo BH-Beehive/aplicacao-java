@@ -2,12 +2,12 @@ package model;
 
 public class Suporte {
     private Long id;
-    private String name;
+    private String nome;
     private String email_slack;
     private String telefone;
 
-    public Suporte(String name, String email_slack, String telefone) {
-        this.name = name;
+    public Suporte(String nome, String email_slack, String telefone) {
+        this.nome = nome;
         this.email_slack = email_slack;
         this.telefone = telefone;
     }
@@ -16,12 +16,12 @@ public class Suporte {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getEmail_slack() {
