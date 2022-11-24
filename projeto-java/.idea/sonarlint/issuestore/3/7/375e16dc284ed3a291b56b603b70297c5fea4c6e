@@ -1,0 +1,35 @@
+
+`	java:S112/"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112R"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112^"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112u"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+a	java:S112‡"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+v
+java:S1192C"[Define a constant instead of duplicating this literal "Erro ao executar o select!" 5 times.(«ì±Áıÿÿÿÿ
+W	java:S107d"=Method has 10 parameters, which is greater than 7 authorized.(ëİŠ¸úÿÿÿÿ
+k	java:S117d"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëİŠ¸úÿÿÿÿ
+~
+java:S1488Ğ"gImmediately return this expression instead of assigning it to the temporary variable "colunaResultado".(üïù¦
+L
+java:S1172 "1Remove this unused method parameter "discoTotal".(ïöóèøÿÿÿÿ
+S	java:S1067"9Replace this use of System.out or System.err by a logger.(¶şø¥ıÿÿÿÿ
+S	java:S106C"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ
+N	java:S106s"9Replace this use of System.out or System.err by a logger.(Øø…Œ
+O	java:S106…"9Replace this use of System.out or System.err by a logger.(Øø…Œ
+T	java:S106˜"9Replace this use of System.out or System.err by a logger.(î˜ìúşÿÿÿÿ
+T	java:S106"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ
+T	java:S106«"9Replace this use of System.out or System.err by a logger.(ª¾†³ÿÿÿÿÿ
+T	java:S106±"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ
+O	java:S106¼"9Replace this use of System.out or System.err by a logger.(Ú›¯Ñ
+T	java:S106½"9Replace this use of System.out or System.err by a logger.(»áşÊøÿÿÿÿ
+O	java:S106Â"9Replace this use of System.out or System.err by a logger.(…™Ïÿ
+T	java:S106Ô"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ
+M
+java:S1128
+"0Remove this unused import 'java.sql.Connection'.(¥ËôÖ8éŠˆšÉ0
+Q
+java:S1128"4Remove this unused import 'javax.swing.JOptionPane'.(÷‰Îé8êŠˆšÉ0
+<
+java:S1068"&Remove this unused "st" private field.(øšã”
+>
+java:S1068"(Remove this unused "tela" private field.(İ›Ş‰
