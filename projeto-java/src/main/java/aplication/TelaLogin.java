@@ -6,8 +6,13 @@ package aplication;
 
 import database.ConexaoComBanco;
 import database.Queries;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
+import utils.LoginAutomatic;
+
+import javax.swing.*;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  *
@@ -252,26 +257,15 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_inputSenhaActionPerformed
 
     private void CheckBoxConectadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBoxConectadoActionPerformed
-
+        LoginAutomatic login = new LoginAutomatic();
+        login.criacaoArquivoLogin(inputEmail.getText(), new String(inputSenha.getPassword()), inputToken.getText());
     }//GEN-LAST:event_CheckBoxConectadoActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnSairActionPerformed
 
-    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        // TODO add your handling code here:
-        ConexaoComBanco con = new ConexaoComBanco();
-        con.conectarBanco();
-        Queries queries = new Queries(con);
-
-        email = inputEmail.getText();
-        senha = new String(inputSenha.getPassword());
-        token = inputToken.getText();
-
-
-        con.validarAcesso(email, senha, token);
-    }//GEN-LAST:event_btnEntrarActionPerformed
+    //GEN-LAST:event_btnEntrarActionPerformed
 
     public JCheckBox getCheckBoxConectado() {
         return CheckBoxConectado;
@@ -340,11 +334,82 @@ public class TelaLogin extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            String email = "";
+            String senha = "";
+            String token = "";
             public void run() {
                 new TelaLogin().setVisible(true);
+                Path path = Paths.get(".\\loginAutomatico");
+                File login = new File(".\\loginAutomatico\\LOGIN-AUTOMATICO");
+                if (Files.exists(path) && login.exists()) {
+                    try {
+                        BufferedReader br
+                                = new BufferedReader(new FileReader(login));
+                        String line;
+                        Integer contadorLinhas = 0;
+                        while((line = br.readLine()) != null){
+                            if (contadorLinhas == 0) {
+                                email = line;
+                                contadorLinhas++;
+                            } else if (contadorLinhas == 1) {
+                                senha = line;
+                                contadorLinhas++;
+                            } else if (contadorLinhas == 2){
+                                token = line;
+                                contadorLinhas++;
+                            }
+                            inputEmail.setText(email);
+                            inputSenha.setText(senha);
+                            inputToken.setText(token);
+                        }
+                    } catch (FileNotFoundException e) {
+                        throw new RuntimeException(e);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
             }
         });
     }
+
+
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+        // TODO add your handling code here:
+        ConexaoComBanco con = new ConexaoComBanco();
+        con.conectarBanco();
+        Queries queries = new Queries(con);
+        email = inputEmail.getText();
+        senha = new String(inputSenha.getPassword());
+        token = inputToken.getText();
+        Path path = Paths.get(".\\loginAutomatico");
+        File login = new File(".\\loginAutomatico\\LOGIN-AUTOMATICO");
+        if (Files.exists(path) && login.exists()) {
+            try {
+                BufferedReader br
+                        = new BufferedReader(new FileReader(login));
+                String line;
+                Integer contadorLinhas = 0;
+                while((line = br.readLine()) != null){
+                    if (contadorLinhas == 0) {
+                        email = line;
+                        contadorLinhas++;
+                    } else if (contadorLinhas == 1) {
+                        senha = line;
+                        contadorLinhas++;
+                    } else if (contadorLinhas == 2){
+                        token = line;
+                        contadorLinhas++;
+                    }
+                }
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        con.validarAcesso(email, senha, token);
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox CheckBoxConectado;
@@ -353,9 +418,9 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel exibirEmail;
     private javax.swing.JLabel exibirSenha;
     private javax.swing.JLabel exibirToken;
-    private javax.swing.JTextField inputEmail;
-    private javax.swing.JPasswordField inputSenha;
-    private javax.swing.JTextField inputToken;
+    public static javax.swing.JTextField inputEmail;
+    public static javax.swing.JPasswordField inputSenha;
+    public static javax.swing.JTextField inputToken;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
