@@ -1,0 +1,14 @@
+
+P
+java:S1854":Remove this useless assignment to local variable "usoCPU".(úıŸ
+a
+java:S1854"FRemove this useless assignment to local variable "processosOrdenados".(ß—µùÿÿÿÿ
+R
+java:S1481"7Remove this unused "processosOrdenados" local variable.(ß—µùÿÿÿÿ
+A
+java:S1481"+Remove this unused "usoCPU" local variable.(úıŸ
+Q	java:S125 "<This block of commented-out lines of code should be removed.(Ø¾Ê
+M
+java:S1128"2Remove this unused import 'java.util.Collections'.(¢³ïÓşÿÿÿÿ
+J
+java:S1128"4Remove this unused import 'java.util.stream.Stream'.(ó÷”
