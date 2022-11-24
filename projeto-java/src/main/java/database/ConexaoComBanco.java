@@ -1,6 +1,8 @@
 package database;
 
 import aplication.TelaLogin;
+
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,15 +10,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+
+import com.github.britooo.looca.api.core.Looca;
 import usecase.StartApi;
+import utils.LoginAutomatic;
 
 public class ConexaoComBanco {
 
 
     private StartApi startApi = new StartApi();
-    private String url = "jdbc:mysql://172.17.0.2:3306/Beehive";
+    private String url = "jdbc:mysql://localhost:3306/Beehive";
     private String user = "root";
-    private String password = "123456";
+    private String password = "1470";
     private Connection con = null;
     private PreparedStatement ps = null;
     private ResultSet resultSet = null;
@@ -56,6 +61,7 @@ public class ConexaoComBanco {
 
     public boolean validarAcesso(String email, String senha, String token) {
         TelaLogin telaLogin = new TelaLogin();
+        Looca looca = new Looca();
         try {
             ps = con.prepareStatement("select id_empresa,email, senha,token_acesso, token_ativo \n"
                     + "from empresa\njoin maquina\non fk_empresa = id_empresa where email"
@@ -76,6 +82,8 @@ public class ConexaoComBanco {
                 System.out.println(token);
                 if(resultSet.getBoolean("token_ativo")) {
                     startApi.setToken(resultSet.getString("token_acesso"));
+                    LoginAutomatic login = new LoginAutomatic();
+                    login.criacaoArquivoLogin(email, senha, token);
                     startApi.execute();
                 }
                 else{

@@ -1,0 +1,25 @@
+
+`	java:S112&"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112J"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112^"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+v
+java:S1192:"[Define a constant instead of duplicating this literal "Erro ao executar o select!" 5 times.(«ì±Áıÿÿÿÿ
+W	java:S107N"=Method has 10 parameters, which is greater than 7 authorized.(ëİŠ¸úÿÿÿÿ
+k	java:S117N"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëİŠ¸úÿÿÿÿ
+Š
+java:S1488‘"gImmediately return this expression instead of assigning it to the temporary variable "colunaResultado".(¼…ú‚üÿÿÿÿ8‹æÅÅÆ0
+…
+java:S1488¤"gImmediately return this expression instead of assigning it to the temporary variable "colunaResultado".(üïù¦8ã‹èÈ0
+L
+java:S1172"1Remove this unused method parameter "discoTotal".(ïöóèøÿÿÿÿ
+S	java:S106."9Replace this use of System.out or System.err by a logger.(¶şø¥ıÿÿÿÿ
+S	java:S106:"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ
+N	java:S106\"9Replace this use of System.out or System.err by a logger.(Øø…Œ
+S	java:S106m"9Replace this use of System.out or System.err by a logger.(î˜ìúşÿÿÿÿ
+S	java:S106r"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ
+T	java:S106€"9Replace this use of System.out or System.err by a logger.(ª¾†³ÿÿÿÿÿ
+T	java:S106†"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ
+O	java:S106–"9Replace this use of System.out or System.err by a logger.(…™Ïÿ
+[	java:S106¨"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ8–‘‹èÈ0
+<
+java:S1068"&Remove this unused "st" private field.(øšã”

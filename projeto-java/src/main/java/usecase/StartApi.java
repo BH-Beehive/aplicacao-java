@@ -23,7 +23,7 @@ import utils.ConfigLog;
 public class StartApi {
     static String azure = "producao";
     static String local = "desenvolvimento";
-    private static String ambiente = azure;
+    private static String ambiente = local;
     private String token;
     private String tokenFk_Maquina = "";
 

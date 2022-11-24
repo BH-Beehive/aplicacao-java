@@ -1,0 +1,24 @@
+
+
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Çµí‘8ÌºêÉ0
+f
+java:S1128"DRemove this unused import 'com.github.britooo.looca.api.core.Looca'.(Á–Æìıÿÿÿÿ8ÏºêÉ0
+O
+java:S1128"3Remove this unused import 'java.io.BufferedWriter'.(¬õº/8ÏºêÉ0
+F
+java:S1128")Remove this unused import 'java.io.File'.(†Ğ¥Å8ÏºêÉ0
+Q
+java:S1128"/Remove this unused import 'java.io.FileWriter'.(Ã‘ÅÃıÿÿÿÿ8ĞºêÉ0
+R
+java:S1128"0Remove this unused import 'java.io.IOException'.(ªº»Úıÿÿÿÿ8ĞºêÉ0
+M
+java:S1128	"0Remove this unused import 'java.nio.file.Files'.(‚ƒü8ĞºêÉ0
+L
+java:S1128
+"/Remove this unused import 'java.nio.file.Path'.(×²êÂ8ĞºêÉ0
+M
+java:S1128"0Remove this unused import 'java.nio.file.Paths'.(áè°¯8ÑºêÉ0
+V
+java:S1128"4Remove this unused import 'java.time.LocalDateTime'.(æÃ§ƒüÿÿÿÿ8ÙæƒêÉ0
+\
+java:S1128"?Remove this unused import 'java.time.format.DateTimeFormatter'.(‰÷÷ª8ÙæƒêÉ0
