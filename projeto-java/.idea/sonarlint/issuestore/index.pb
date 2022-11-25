@@ -23,3 +23,11 @@ P
  src/main/java/model/Maquina.java,e\1\e1173fe8491c09be277f287694cd2fd5e842929c
 L
 src/main/java/model/Log.java,7\6\76b190aeda7a4deb06b4a4c065c2effc7e6cfac0
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+[
++src/main/java/database/ConexaoComBanco.java,f\2\f2728042d6bb9889942d3528d07b9050a0958f77
+R
+"src/main/java/utils/ConfigLog.java,9\3\9345957403abdb7f454e7772cd1ddf53449d5dc7
+W
+'src/main/java/utils/LoginAutomatic.java,4\c\4c9b395262943121992dea65f5a9fb8937be3fc6

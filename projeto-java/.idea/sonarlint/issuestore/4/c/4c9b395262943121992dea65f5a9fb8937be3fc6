@@ -1,0 +1,16 @@
+
+`	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112."FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S1128"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112D"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112Q"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+h
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 42 to the 15 allowed.(Ï·
+S
+java:S1854+"8Remove this useless assignment to local variable "bval".(û’å©ıÿÿÿÿ
+W	java:S899"BDo something with the "boolean" value returned by "createNewFile".(µ¦÷İ
+Z	java:S899+"@Do something with the "boolean" value returned by "setReadOnly".(û’å©ıÿÿÿÿ
+D
+java:S1481+")Remove this unused "bval" local variable.(û’å©ıÿÿÿÿ
+W	java:S899B"BDo something with the "boolean" value returned by "createNewFile".(µ¦÷İ

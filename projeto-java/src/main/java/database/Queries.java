@@ -30,7 +30,7 @@ public class Queries {
                     + "sistema_operacional = ? , processador = ? "
                     + " where token_acesso = ?;");
             ps.setDouble(1, memoriaTotal);
-            ps.setDouble(2, memoriaTotal);
+            ps.setDouble(2, discoTotal);
             ps.setString(3, arquitetura);
             ps.setString(4, sistemaOperacional);
             ps.setString(5, processador);
@@ -177,8 +177,6 @@ public class Queries {
 
             while (resultSet.next()) {
                 String colunaResultado = resultSet.getString(coluna);
-                System.out.println("-------------------------" + colunaResultado);
-                System.out.println("-------------------------"+ coluna);
                 return colunaResultado;
             }
 
