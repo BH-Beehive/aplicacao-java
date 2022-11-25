@@ -269,13 +269,15 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
+        LoginAutomatic loginA = new LoginAutomatic();
+        loginA.criacaoArquivoLogin(inputEmail.getText(), new String(inputSenha.getPassword()), inputToken.getText());
         Looca l = new Looca();
         ConexaoComBanco con = new ConexaoComBanco();
         con.conectarBanco();
         Queries queries = new Queries(con);
-        email = inputEmail.getText();
-        senha = new String(inputSenha.getPassword());
-        token = inputToken.getText();
+        email = inputEmail.toString();
+        senha = inputSenha.toString();
+        token = inputToken.toString();
         String pathLinux = ".//loginAutomatico";
         String loginLinux = ".//loginAutomatico//LOGIN-AUTOMATICO";
         String loginWin = ".\\loginAutomatico\\LOGIN-AUTOMATICO";

@@ -21,15 +21,5 @@ N
 src/main/java/model/Setor.java,0\4\04d42496cf5568aa7e7f621e7eb4adbefc59c651
 P
  src/main/java/model/Maquina.java,e\1\e1173fe8491c09be277f287694cd2fd5e842929c
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-S
-#src/main/java/database/Queries.java,3\7\375e16dc284ed3a291b56b603b70297c5fea4c6e
 L
 src/main/java/model/Log.java,7\6\76b190aeda7a4deb06b4a4c065c2effc7e6cfac0
-P
- src/main/java/usecase/Slack.java,b\d\bdc35e54452f2cf190786e9c11f83d9359d41a84
-T
-$src/main/java/test/TesteRetorno.java,a\7\a7a35e628d0190c7ca69c9da47ce28e51ff3d2f2
-R
-"src/main/java/utils/ConfigLog.java,9\3\9345957403abdb7f454e7772cd1ddf53449d5dc7

@@ -7,12 +7,10 @@ package database;
 import aplication.TelaLogin;
 import usecase.StartApi;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.JOptionPane;
 
 public class Queries {
 
@@ -25,10 +23,6 @@ public class Queries {
         this.conexao = conexao;
     }
     private TelaLogin tela = new TelaLogin();
-
-
-
-
     public void update(Double memoriaTotal, Double discoTotal, String arquitetura, String sistemaOperacional, String processador, String tokenAcesso) {
         try {
             ps = conexao.getCon().prepareStatement("update maquina set memoria_total = ? , "
@@ -96,7 +90,6 @@ public class Queries {
         }
         }
 
-
     public void insertDadosMaquina(String host_name, String token, String tipo, Double memoriaTotal, Double discoTotal, String arquitetura, String so, String processador, String setor, Integer prioridade) {
         if (StartApi.getAmbiente().equals("producao")) {
             try {
@@ -136,7 +129,6 @@ public class Queries {
             }
         }
         }
-
 
     public void selectBySetor(String componente, String setor) {
         try {
@@ -213,6 +205,4 @@ public class Queries {
         }
         return "Erro ao executar select";
     }
-
-
 }
