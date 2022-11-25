@@ -50,11 +50,10 @@ public class StartApi {
         String host_name = queries.selectColumn("host_name", token);
         String arquiteturaMaq = queries.selectColumn("arquitetura", token);
         String soMaq = queries.selectColumn("sistema_operacional", token);
-        Double discoTotalMaq = Double.valueOf(queries.selectColumn("disco_total", token));
         String processadorMaq = queries.selectColumn("processador", token);
         String tipo = queries.selectColumn("tipo", token);
 
-        if (arquiteturaMaq == null || soMaq == null || discoTotalMaq == null || processadorMaq == null) {
+        if (arquiteturaMaq == null || soMaq == null || processadorMaq == null) {
             queries.update(memoriaTotal, discoTotal, arquitetura, sistemaOperacional, processador, token);
         }
 
