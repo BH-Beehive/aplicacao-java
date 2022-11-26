@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4de562a-18cb-4e50-adf6-9c365219624e" name="Changes" comment="Enviando alertas para o SLACK de acordo com os estados criticos (CLI).">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/d/bdc35e54452f2cf190786e9c11f83d9359d41a84" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/usecase/Slack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/Slack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/StartApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/StartApi.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,7 +212,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/aplication/TelaLogin.java</url>
-          <line>360</line>
+          <line>363</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
