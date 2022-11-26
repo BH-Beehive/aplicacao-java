@@ -103,7 +103,7 @@ public class StartApi {
                 cpuUsada = valorCpuUsada;
 
                 if (cpuUsada >= 90 || memoriaPercentual >= 90) {
-                    alert = Alertas.VERMELHO.toString();
+                    alert = Alertas.VERMELHO.toString().toLowerCase();
                     contadorAlertaCritico++;
                     Queries qr = new Queries(con);
                     String hostName = qr.selectColumn("host_name", token);
@@ -130,7 +130,7 @@ public class StartApi {
                         }
                 }
                 else if (cpuUsada >= 80 || memoriaPercentual >= 80) {
-                    alert = Alertas.AMARELO.toString();
+                    alert = Alertas.AMARELO.toString().toLowerCase();
                     contadorAlertaCritico = 0;
                     Queries qr = new Queries(con);
                     String hostName = qr.selectColumn("host_name", token);
@@ -142,7 +142,7 @@ public class StartApi {
                         Logger.getLogger(StartApi.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } else {
-                    alert = Alertas.VERDE.toString();
+                    alert = Alertas.VERDE.toString().toLowerCase();
                     contadorAlertaCritico = 0;
                     Queries qr = new Queries(con);
                     String hostName = qr.selectColumn("host_name", token);
