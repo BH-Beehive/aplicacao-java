@@ -1,7 +1,7 @@
 
-_
-java:S1128"DRemove this unused import 'com.github.britooo.looca.api.core.Looca'.(Á–Æìıÿÿÿÿ
+f
+java:S1128"DRemove this unused import 'com.github.britooo.looca.api.core.Looca'.(Á–Æìıÿÿÿÿ8­Ó¨‚Ë0
+W
+java:S1128"5Remove this unused import 'database.ConexaoComBanco'.(¹âöÎùÿÿÿÿ8­Ó¨‚Ë0
 P
-java:S1128"5Remove this unused import 'database.ConexaoComBanco'.(¹âöÎùÿÿÿÿ
-I
-java:S1128".Remove this unused import 'java.util.Scanner'.(ÒÜÅ¸úÿÿÿÿ
+java:S1128".Remove this unused import 'java.util.Scanner'.(ÒÜÅ¸úÿÿÿÿ8®Ó¨‚Ë0

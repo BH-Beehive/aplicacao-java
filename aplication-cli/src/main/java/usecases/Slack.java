@@ -9,7 +9,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class Slack {
-    private String url = "https://hooks.slack.com/services/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";
+    private String url = "https://hooks.slack.com/services/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";
     public void sendMessage(JSONObject message) throws Exception {
         URL obj = new URL(this.url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -23,11 +23,6 @@ public class Slack {
         wr.flush();
         wr.close();
 
-        int responseCode = con.getResponseCode();
-
-        System.out.println("Sending 'POST' request to URL: " + this.url);
-        System.out.println("POST parameters: " + message.toString());
-        System.out.println("Response Code: " + responseCode);
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
@@ -40,7 +35,6 @@ public class Slack {
         }
 
         reader.close();
-        System.out.println("Success.");
     }
 }
 

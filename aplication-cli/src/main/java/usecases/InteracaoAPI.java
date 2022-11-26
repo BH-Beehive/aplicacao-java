@@ -19,6 +19,9 @@ import java.util.logging.Logger;
 import utils.ConfigLog;
 
 public class InteracaoAPI {
+    static String azure = "producao";
+    static String local = "desenvolvimento";
+    private static String ambiente = local;
     private String token;
     public Boolean execute() {
        Boolean isEnded = false;
@@ -27,18 +30,18 @@ public class InteracaoAPI {
         ConexaoComBanco con = new ConexaoComBanco();
         Slack slack = new Slack();
         JSONObject message = new JSONObject();
-        con.conectarMySQL();
+        con.conectarBanco();
         
         Queries queries = new Queries(con);
         long prefixo = conversor.getMEBI();
 
         String arquitetura = "x" + looca.getSistema().getArquitetura().toString();
         String sistemaOperacional = looca.getSistema().getSistemaOperacional();
-        Double memoriaTotal = conversor.formatarUnidades(looca.getMemoria().getTotal(), prefixo).doubleValue();
-        Double discoTotal = conversor.formatarUnidades(looca.getGrupoDeDiscos().getTamanhoTotal(), prefixo).doubleValue();
+        Double memoriaTotal = Conversor.formatarUnidades(looca.getMemoria().getTotal(), prefixo).doubleValue();
+        Double discoTotal = Conversor.formatarUnidades(looca.getGrupoDeDiscos().getTamanhoTotal(), prefixo).doubleValue();
         String processador = looca.getProcessador().getNome();
 
-        String host_name = queries.selectColumn("host_name",token);
+        String hostName = queries.selectColumn("host_name",token);
         String arquiteturaMaq = queries.selectColumn("arquitetura",token);
         String soMaq = queries.selectColumn("sistema_operacional",token);
         Double discoTotalMaq = Double.valueOf(queries.selectColumn("disco_total",token));
@@ -51,7 +54,7 @@ public class InteracaoAPI {
         }
 
 
-        Maquina maquina = new Maquina(host_name, token, null);
+        Maquina maquina = new Maquina(hostName, token, null);
 
         if(tipo.equalsIgnoreCase("servidor")){
             maquina.setTipoMaquina(TipoMaquina.SERVIDOR);
@@ -83,10 +86,10 @@ public class InteracaoAPI {
             @Override
             public void run() {
                 Long valorMemoriaUsada = looca.getMemoria().getEmUso();
-                memoriaUsada = conversor.formatarUnidades(valorMemoriaUsada, prefixo);
+                memoriaUsada = Conversor.formatarUnidades(valorMemoriaUsada, prefixo);
 
-                Long memoriaPercentual = 0L;
-                Long memoriaTotal = conversor.formatarUnidades(looca.getMemoria().getTotal(), prefixo);
+                Long memoriaPercentual;
+                Long memoriaTotal = Conversor.formatarUnidades(looca.getMemoria().getTotal(), prefixo);
                 memoriaPercentual = (memoriaUsada * 100) / memoriaTotal;
 
                 Long valorCpuUsada = looca.getProcessador().getUso().longValue();
@@ -106,17 +109,15 @@ public class InteracaoAPI {
                     }
                     if (contadorAlertaCritico > 4 && contadorSlack == null) {
                         contadorSlack = 0;
-                        message.put("text", String.format("%s esta em estado critico no setor %s! ", host_name, queries.selectSetorFromMaquina(host_name)));
+                        message.put("text", String.format("%s esta em estado critico no setor %s! ", hostName, queries.selectSetorFromMaquina(hostName)));
                         try {
                             slack.sendMessage(message);
                         } catch (Exception e) {
                             throw new RuntimeException(e);
                         }
                     }
-                    if (contadorSlack != null) {
-                        if (contadorSlack == 20) {
+                    if (contadorSlack != null && contadorSlack == 20) {
                             contadorSlack = null;
-                        }
                     }
                 }
                 else if (cpuUsada >= 80 || memoriaPercentual >= 80) {
@@ -144,9 +145,9 @@ public class InteracaoAPI {
                 }
 
                 Long valorDiscoUsado = looca.getGrupoDeDiscos().getVolumes().get(0).getTotal() - looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel();
-                discoUsado = conversor.formatarUnidades(valorDiscoUsado, prefixo);
-                String fk_maquina = queries.selectColumn("id_maquina", getToken());
-                queries.insertRegistro(fk_maquina, memoriaUsada.doubleValue(), cpuUsada.intValue(), discoUsado.doubleValue(), alert);
+                discoUsado = Conversor.formatarUnidades(valorDiscoUsado, prefixo);
+                String fkMaquina = queries.selectColumn("id_maquina", getToken());
+                queries.insertRegistro(fkMaquina, memoriaUsada.doubleValue(), cpuUsada.intValue(), discoUsado.doubleValue(), alert);
 
                 if (contadorSlack != null) {
                     contadorSlack++;
@@ -172,7 +173,7 @@ public class InteracaoAPI {
                     "7 - FINALIZAR APLICACAO");
             System.out.println("Escolha o componente: ");
             escolhaMain = scan1.nextInt();
-            long valor = 0L;
+            long valor;
             long prefixoGB = conversor.getGIBI();
             String invalidOption = "\nEscolha invalida!";
             if (escolhaMain == 1) {
@@ -399,4 +400,7 @@ public class InteracaoAPI {
         this.token = token;
     }
 
+    public static String getAmbiente() {
+        return ambiente;
+    }
 }

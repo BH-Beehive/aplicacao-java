@@ -4,7 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4de562a-18cb-4e50-adf6-9c365219624e" name="Changes" comment="WIP;" />
+    <list default="true" id="b4de562a-18cb-4e50-adf6-9c365219624e" name="Changes" comment="Enviando alertas para o SLACK de acordo com os estados criticos (CLI).">
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/0/4/04e11777074e1fd5260b2e60d7e3dceb658248d7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/2/7/273d933e40a688c86a10a5c5c08c3847293c9675" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/2/7/273d933e40a688c86a10a5c5c08c3847293c9675" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/3/7/375e16dc284ed3a291b56b603b70297c5fea4c6e" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/3/7/375e16dc284ed3a291b56b603b70297c5fea4c6e" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/6/f/6fc847a19bd6644b211c6a1feca64ff817eecffb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/8/e/8e4c23c04de2ac66895545d371178af14c1884a5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/9/5/95fcbcdde059ca509bd77de3c07685208e8b6d25" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/9/6/96d46542588e1dc68e381a165811e8a2daa34835" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/9/6/96d46542588e1dc68e381a165811e8a2daa34835" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/b/3/b34a332a0d215948d20ac37d33c40edf2ad28f73" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/b/3/b34a332a0d215948d20ac37d33c40edf2ad28f73" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/b/8/b8ddf26b270b7c4b4313b76fd3bf61648ab81e3f" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/b/8/b8ddf26b270b7c4b4313b76fd3bf61648ab81e3f" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/f/2/f2728042d6bb9889942d3528d07b9050a0958f77" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/f/2/f2728042d6bb9889942d3528d07b9050a0958f77" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/database/ConexaoComBanco.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/database/ConexaoComBanco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/database/Queries.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/database/Queries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/InteracaoAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/InteracaoAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/Slack.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/Slack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/utils/ConfigLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/utils/ConfigLog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/target/classes/.netbeans_automatic_build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/Queries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/Queries.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,7 +76,7 @@
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;false&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/gusta/OneDrive/Ambiente de Trabalho/Estudos/Projetos/BEEHIVE/aplicacao-java/projeto-java&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/gusta/OneDrive/Ambiente de Trabalho/Estudos/aplicacao-java/aplication-cli&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -65,16 +88,19 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\gusta\OneDrive\Ambiente de Trabalho\Estudos\aplicacao-java\projeto-java\src\main\java\usecase" />
+      <recent name="C:\Users\gusta\OneDrive\Ambiente de Trabalho\Estudos\aplicacao-java\projeto-java\src\main\java\utils" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="utils" />
       <recent name="database" />
       <recent name="usecase" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TelaLogin">
+  <component name="RunManager" selected="Application.TesteRetorno">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="projeto-java" />
@@ -125,8 +151,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TelaLogin" />
         <item itemvalue="Application.TesteRetorno" />
+        <item itemvalue="Application.TelaLogin" />
         <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
@@ -148,13 +174,8 @@
       <workItem from="1668715026766" duration="20893000" />
       <workItem from="1668814372618" duration="32000" />
       <workItem from="1668820493736" duration="393000" />
-      <workItem from="1668823406086" duration="21575000" />
-      <workItem from="1668977407404" duration="1180000" />
-      <workItem from="1668979461687" duration="352000" />
-      <workItem from="1668980827118" duration="1664000" />
-      <workItem from="1669079791352" duration="11136000" />
-      <workItem from="1669246253468" duration="2969000" />
-      <workItem from="1669326697343" duration="3295000" />
+      <workItem from="1668823406086" duration="21267000" />
+      <workItem from="1669340625108" duration="9301000" />
     </task>
     <task id="LOCAL-00001" summary="Docker-compose adicionado">
       <created>1665953307436</created>
@@ -198,21 +219,7 @@
       <option name="project" value="LOCAL" />
       <updated>1668814319378</updated>
     </task>
-    <task id="LOCAL-00007" summary="Conexão com a Azure e querie trocadas ajustadas para sqlServer de acordo com necessidade">
-      <created>1668917899428</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1668917899428</updated>
-    </task>
-    <task id="LOCAL-00008" summary="WIP;">
-      <created>1669331130383</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1669331130383</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,17 +242,25 @@
     <MESSAGE value="Aplicação CLI ajustada de acordo com a Aplicação com interface gráfica" />
     <MESSAGE value="Enviando alertas para o SLACK de acordo com os estados criticos." />
     <MESSAGE value="Enviando alertas para o SLACK de acordo com os estados criticos (CLI)." />
-    <MESSAGE value="Conexão com a Azure e querie trocadas ajustadas para sqlServer de acordo com necessidade" />
-    <MESSAGE value="WIP;" />
-    <option name="LAST_COMMIT_MESSAGE" value="WIP;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Enviando alertas para o SLACK de acordo com os estados criticos (CLI)." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/database/Queries.java</url>
-          <line>71</line>
+          <line>65</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/aplication/TelaLogin.java</url>
+          <line>360</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/aplication/TelaLogin.java</url>
+          <line>365</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
