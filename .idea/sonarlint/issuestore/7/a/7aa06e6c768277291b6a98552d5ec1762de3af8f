@@ -1,0 +1,85 @@
+
+a	java:S112•"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+a	java:S112—"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+a	java:S112±"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+a	java:S112³"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+_
+java:S1192g"IDefine a constant instead of duplicating this literal "Segoe UI" 3 times.(ÍÆ£¹
+>
+java:S1604m"(Make this anonymous inner class a lambda(©™«ÿ
+>
+java:S1604y"(Make this anonymous inner class a lambda(—°ÓÊ
+?
+java:S1604„"(Make this anonymous inner class a lambda(ªÁÇÉ
+?
+java:S1604š"(Make this anonymous inner class a lambda(©—‚Ê
+D
+java:S1604 "(Make this anonymous inner class a lambda(ğ—Ê¥ûÿÿÿÿ
+r	java:S116¹"\Rename this field "CheckBoxConectado" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜‡ö£
+v
+java:S1450¼"ZRemove the "exibirEmail" field and declare it as a local variable in the relevant methods.(º¨‰ğıÿÿÿÿ
+v
+java:S1450½"ZRemove the "exibirSenha" field and declare it as a local variable in the relevant methods.(Ş˜Ö†şÿÿÿÿ
+v
+java:S1450¾"ZRemove the "exibirToken" field and declare it as a local variable in the relevant methods.(Ëç‡œşÿÿÿÿ
+r
+java:S1450Â"VRemove the "jLabel1" field and declare it as a local variable in the relevant methods.(°ãÉ¸ÿÿÿÿÿ
+r
+java:S1450Ã"VRemove the "jLabel2" field and declare it as a local variable in the relevant methods.(™úòˆüÿÿÿÿ
+r
+java:S1450Ä"VRemove the "jLabel3" field and declare it as a local variable in the relevant methods.(Îä€øÿÿÿÿ
+m
+java:S1450Å"VRemove the "jLabel4" field and declare it as a local variable in the relevant methods.(«¢•ã
+m
+java:S1450Æ"VRemove the "jLabel5" field and declare it as a local variable in the relevant methods.(ó Ù®
+r
+java:S1450Ç"VRemove the "jLabel6" field and declare it as a local variable in the relevant methods.(¸ôÂøÿÿÿÿ
+m
+java:S1450È"VRemove the "jLabel7" field and declare it as a local variable in the relevant methods.(×ê˜Ÿ
+r
+java:S1450É"VRemove the "jPanel1" field and declare it as a local variable in the relevant methods.(´œ½ÿÿÿÿÿ
+r
+java:S1450Ê"VRemove the "jPanel2" field and declare it as a local variable in the relevant methods.(õ òçüÿÿÿÿ
+Q
+java:S26969"6Make the enclosing method "static" or remove this set.(şåô…ÿÿÿÿÿ
+L
+java:S2696:"6Make the enclosing method "static" or remove this set.(Ä­
+Q
+java:S2696;"6Make the enclosing method "static" or remove this set.(Ùç¤µüÿÿÿÿ
+[
+java:S3252™"?Use static access with "javax.swing.SwingConstants" for "LEFT".(»ÅÔùÿÿÿÿ
+F
+java:S1172ı"*Remove this unused method parameter "evt".(±¦ıÿÿÿÿ
+N
+java:S1135ş"2Complete the task associated to this TODO comment.(ÜÀ†áûÿÿÿÿ
+A
+java:S1172"*Remove this unused method parameter "evt".(ÒÄÇ“
+N
+java:S1135‚"2Complete the task associated to this TODO comment.(ÜÀ†áûÿÿÿÿ
+d	java:S100…"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(šóÜ£
+A
+java:S1172…"*Remove this unused method parameter "evt".(šóÜ£
+F
+java:S1172Š"*Remove this unused method parameter "evt".(†ÅÌœúÿÿÿÿ
+W
+java:S1854•";Remove this useless assignment to local variable "queries".(»Õ‰áÿÿÿÿÿ
+A
+java:S1172"*Remove this unused method parameter "evt".(æİ„§
+N
+java:S1135"2Complete the task associated to this TODO comment.(ÜÀ†áûÿÿÿÿ
+H
+java:S1481•",Remove this unused "queries" local variable.(»Õ‰áÿÿÿÿÿ
+n
+java:S3776Î"RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.(¡şÏÖøÿÿÿÿ
+F
+java:S1197Î"*Move the array designators [] to the type.(¡şÏÖøÿÿÿÿ
+\
+java:S2147ß"ECombine this catch with the one at line 349, which has the same body.(¨¦Š½
+\
+java:S2147á"ECombine this catch with the one at line 349, which has the same body.(ã€ 
+[
+java:S2147ã"ECombine this catch with the one at line 349, which has the same body.(ñÎ¯%
+\
+java:S2147–"ECombine this catch with the one at line 404, which has the same body.(ï­£Ä
+\
+java:S2147²"ECombine this catch with the one at line 432, which has the same body.(ï­£Ä

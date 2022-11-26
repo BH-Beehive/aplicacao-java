@@ -1,0 +1,18 @@
+
+`	java:S112)"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112L"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112X"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112n"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+a	java:S112€"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+v
+java:S1192="[Define a constant instead of duplicating this literal "Erro ao executar o select!" 5 times.(«ì±Áıÿÿÿÿ
+W	java:S107]"=Method has 10 parameters, which is greater than 7 authorized.(ëİŠ¸úÿÿÿÿ
+k	java:S117]"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëİŠ¸úÿÿÿÿ
+ƒ
+java:S1488³"gImmediately return this expression instead of assigning it to the temporary variable "colunaResultado".(¼…ú‚üÿÿÿÿ
+~
+java:S1488Æ"gImmediately return this expression instead of assigning it to the temporary variable "colunaResultado".(üïù¦
+<
+java:S1068"&Remove this unused "st" private field.(øšã”
+>
+java:S1068"(Remove this unused "tela" private field.(İ›Ş‰
