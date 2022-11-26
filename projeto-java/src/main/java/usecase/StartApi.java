@@ -24,7 +24,7 @@ import utils.Log;
 public class StartApi {
     static String azure = "producao";
     static String local = "desenvolvimento";
-    private static String ambiente = local;
+    private static String ambiente = azure;
     private String token;
     private String tokenFk_Maquina = "";
 
@@ -54,10 +54,8 @@ public class StartApi {
         String host_name = queries.selectColumn("host_name", token);
         String arquiteturaMaq = queries.selectColumn("arquitetura", token);
         String soMaq = queries.selectColumn("sistema_operacional", token);
-<<<<<<< HEAD
 //        Double discoTotalMaq = Double.valueOf(queries.selectColumn("disco_total", token));
-=======
->>>>>>> 25aa7a51c3d331fbf5b0bda8c5e338d7a7fd6ae5
+
         String processadorMaq = queries.selectColumn("processador", token);
         String tipo = queries.selectColumn("tipo", token);
 
@@ -166,7 +164,7 @@ public class StartApi {
                 discoUsado = conversor.formatarUnidades(valorDiscoUsado, prefixo);
                 String fk_maquina = queries.selectColumn("id_maquina", tokenFk_Maquina);
                 queries.insertRegistro(fk_maquina, memoriaUsada.doubleValue(), cpuUsada.intValue(), discoUsado.doubleValue(), alert);
-                queries.insertRegistro(fk_maquina, memoriaUsada.doubleValue(), cpuUsada.intValue(), discoUsado.doubleValue(), alert);
+                queriesDock.insertRegistro(fk_maquina, memoriaUsada.doubleValue(), cpuUsada.intValue(), discoUsado.doubleValue(), alert);
                 System.out.println("\n-------------------------------------------");
 
                 System.out.println("\nCPU USADA:" + cpuUsada + "%\n");

@@ -6,6 +6,7 @@ package aplication;
 
 import com.github.britooo.looca.api.core.Looca;
 import database.ConexaoComBanco;
+import database.ConexãoDocker;
 import database.Queries;
 import utils.LoginAutomatico;
 
@@ -273,6 +274,7 @@ public class TelaLogin extends javax.swing.JFrame {
         loginA.criacaoArquivoLogin(inputEmail.getText(), new String(inputSenha.getPassword()), inputToken.getText());
         Looca l = new Looca();
         ConexaoComBanco con = new ConexaoComBanco();
+        ConexãoDocker conDocker = new ConexãoDocker();
         con.conectarBanco();
         Queries queries = new Queries(con);
         email = inputEmail.toString();
@@ -290,6 +292,7 @@ public class TelaLogin extends javax.swing.JFrame {
         }
         archiveProcess(path, login);
         con.validarAcesso(email, senha, token);
+        conDocker.validarAcesso(email, senha, token);
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     public JCheckBox getCheckBoxConectado() {
