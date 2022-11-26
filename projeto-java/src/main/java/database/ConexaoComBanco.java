@@ -16,7 +16,7 @@ public class ConexaoComBanco {
     private StartApi startApi = new StartApi();
     private String url = "jdbc:mysql://localhost:3306/Beehive";
     private String user = "root";
-    private String password = "1470";
+    private String password = "BallDragon123";
     private Connection con = null;
     private PreparedStatement ps = null;
     private ResultSet resultSet = null;
@@ -74,7 +74,7 @@ public class ConexaoComBanco {
                 System.out.println("token_acesso:" + resultSet.getString("token_acesso"));
                 JOptionPane.showMessageDialog(telaLogin, "Login efetuado com sucesso!");
                 System.out.println(token);
-                if(resultSet.getBoolean("token_ativo")) {
+                if(!resultSet.getBoolean("token_ativo")) {
                     startApi.setToken(resultSet.getString("token_acesso"));
                     startApi.execute();
                 }
