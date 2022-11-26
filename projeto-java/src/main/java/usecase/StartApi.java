@@ -7,6 +7,7 @@ package usecase;
 
 import com.github.britooo.looca.api.core.Looca;
 import database.ConexaoComBanco;
+import database.ConexãoDocker;
 import database.Queries;
 import enums.Alertas;
 import enums.TipoMaquina;
@@ -18,7 +19,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import utils.ConfigLog;
+import utils.Log;
 
 public class StartApi {
     static String azure = "producao";
@@ -34,11 +35,14 @@ public class StartApi {
     public void execute() {
         Looca looca = new Looca();
         ConexaoComBanco con = new ConexaoComBanco();
+        ConexãoDocker conDock = new ConexãoDocker();
         Conversor conversor = new Conversor();
         Slack slack = new Slack();
         JSONObject message = new JSONObject();
         con.conectarBanco();
+        conDock.conectarBancoDocker();
         Queries queries = new Queries(con);
+        Queries queriesDock = new Queries(conDock);
         long prefixo = conversor.getMEBI();
 
         String arquitetura = "x" + looca.getSistema().getArquitetura().toString();
@@ -108,7 +112,7 @@ public class StartApi {
                     Queries qr = new Queries(con);
                     String hostName = qr.selectColumn("host_name", token);
                     String sistem = qr.selectColumn("sistema_operacional", token);
-                    ConfigLog conLog = new ConfigLog(hostName, sistem);
+                    Log conLog = new Log(hostName, sistem);
                     try {
                         conLog.logEstadoMaquina(alert);
                     } catch (IOException ex) {
@@ -135,7 +139,7 @@ public class StartApi {
                     Queries qr = new Queries(con);
                     String hostName = qr.selectColumn("host_name", token);
                     String sistem = qr.selectColumn("sistema_operacional", token);
-                    ConfigLog conLog = new ConfigLog(hostName, sistem);
+                    Log conLog = new Log(hostName, sistem);
                     try {
                         conLog.logEstadoMaquina(alert);
                     } catch (IOException ex) {
@@ -147,7 +151,7 @@ public class StartApi {
                     Queries qr = new Queries(con);
                     String hostName = qr.selectColumn("host_name", token);
                     String sistem = qr.selectColumn("sistema_operacional", token);
-                    ConfigLog conLog = new ConfigLog(hostName, sistem);
+                    Log conLog = new Log(hostName, sistem);
                     try {
                         conLog.logEstadoMaquina(alert);
                     } catch (IOException ex) {
@@ -158,6 +162,7 @@ public class StartApi {
                 Long valorDiscoUsado = looca.getGrupoDeDiscos().getVolumes().get(0).getTotal() - looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel();
                 discoUsado = conversor.formatarUnidades(valorDiscoUsado, prefixo);
                 String fk_maquina = queries.selectColumn("id_maquina", tokenFk_Maquina);
+                queries.insertRegistro(fk_maquina, memoriaUsada.doubleValue(), cpuUsada.intValue(), discoUsado.doubleValue(), alert);
                 queries.insertRegistro(fk_maquina, memoriaUsada.doubleValue(), cpuUsada.intValue(), discoUsado.doubleValue(), alert);
                 System.out.println("\n-------------------------------------------");
 

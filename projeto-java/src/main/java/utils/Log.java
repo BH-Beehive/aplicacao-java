@@ -1,5 +1,7 @@
 package utils;
 
+import model.Registro;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,12 +14,12 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class ConfigLog {
+public class Log extends Registro {
     private String maquina;
     private String sistemaOperacional;
     private LocalDate dataAgora = LocalDate.now();
 
-    public ConfigLog(String maquina, String sistemaOperacional) {
+    public Log(String maquina, String sistemaOperacional) {
         this.maquina = maquina;
         this.sistemaOperacional = sistemaOperacional;
     }

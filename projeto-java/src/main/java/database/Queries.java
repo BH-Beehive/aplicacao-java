@@ -15,12 +15,17 @@ import java.sql.Statement;
 public class Queries {
 
     private PreparedStatement ps = null;
+    private PreparedStatement psDock = null;
     private ResultSet resultSet = null;
     private Statement st = null;
     private ConexaoComBanco conexao = null;
+    private ConexãoDocker  conDock = null;
 
     public Queries(ConexaoComBanco conexao) {
         this.conexao = conexao;
+    }
+    public Queries(ConexãoDocker conDock) {
+        this.conDock = conDock;
     }
     private TelaLogin tela = new TelaLogin();
     public void update(Double memoriaTotal, Double discoTotal, String arquitetura, String sistemaOperacional, String processador, String tokenAcesso) {
@@ -72,6 +77,15 @@ public class Queries {
                 ps.setDouble(4, discoUsado);
                 ps.setString(5, alerta);
                 ps.executeUpdate();
+
+                psDock = conexao.getCon().prepareStatement("insert into registro values (default,?,?,?,?,?);");
+                psDock.setString(1, fkMaquina);
+                psDock.setDouble(2, memoriaUsada);
+                psDock.setInt(3, cpuUsada);
+                psDock.setDouble(4, discoUsado);
+                psDock.setString(5, alerta);
+                psDock.executeUpdate();
+
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
