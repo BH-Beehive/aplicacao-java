@@ -1,13 +1,18 @@
 package database;
 
 import aplication.TelaLogin;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.JOptionPane;
+import javax.swing.*;
+
 import usecase.StartApi;
 
 public class ConexaoComBanco {
@@ -77,6 +82,23 @@ public class ConexaoComBanco {
                 if(!resultSet.getBoolean("token_ativo")) {
                     startApi.setToken(resultSet.getString("token_acesso"));
                     startApi.execute();
+                    telaLogin.setVisible(false);
+                    JFrame f=new JFrame("Button Example");
+                    f.setUndecorated(true);
+                    f.setBackground( new Color(0.0f,0.0f,0.0f,0.0f));
+                    JButton b=new JButton("STOP");
+                    b.setBounds(0,0,120, 40);
+                    f.add(b);
+                    f.setSize(120,120);
+                    f.setLayout(null);
+                    f.setVisible(true);
+
+                    b.addActionListener(new ActionListener(){
+                        public void actionPerformed(ActionEvent e){
+                            System.exit(0);
+                        }
+                    });
+                    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                     return true;
                 }
                 else{
