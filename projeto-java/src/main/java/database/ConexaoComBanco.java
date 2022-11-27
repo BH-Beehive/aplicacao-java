@@ -1,29 +1,22 @@
 package database;
 
 import aplication.TelaLogin;
+import com.github.britooo.looca.api.core.Looca;
+import usecase.StartApi;
 
+import javax.swing.*;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import javax.swing.JOptionPane;
-
-import com.github.britooo.looca.api.core.Looca;
-import usecase.StartApi;
-import utils.LoginAutomatico;
+import java.sql.*;
 
 public class ConexaoComBanco {
 
 
     private StartApi startApi = new StartApi();
-    private String url = "jdbc:mysql://localhost:3306/Beehive";
+    private String url = "jdbc:mysql://172.17.0.2:3306/Beehive";
     private String user = "root";
-    private String password = "1470";
+    private String password = "123456";
     private Connection con = null;
     private PreparedStatement ps = null;
     private ResultSet resultSet = null;
