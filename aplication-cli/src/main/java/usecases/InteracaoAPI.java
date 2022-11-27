@@ -24,14 +24,14 @@ public class InteracaoAPI {
     private static String ambiente = local;
     private String token;
     public Boolean execute() {
-       Boolean isEnded = false;
-       Conversor conversor = new Conversor();
+        Boolean isEnded = false;
+        Conversor conversor = new Conversor();
         Looca looca = new Looca();
         ConexaoComBanco con = new ConexaoComBanco();
         Slack slack = new Slack();
         JSONObject message = new JSONObject();
         con.conectarBanco();
-        
+
         Queries queries = new Queries(con);
         long prefixo = conversor.getMEBI();
 
@@ -116,7 +116,7 @@ public class InteracaoAPI {
                         }
                     }
                     if (contadorSlack != null && contadorSlack == 20) {
-                            contadorSlack = null;
+                        contadorSlack = null;
                     }
                 }
                 else if (cpuUsada >= 80 || memoriaPercentual >= 80) {
@@ -132,7 +132,7 @@ public class InteracaoAPI {
                     }
                 } else {
                     alert = Alertas.VERDE.toString();
-                     Queries qr = new Queries(con);
+                    Queries qr = new Queries(con);
                     String hostName = qr.selectColumn("host_name", token);
                     String sistem = qr.selectColumn("sistema_operacional", token);
                     ConfigLog conLog = new ConfigLog(hostName, sistem);
@@ -183,7 +183,7 @@ public class InteracaoAPI {
                 escolhaSub = scan2.nextInt();
                 switch (escolhaSub) {
                     case 1:
-                         valor = looca.getMemoria().getTotal();
+                        valor = looca.getMemoria().getTotal();
                         System.out.println(conversor.formatarUnidades(valor, prefixoGB, "GB"));
                         break;
                     case 2:
@@ -199,7 +199,7 @@ public class InteracaoAPI {
                         break;
                 }
             }
-               else if (escolhaMain == 2) {
+            else if (escolhaMain == 2) {
                 List disco;
                 Integer quantidade;
                 System.out.println("\nDISCOS\n" +
@@ -241,47 +241,47 @@ public class InteracaoAPI {
 
                 }
             }
-                else if (escolhaMain == 3) {
-                    Double usoProcessador;
-                    System.out.println("\nPROCESSADOR\n" +
-                            "1 - Uso\n" +
-                            "2 - Fabricante \n" +
-                            "3 - Frequencia \n" +
-                            "4 - Identificador \n" +
-                            "5 - Micro Arquitetura \n" +
-                            "6 - Quantidade Nucleos Fisicos \n" +
-                            "7 - Quantidade Nucleos Logicos \n"
-                    );
-                    escolhaSub = scan2.nextInt();
-                    switch (escolhaSub) {
-                        case 1:
-                            usoProcessador = looca.getProcessador().getUso();
-                            System.out.println(String.format("%.1f", usoProcessador));
-                            break;
-                        case 2:
-                            System.out.println(looca.getProcessador().getFabricante());
-                            break;
-                        case 3:
-                            System.out.println(looca.getProcessador().getFrequencia() + "hz");
-                            break;
-                        case 4:
-                            System.out.println(looca.getProcessador().getIdentificador());
-                            break;
-                        case 5:
-                            System.out.println(looca.getProcessador().getMicroarquitetura());
-                            break;
-                        case 6:
-                            System.out.println(looca.getProcessador().getNumeroCpusFisicas());
-                            break;
-                        case 7:
-                            System.out.println(looca.getProcessador().getNumeroCpusLogicas());
-                            break;
-                        default:
-                            System.out.println(invalidOption);
-                            break;
-                    }
+            else if (escolhaMain == 3) {
+                Double usoProcessador;
+                System.out.println("\nPROCESSADOR\n" +
+                        "1 - Uso\n" +
+                        "2 - Fabricante \n" +
+                        "3 - Frequencia \n" +
+                        "4 - Identificador \n" +
+                        "5 - Micro Arquitetura \n" +
+                        "6 - Quantidade Nucleos Fisicos \n" +
+                        "7 - Quantidade Nucleos Logicos \n"
+                );
+                escolhaSub = scan2.nextInt();
+                switch (escolhaSub) {
+                    case 1:
+                        usoProcessador = looca.getProcessador().getUso();
+                        System.out.println(String.format("%.1f", usoProcessador));
+                        break;
+                    case 2:
+                        System.out.println(looca.getProcessador().getFabricante());
+                        break;
+                    case 3:
+                        System.out.println(looca.getProcessador().getFrequencia() + "hz");
+                        break;
+                    case 4:
+                        System.out.println(looca.getProcessador().getIdentificador());
+                        break;
+                    case 5:
+                        System.out.println(looca.getProcessador().getMicroarquitetura());
+                        break;
+                    case 6:
+                        System.out.println(looca.getProcessador().getNumeroCpusFisicas());
+                        break;
+                    case 7:
+                        System.out.println(looca.getProcessador().getNumeroCpusLogicas());
+                        break;
+                    default:
+                        System.out.println(invalidOption);
+                        break;
                 }
-                else if (escolhaMain == 4) {
+            }
+            else if (escolhaMain == 4) {
                 List servicos;
                 Integer quantidadeServicos;
                 System.out.println("\nSERVICOS\n" +
@@ -328,7 +328,7 @@ public class InteracaoAPI {
                         break;
                 }
             }
-                else if(escolhaMain == 5) {
+            else if(escolhaMain == 5) {
                 System.out.println("\nPROCESSOS\n" +
                         "1 - Processos\n" +
                         "2 - Total de processos\n" +
@@ -349,7 +349,7 @@ public class InteracaoAPI {
                         break;
                 }
             }
-                else if (escolhaMain == 6) {
+            else if (escolhaMain == 6) {
                 System.out.println("\nSISTEMA\n" +
                         "1 - Fabricante\n" +
                         "2 - Sistema Operacional\n" +
@@ -378,13 +378,13 @@ public class InteracaoAPI {
                         break;
                 }
             }
-                else if (escolhaMain == 7) {
+            else if (escolhaMain == 7) {
                 System.out.println("-------------------------------");
                 System.out.println("APLICACAO ENCERRADA");
                 isEnded = true;
                 timer.cancel();
             }
-                else {
+            else {
                 System.out.println(invalidOption);
             }
         } while (!isEnded);

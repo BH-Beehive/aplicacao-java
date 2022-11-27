@@ -278,6 +278,7 @@ public class TelaLogin extends javax.swing.JFrame {
         Looca l = new Looca();
         ConexaoComBanco con = new ConexaoComBanco();
         con.conectarBanco();
+        Queries queries = new Queries(con);
         email = inputEmail.toString();
         senha = inputSenha.toString();
         token = inputToken.toString();
@@ -293,7 +294,25 @@ public class TelaLogin extends javax.swing.JFrame {
         }
         archiveProcess(path, login);
         con.validarAcesso(email, senha, token);
+        telaLogin.setVisible(false);
+      /*  JButton botaoSair = new JButton("Parar aplicação");
+        botaoSair.setBounds(50,100,95,30);*/
+        JFrame f=new JFrame("Button Example");
+        f.setUndecorated(true);
+        f.setBackground( new Color(0.0f,0.0f,0.0f,0.0f));
+        JButton b=new JButton("STOP");
+        b.setBounds(0,0,120, 40);
+        f.add(b);
+        f.setSize(120,120);
+        f.setLayout(null);
+        f.setVisible(true);
 
+        b.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                System.exit(0);
+            }
+        });
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }//GEN-LAST:event_btnEntrarActionPerformed
 
@@ -414,7 +433,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
     }
-    private void archiveProcess(Path path, File login) {
+    public void archiveProcess(Path path, File login) {
         if (Files.exists(path) && login.exists()) {
             try {
                 BufferedReader br

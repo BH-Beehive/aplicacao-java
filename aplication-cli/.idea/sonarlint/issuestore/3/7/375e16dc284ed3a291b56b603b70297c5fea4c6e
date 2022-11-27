@@ -1,42 +1,28 @@
 
-g	java:S112("FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Æ¤˜ÕË0
-g	java:S112K"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8×¤˜ÕË0
-g	java:S112W"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Ù¤˜ÕË0
-g	java:S112m"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8á¤˜ÕË0
-g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ã¤˜ÕË0
-}
-java:S1192<"[Define a constant instead of duplicating this literal "Erro ao executar o select!" 5 times.(«ì±Áıÿÿÿÿ8…¥˜ÕË0
-^	java:S107\"=Method has 10 parameters, which is greater than 7 authorized.(ëİŠ¸úÿÿÿÿ8˜¥˜ÕË0
-r	java:S117\"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëİŠ¸úÿÿÿÿ8š¥˜ÕË0
+`	java:S112("FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112K"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112W"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112m"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+v
+java:S1192<"[Define a constant instead of duplicating this literal "Erro ao executar o select!" 5 times.(«ì±Áıÿÿÿÿ
+W	java:S107\"=Method has 10 parameters, which is greater than 7 authorized.(ëİŠ¸úÿÿÿÿ
+k	java:S117\"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëİŠ¸úÿÿÿÿ
 Š
-java:S1488²"gImmediately return this expression instead of assigning it to the temporary variable "colunaResultado".(¼…ú‚üÿÿÿÿ8º¥˜ÕË0
-…
-java:S1488Å"gImmediately return this expression instead of assigning it to the temporary variable "colunaResultado".(üïù¦8»¥˜ÕË0
-j
-java:S2095¿"GUse try-with-resources or close this "Statement" in a "finally" clause.(¢ÒÒúúÿÿÿÿ8í¼˜ÕË0
-j
-java:S2095†"GUse try-with-resources or close this "Statement" in a "finally" clause.(¢ÒÒúúÿÿÿÿ8ã¼˜ÕË0
-j
-java:S2095›"GUse try-with-resources or close this "Statement" in a "finally" clause.(¢ÒÒúúÿÿÿÿ8ç¼˜ÕË0
-i
-java:S2095."GUse try-with-resources or close this "Statement" in a "finally" clause.(—Å§€úÿÿÿÿ8ì¼˜ÕË0
-j
-java:S2095®"GUse try-with-resources or close this "Statement" in a "finally" clause.(Ñ÷Îšøÿÿÿÿ8á¼˜ÕË0
-S
-java:S1172"1Remove this unused method parameter "discoTotal".(ïöóèøÿÿÿÿ8ˆÅ˜ÕË0
-Z	java:S1060"9Replace this use of System.out or System.err by a logger.(¶şø¥ıÿÿÿÿ8ÅÈ˜ÕË0
-Z	java:S106<"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ8‡É˜ÕË0
-R
-java:S2209A"5Change this instance-reference to a static reference.(³ÕÅ8ŸÉ˜ÕË0
-R
-java:S2209]"5Change this instance-reference to a static reference.(³ÕÅ8ÏÉ˜ÕË0
-U	java:S106k"9Replace this use of System.out or System.err by a logger.(Øø…Œ8ùÉ˜ÕË0
-U	java:S106}"9Replace this use of System.out or System.err by a logger.(Øø…Œ8¡Ê˜ÕË0
-[	java:S106"9Replace this use of System.out or System.err by a logger.(î˜ìúşÿÿÿÿ8¶Ê˜ÕË0
-[	java:S106”"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ8ÄÊ˜ÕË0
-[	java:S106¢"9Replace this use of System.out or System.err by a logger.(ª¾†³ÿÿÿÿÿ8ÕÊ˜ÕË0
-[	java:S106¨"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ8æÊ˜ÕË0
-V	java:S106·"9Replace this use of System.out or System.err by a logger.(…™Ïÿ8ûÊ˜ÕË0
-[	java:S106É"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ8ˆË˜ÕË0
-C
-java:S1068"&Remove this unused "st" private field.(øšã”8—Ë˜ÕË0
+java:S1488²"gImmediately return this expression instead of assigning it to the temporary variable "colunaResultado".(¼…ú‚üÿÿÿÿ8ÿì£…Ë0
+~
+java:S1488Å"gImmediately return this expression instead of assigning it to the temporary variable "colunaResultado".(üïù¦
+L
+java:S1172"1Remove this unused method parameter "discoTotal".(ïöóèøÿÿÿÿ
+Z	java:S1060"9Replace this use of System.out or System.err by a logger.(¶şø¥ıÿÿÿÿ8àø×ÚË0
+Z	java:S106<"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ8æø×ÚË0
+U	java:S106k"9Replace this use of System.out or System.err by a logger.(Øø…Œ8’ù×ÚË0
+U	java:S106}"9Replace this use of System.out or System.err by a logger.(Øø…Œ8§ù×ÚË0
+[	java:S106"9Replace this use of System.out or System.err by a logger.(î˜ìúşÿÿÿÿ8³ù×ÚË0
+[	java:S106”"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ8¶ù×ÚË0
+[	java:S106¢"9Replace this use of System.out or System.err by a logger.(ª¾†³ÿÿÿÿÿ8»ù×ÚË0
+[	java:S106¨"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ8½ù×ÚË0
+V	java:S106·"9Replace this use of System.out or System.err by a logger.(…™Ïÿ8Äù×ÚË0
+[	java:S106É"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ8Îù×ÚË0
+<
+java:S1068"&Remove this unused "st" private field.(øšã”

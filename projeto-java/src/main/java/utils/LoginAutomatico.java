@@ -1,8 +1,6 @@
 package utils;
 
 import com.github.britooo.looca.api.core.Looca;
-import database.ConexaoComBanco;
-import database.Queries;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -12,11 +10,9 @@ import java.nio.file.Paths;
 
 
 public class LoginAutomatico {
-    ConexaoComBanco conexaoComBanco = new ConexaoComBanco();
-
     public void criacaoArquivoLogin(String email, String password, String token) {
         Looca looca = new Looca();
-        if (!(email.equals("") || password.equals("") || token.equals(""))) {
+        if (!(email.equals("") && password.equals("") && token.equals(""))) {
             if (looca.getSistema().getSistemaOperacional().equalsIgnoreCase("windows")) {
                 Path path = Paths.get("..\\loginAutomatico");
                 if (!Files.exists(path)) {
@@ -75,9 +71,9 @@ public class LoginAutomatico {
                 try {
                     FileWriter fw = new FileWriter(login, true);
                     BufferedWriter bw = new BufferedWriter(fw);
-                    bw.write("ola" + "\n");
-                    bw.write("tudoBem" + "\n");
-                    bw.write("Que bom" + "\n\n");
+                    bw.write(email + "\n");
+                    bw.write(password + "\n");
+                    bw.write(token + "\n\n");
                     bw.newLine();
                     bw.close();
                     fw.close();
@@ -87,4 +83,5 @@ public class LoginAutomatico {
             }
         }
     }
+
 }

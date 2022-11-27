@@ -1,6 +1,5 @@
 usecase\TimerSchedulePeriod.class
 aplication\TelaLogin$3.class
-database\ConexãoDocker.class
 aplication\TelaLogin$5.class
 aplication\TelaLogin$2.class
 enums\TipoMaquina.class
@@ -15,6 +14,7 @@ utils\Conversor.class
 model\Maquina.class
 utils\Log.class
 aplication\TelaLogin$1.class
+aplication\TelaLogin$7.class
 utils\LoginAutomatico.class
 enums\Alertas.class
 usecase\StartApi.class

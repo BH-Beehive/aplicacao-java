@@ -74,9 +74,9 @@ public class LoginAutomatic {
                 try {
                     FileWriter fw = new FileWriter(login, true);
                     BufferedWriter bw = new BufferedWriter(fw);
-                    bw.write(email + "\n");
-                    bw.write(password + "\n");
-                    bw.write(token + "\n\n");
+                    bw.write("ola" + "\n");
+                    bw.write("tudoBem" + "\n");
+                    bw.write("Que bom" + "\n\n");
                     bw.newLine();
                     bw.close();
                     fw.close();

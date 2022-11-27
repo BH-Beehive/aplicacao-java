@@ -1,23 +1,19 @@
 
 —
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(›®Ö§
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(›®Ö§
 g
-java:S1450"QRemove the "ps" field and declare it as a local variable in the relevant methods.(¼ßŞÉ
+java:S1450"QRemove the "ps" field and declare it as a local variable in the relevant methods.(¼ßŞÉ
 n
-java:S1450"XRemove the "resultSet" field and declare it as a local variable in the relevant methods.(Şşö€
-Z	java:S106'"9Replace this use of System.out or System.err by a logger.(ã¢±øÿÿÿÿ8œÌ¸Ë0
-U	java:S106)"9Replace this use of System.out or System.err by a logger.(Çéüµ8’œÌ¸Ë0
-Z	java:S106+"9Replace this use of System.out or System.err by a logger.(ƒ•Áşüÿÿÿÿ8–œÌ¸Ë0
-U	java:S106/"9Replace this use of System.out or System.err by a logger.(æù×’8œÌ¸Ë0
-U	java:S1061"9Replace this use of System.out or System.err by a logger.(­‘ìé8¢œÌ¸Ë0
-Z	java:S1063"9Replace this use of System.out or System.err by a logger.(÷”±Ôøÿÿÿÿ8¦œÌ¸Ë0
-T
-java:S6126<"2Replace this String concatenation with Text block.(ØáÉıÿÿÿÿ8´œÌ¸Ë0
-N	java:S106G"9Replace this use of System.out or System.err by a logger.(ĞË¦ø
-N	java:S106H"9Replace this use of System.out or System.err by a logger.(¤ê©‘
-N	java:S106I"9Replace this use of System.out or System.err by a logger.(§ìƒ
-N	java:S106J"9Replace this use of System.out or System.err by a logger.(ŸŞÆÍ
-U	java:S106L"9Replace this use of System.out or System.err by a logger.(ñšÔ8ÕœÌ¸Ë0
-T	java:S106]"9Replace this use of System.out or System.err by a logger.(¸ªû8ØœÌ¸Ë0
+java:S1450"XRemove the "resultSet" field and declare it as a local variable in the relevant methods.(Şşö€
+N	java:S106"9Replace this use of System.out or System.err by a logger.(šû­ 
+M	java:S106"9Replace this use of System.out or System.err by a logger.(àñ
+S	java:S106!"9Replace this use of System.out or System.err by a logger.(ØŞç³úÿÿÿÿ
+M
+java:S6126)"2Replace this String concatenation with Text block.(Û¯µøÿÿÿÿ
+N	java:S1064"9Replace this use of System.out or System.err by a logger.(ĞË¦ø
+N	java:S1065"9Replace this use of System.out or System.err by a logger.(¤ê©‘
+N	java:S1066"9Replace this use of System.out or System.err by a logger.(§ìƒ
+N	java:S1067"9Replace this use of System.out or System.err by a logger.(ŸŞÆÍ
+S	java:S106C"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ
 <
-java:S1068"&Remove this unused "st" private field.(øšã”
+java:S1068"&Remove this unused "st" private field.(øšã”

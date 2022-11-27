@@ -1,27 +1,22 @@
 package database;
 
 import aplication.TelaLogin;
-
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import javax.swing.*;
-
+import com.github.britooo.looca.api.core.Looca;
 import usecase.StartApi;
+
+import javax.swing.*;
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.sql.*;
 
 public class ConexaoComBanco {
 
 
     private StartApi startApi = new StartApi();
-    private String url = "jdbc:mysql://localhost:3306/Beehive";
+    private String url = "jdbc:mysql://172.17.0.2:3306/Beehive";
     private String user = "root";
-    private String password = "1470";
+    private String password = "123456";
     private Connection con = null;
     private PreparedStatement ps = null;
     private ResultSet resultSet = null;
@@ -71,6 +66,21 @@ public class ConexaoComBanco {
             resultSet = ps.executeQuery();
             int rowCount = 0;
             startApi.returnToken(token);
+
+            Looca l = new Looca();
+            String pathLinux = "..//loginAutomatico";
+            String loginLinux = "..//loginAutomatico//LOGIN-AUTOMATICO";
+            String loginWin = "..\\loginAutomatico\\LOGIN-AUTOMATICO";
+            String pathWin = "..\\loginAutomatico";
+            Path path = Paths.get(pathWin);
+            File login = new File(loginWin);
+            if (l.getSistema().getSistemaOperacional().equalsIgnoreCase("Linux")) {
+                path = Paths.get(pathLinux);
+                login = new File(loginLinux);
+            }
+
+            telaLogin.archiveProcess(path,login);
+
             while (resultSet.next()) {
                 rowCount++;
                 System.out.println("COUNT::" + rowCount);
@@ -82,24 +92,13 @@ public class ConexaoComBanco {
                 if(!resultSet.getBoolean("token_ativo")) {
                     startApi.setToken(resultSet.getString("token_acesso"));
                     startApi.execute();
-                    telaLogin.setVisible(false);
-                    JFrame f=new JFrame("Button Example");
-                    f.setUndecorated(true);
-                    f.setBackground( new Color(0.0f,0.0f,0.0f,0.0f));
-                    JButton b=new JButton("STOP");
-                    b.setBounds(0,0,120, 40);
-                    f.add(b);
-                    f.setSize(120,120);
-                    f.setLayout(null);
-                    f.setVisible(true);
-
-                    b.addActionListener(new ActionListener(){
-                        public void actionPerformed(ActionEvent e){
-                            System.exit(0);
-                        }
-                    });
-                    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    return true;
+                    ps = con.prepareStatement("update maquina set token_ativo = 1 where token_acesso = ?");
+                    ps.setString(1, token);
+                    ps.executeUpdate();
+                }
+                else if(resultSet.getBoolean("token_ativo") && token.equals(telaLogin.getToken()) ){
+                    startApi.setToken(resultSet.getString("token_acesso"));
+                    startApi.execute();
                 }
                 else{
                     JOptionPane.showMessageDialog(telaLogin, "Token inválido!",

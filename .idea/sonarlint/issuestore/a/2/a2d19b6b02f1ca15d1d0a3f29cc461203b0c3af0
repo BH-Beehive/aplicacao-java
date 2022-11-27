@@ -1,22 +1,11 @@
 
-h	java:S112€"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8óëË¸Ë0
-q
-java:S11928"TDefine a constant instead of duplicating this literal "sistema_operacional" 4 times.(»¤áï8ÓìË¸Ë0
-l
-java:S11926"JDefine a constant instead of duplicating this literal "host_name" 4 times.(’š–Öùÿÿÿÿ8¤íË¸Ë0
-M
-java:S1066„"/Merge this if statement with the enclosing one.(ÂóµÅ8ÌíË¸Ë0
-r	java:S1176"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’š–Öùÿÿÿÿ8ÜíË¸Ë0
-n	java:S117¥"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µáÃñ8ííË¸Ë0
-v	java:S116"ZRename this field "tokenFk_Maquina" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(È•£Ì8²øË¸Ë0
-t
-java:S3776#"RRefactor this method to reduce its Cognitive Complexity from 36 to the 15 allowed.(ä÷†Áşÿÿÿÿ8×ùË¸Ë0
-]	java:S1259"<This block of commented-out lines of code should be removed.(Ä’‰øÿÿÿÿ8ıùË¸Ë0
-V	java:S125J"<This block of commented-out lines of code should be removed.(ùî§’şÿÿÿÿ
-g
-java:S1854g"ERemove this useless assignment to local variable "memoriaPercentual".(ûëÓƒüÿÿÿÿ8¦úË¸Ë0
-[	java:S106¨"9Replace this use of System.out or System.err by a logger.(‚¹Ûàûÿÿÿÿ8ÜûË¸Ë0
-V	java:S106ª"9Replace this use of System.out or System.err by a logger.(ÇÑÌ8áûË¸Ë0
-[	java:S106«"9Replace this use of System.out or System.err by a logger.(Óı±ÿÿÿÿÿ8èûË¸Ë0
-[	java:S106¬"9Replace this use of System.out or System.err by a logger.(Ù¢Åáşÿÿÿÿ8òûË¸Ë0
-[	java:S106­"9Replace this use of System.out or System.err by a logger.(öıºıÿÿÿÿ8õûË¸Ë0
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñëÏë
+N
+java:S1854 "8Remove this useless assignment to local variable "tipo".(ä¡êË
+S
+java:S1854"=Remove this useless assignment to local variable "host_name".(ñëÏë
+D
+java:S1481".Remove this unused "host_name" local variable.(ñëÏë
+?
+java:S1481 ")Remove this unused "tipo" local variable.(ä¡êË
+V	java:S125""<This block of commented-out lines of code should be removed.(ùî§’şÿÿÿÿ

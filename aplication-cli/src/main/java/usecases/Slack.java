@@ -4,6 +4,7 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -13,32 +14,33 @@ public class Slack {
     public void sendMessage(JSONObject message) throws Exception {
         try {
 
-            URL obj = new URL(this.url);
-            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
-            con.setRequestMethod("POST");
-            con.setDoOutput(true);
+        URL obj = new URL(this.url);
+        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
-            DataOutputStream wr = new DataOutputStream(con.getOutputStream());
-            wr.writeBytes(message.toString());
+        con.setRequestMethod("POST");
+        con.setDoOutput(true);
 
-            wr.flush();
-            wr.close();
+        DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+        wr.writeBytes(message.toString());
+
+        wr.flush();
+        wr.close();
 
 
-            BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
-            String inputLine;
+        String inputLine;
 
-            StringBuffer response = new StringBuffer();
+        StringBuffer response = new StringBuffer();
 
-            while ((inputLine = reader.readLine()) != null) {
-                response.append(inputLine);
-            }
+        while ((inputLine = reader.readLine()) != null) {
+            response.append(inputLine);
+        }
 
-            reader.close();
-        } catch (RuntimeException e) {
-             e.getStackTrace();
+        reader.close();
+    } catch (FileNotFoundException e) {
+            e.getStackTrace();
         }
     }
 }

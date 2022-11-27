@@ -92,13 +92,13 @@ public class Login {
         do {
             if (!(Files.exists(path) && login.exists())) {
                 System.out.println("Digite seu email: ");
-                email = inNl.next();
+                email = inNl.next().toLowerCase();
 
                 System.out.println("Digite sua senha: ");
-                senha = inNl.next();
+                senha = inNl.next().toLowerCase();
 
                 System.out.println("Digite sua token: \n");
-                token = inNl.next();
+                token = inNl.next().toLowerCase();
 
                 System.out.println("Continar Conectado? S/N");
                 String continueConected = inNl.next().toLowerCase();

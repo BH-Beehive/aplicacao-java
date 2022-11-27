@@ -1,10 +1,15 @@
 package database;
 
 
+import com.github.britooo.looca.api.core.Looca;
 import usecases.InteracaoAPI;
+import usecases.Login;
 import utils.LoginAutomatic;
 
 import javax.swing.*;
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.*;
 
 public class ConexaoComBanco {
@@ -12,13 +17,15 @@ public class ConexaoComBanco {
 
     InteracaoAPI interacaoAPI = new InteracaoAPI();
     private Boolean isLogado = false;
-    private String url = "jdbc:mysql://localhost:3306/Beehive";
+    private String url = "jdbc:mysql://172.17.0.2:3306/Beehive";
     private String user = "root";
-    private String password = "1470";
+    private String password = "123456";
     private Connection con = null;
     private PreparedStatement ps = null;
     private ResultSet resultSet = null;
     private Statement st = null;
+
+
 
     public ConexaoComBanco() {
     }
@@ -57,6 +64,7 @@ public class ConexaoComBanco {
 
 
     public boolean validarAcesso(String email, String senha, String token, Boolean automaticLogin) {
+        Login loginA= new Login();
         try {
             ps = con.prepareStatement("select id_empresa,email, senha,token_acesso, token_ativo \n"
                     + "from empresa\njoin maquina\non fk_empresa = id_empresa where email"
@@ -67,6 +75,19 @@ public class ConexaoComBanco {
             resultSet = ps.executeQuery();
             int rowCount = 0;
 //            interacaoAPI.returnToken(token);
+            Looca l = new Looca();
+            String pathLinux = "..//loginAutomatico";
+            String loginLinux = "..//loginAutomatico//LOGIN-AUTOMATICO";
+            String loginWin = "..\\loginAutomatico\\LOGIN-AUTOMATICO";
+            String pathWin = "..\\loginAutomatico";
+            Path path = Paths.get(pathWin);
+            File login = new File(loginWin);
+            if (l.getSistema().getSistemaOperacional().equalsIgnoreCase("Linux")) {
+                path = Paths.get(pathLinux);
+                login = new File(loginLinux);
+            }
+
+            loginA.archiveProcess(path, login);
             while (resultSet.next()) {
                 rowCount++;
                 System.out.println("COUNT::" + rowCount);
@@ -75,13 +96,21 @@ public class ConexaoComBanco {
                 System.out.println("token_acesso:" + resultSet.getString("token_acesso"));
                 System.out.println("Login executado com sucesso!");
                 isLogado = true;
+                interacaoAPI.setToken(token);
                 System.out.println(token);
                 if(!resultSet.getBoolean("token_ativo")) {
                     interacaoAPI.setToken(resultSet.getString("token_acesso"));
+                    interacaoAPI.execute();
+                    ps = con.prepareStatement("update maquina set token_ativo = 1 where token_acesso = ?");
+                    ps.setString(1, token);
+                    ps.executeUpdate();
                     if (automaticLogin) {
                         LoginAutomatic loginAutomatic = new LoginAutomatic();
                         loginAutomatic.criacaoArquivoLogin(email, senha, token);
                     }
+                }
+                else if(resultSet.getBoolean("token_ativo") && token.equals(interacaoAPI.getToken()) ){
+                    interacaoAPI.setToken(resultSet.getString("token_acesso"));
                     interacaoAPI.execute();
                 }
                 else{

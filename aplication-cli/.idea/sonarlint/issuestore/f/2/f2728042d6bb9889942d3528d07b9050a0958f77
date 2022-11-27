@@ -1,31 +1,33 @@
 
+j
+java:S1192`"MDefine a constant instead of duplicating this literal "token_acesso" 3 times.(ŸŞÆÍ8óóÚË0
 G
-java:S5411Q"*Use the primitive boolean expression here.(âÍÆ­8ÒÆŞºË0
-
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(›®Ö§8…ÇŞºË0
+java:S5411k"*Use the primitive boolean expression here.(âÍÆ­8úªõÚË0
+—
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(›®Ö§
+g
+java:S1450"QRemove the "ps" field and declare it as a local variable in the relevant methods.(¼ßŞÉ
 n
-java:S1450"QRemove the "ps" field and declare it as a local variable in the relevant methods.(¼ßŞÉ8‘ÇŞºË0
-u
-java:S1450"XRemove the "resultSet" field and declare it as a local variable in the relevant methods.(Şşö€8”ÇŞºË0
-Z	java:S106%"9Replace this use of System.out or System.err by a logger.(ã¢±øÿÿÿÿ8ÇŞºË0
-U	java:S106'"9Replace this use of System.out or System.err by a logger.(Çéüµ8ÇŞºË0
-Z	java:S106*"9Replace this use of System.out or System.err by a logger.(ƒ•Áşüÿÿÿÿ8¡ÇŞºË0
-U	java:S106/"9Replace this use of System.out or System.err by a logger.(æù×’8£ÇŞºË0
-U	java:S1061"9Replace this use of System.out or System.err by a logger.(­‘ìé8¥ÇŞºË0
-Z	java:S1064"9Replace this use of System.out or System.err by a logger.(÷”±Ôøÿÿÿÿ8§ÇŞºË0
-T
-java:S6126="2Replace this String concatenation with Text block.(ØáÉıÿÿÿÿ8­ÇŞºË0
-X	java:S125E"<This block of commented-out lines of code should be removed.(‰§Û¿8±ÇŞºË0
-U	java:S106H"9Replace this use of System.out or System.err by a logger.(ĞË¦ø8³ÇŞºË0
-U	java:S106I"9Replace this use of System.out or System.err by a logger.(¤ê©‘8´ÇŞºË0
-U	java:S106J"9Replace this use of System.out or System.err by a logger.(§ìƒ8·ÇŞºË0
-U	java:S106K"9Replace this use of System.out or System.err by a logger.(ŸŞÆÍ8ºÇŞºË0
-U	java:S106L"9Replace this use of System.out or System.err by a logger.(†‡¯™8½ÇŞºË0
-U	java:S106N"9Replace this use of System.out or System.err by a logger.(ñšÔ8ÀÇŞºË0
-U	java:S106X"9Replace this use of System.out or System.err by a logger.(á»ÎÈ8ÃÇŞºË0
-Z	java:S106^"9Replace this use of System.out or System.err by a logger.(šºŸŞüÿÿÿÿ8ÄÇŞºË0
-T	java:S106a"9Replace this use of System.out or System.err by a logger.(¸ªû8ÇÇŞºË0
+java:S1450"XRemove the "resultSet" field and declare it as a local variable in the relevant methods.(Şşö€
+S	java:S106,"9Replace this use of System.out or System.err by a logger.(ã¢±øÿÿÿÿ
+N	java:S106."9Replace this use of System.out or System.err by a logger.(Çéüµ
+S	java:S1061"9Replace this use of System.out or System.err by a logger.(ƒ•Áşüÿÿÿÿ
+N	java:S1066"9Replace this use of System.out or System.err by a logger.(æù×’
+N	java:S1068"9Replace this use of System.out or System.err by a logger.(­‘ìé
+S	java:S106;"9Replace this use of System.out or System.err by a logger.(÷”±Ôøÿÿÿÿ
+M
+java:S6126E"2Replace this String concatenation with Text block.(ØáÉıÿÿÿÿ
+Q	java:S125M"<This block of commented-out lines of code should be removed.(‰§Û¿
+N	java:S106]"9Replace this use of System.out or System.err by a logger.(ĞË¦ø
+N	java:S106^"9Replace this use of System.out or System.err by a logger.(¤ê©‘
+N	java:S106_"9Replace this use of System.out or System.err by a logger.(§ìƒ
+N	java:S106`"9Replace this use of System.out or System.err by a logger.(ŸŞÆÍ
+N	java:S106a"9Replace this use of System.out or System.err by a logger.(†‡¯™
+N	java:S106d"9Replace this use of System.out or System.err by a logger.(ñšÔ
+N	java:S106u"9Replace this use of System.out or System.err by a logger.(á»ÎÈ
+S	java:S106{"9Replace this use of System.out or System.err by a logger.(šºŸŞüÿÿÿÿ
+M	java:S106~"9Replace this use of System.out or System.err by a logger.(¸ªû
 J
-java:S1128"(Remove this unused import 'javax.swing'.(Ìí¿Üüÿÿÿÿ8ËÇŞºË0
-C
-java:S1068"&Remove this unused "st" private field.(øšã”8ËÇŞºË0
+java:S1128	"(Remove this unused import 'javax.swing'.(Ìí¿Üüÿÿÿÿ8Ê—ÛË0
+<
+java:S1068"&Remove this unused "st" private field.(øšã”
