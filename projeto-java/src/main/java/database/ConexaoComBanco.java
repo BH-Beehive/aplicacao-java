@@ -21,9 +21,9 @@ public class ConexaoComBanco {
 
 
     private StartApi startApi = new StartApi();
-    private String url = "jdbc:mysql://localhost:3306/Beehive";
+    private String url = "jdbc:mysql://172.17.0.2:3306/Beehive";
     private String user = "root";
-    private String password = "";
+    private String password = "123456";
     private Connection con = null;
     private PreparedStatement ps = null;
     private ResultSet resultSet = null;
