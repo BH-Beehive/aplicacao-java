@@ -4,6 +4,7 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -11,6 +12,9 @@ import java.net.URL;
 public class Slack {
     private String url = "https://hooks.slack.com/services/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";
     public void sendMessage(JSONObject message) throws Exception {
+        try {
+
+
         URL obj = new URL(this.url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
@@ -35,6 +39,9 @@ public class Slack {
         }
 
         reader.close();
+    } catch (FileNotFoundException e) {
+            e.getStackTrace();
+        }
     }
 }
 

@@ -19,7 +19,6 @@ public class Queries {
     private ResultSet resultSet = null;
     private Statement st = null;
     private ConexaoComBanco conexao = null;
-    private ConexãoDocker  conDock = null;
 
     public Queries(ConexaoComBanco conexao) {
         this.conexao = conexao;

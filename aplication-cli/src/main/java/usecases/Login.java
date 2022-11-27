@@ -76,10 +76,10 @@ public class Login {
         Scanner inNl = new Scanner(System.in);
         ConexaoComBanco conect = new ConexaoComBanco();
         Looca l = new Looca();
-        String pathLinux = ".//loginAutomatico";
-        String loginLinux = ".//loginAutomatico//LOGIN-AUTOMATICO";
-        String loginWin = ".\\loginAutomatico\\LOGIN-AUTOMATICO";
-        String pathWin = ".\\loginAutomatico";
+        String pathLinux = "..//loginAutomatico";
+        String loginLinux = "..//loginAutomatico//LOGIN-AUTOMATICO";
+        String loginWin = "..\\loginAutomatico\\LOGIN-AUTOMATICO";
+        String pathWin = "..\\loginAutomatico";
         Path path = Paths.get(pathWin);
         File login = new File(loginWin);
         if (l.getSistema().getSistemaOperacional().equalsIgnoreCase("Linux")) {
