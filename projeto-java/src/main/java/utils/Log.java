@@ -27,7 +27,7 @@ public class Log extends Registro {
     public void logEstadoMaquina(String estado) throws FileNotFoundException, IOException {
         
         if(sistemaOperacional.equalsIgnoreCase("Windows")) {
-            Path path = Paths.get("C:\\logs");
+            Path path = Paths.get("..\\logs");
 		
 		if(!Files.exists(path)) {
 			
@@ -36,7 +36,7 @@ public class Log extends Registro {
 		}
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
                 String dataConvertida = dtf.format(LocalDateTime.now());
-		File log = new File("C:\\logs\\logEstadoMaquina"+dataAgora);
+		File log = new File("..\\logs\\logEstadoMaquina"+dataAgora);
 		
 		if(!log.exists()) {
 			
@@ -55,7 +55,7 @@ public class Log extends Registro {
 		bw.close();
 		fw.close();
         }else {
-            Path path = Paths.get("home\\logs");
+            Path path = Paths.get("..//logs");
 		
 		if(!Files.exists(path)) {
 			
@@ -64,7 +64,7 @@ public class Log extends Registro {
 		}
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
                 String dataConvertida = dtf.format(LocalDateTime.now());
-		File log = new File("home\\logs\\logEstadoMaquina"+dataAgora);
+		File log = new File("..//logs//logEstadoMaquina"+dataAgora);
 		
 		if(!log.exists()) {
 			
