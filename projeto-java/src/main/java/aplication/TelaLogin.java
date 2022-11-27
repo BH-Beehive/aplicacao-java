@@ -433,7 +433,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
     }
-    private void archiveProcess(Path path, File login) {
+    public void archiveProcess(Path path, File login) {
         if (Files.exists(path) && login.exists()) {
             try {
                 BufferedReader br

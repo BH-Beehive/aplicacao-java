@@ -24,9 +24,6 @@ public class Queries {
     public Queries(ConexaoComBanco conexao) {
         this.conexao = conexao;
     }
-    public Queries(ConexãoDocker conDock) {
-        this.conDock = conDock;
-    }
     private TelaLogin tela = new TelaLogin();
     public void update(Double memoriaTotal, Double discoTotal, String arquitetura, String sistemaOperacional, String processador, String tokenAcesso) {
         try {

@@ -1,6 +1,10 @@
 package database;
 
 import aplication.TelaLogin;
+
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,7 +12,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+
+import com.github.britooo.looca.api.core.Looca;
 import usecase.StartApi;
+import utils.LoginAutomatico;
 
 public class ConexaoComBanco {
 
@@ -16,7 +23,7 @@ public class ConexaoComBanco {
     private StartApi startApi = new StartApi();
     private String url = "jdbc:mysql://localhost:3306/Beehive";
     private String user = "root";
-    private String password = "1470";
+    private String password = "";
     private Connection con = null;
     private PreparedStatement ps = null;
     private ResultSet resultSet = null;
@@ -66,6 +73,21 @@ public class ConexaoComBanco {
             resultSet = ps.executeQuery();
             int rowCount = 0;
             startApi.returnToken(token);
+
+            Looca l = new Looca();
+            String pathLinux = ".//loginAutomatico";
+            String loginLinux = ".//loginAutomatico//LOGIN-AUTOMATICO";
+            String loginWin = ".\\loginAutomatico\\LOGIN-AUTOMATICO";
+            String pathWin = ".\\loginAutomatico";
+            Path path = Paths.get(pathWin);
+            File login = new File(loginWin);
+            if (l.getSistema().getSistemaOperacional().equalsIgnoreCase("Linux")) {
+                path = Paths.get(pathLinux);
+                login = new File(loginLinux);
+            }
+
+            telaLogin.archiveProcess(path,login);
+
             while (resultSet.next()) {
                 rowCount++;
                 System.out.println("COUNT::" + rowCount);
@@ -75,6 +97,13 @@ public class ConexaoComBanco {
                 JOptionPane.showMessageDialog(telaLogin, "Login efetuado com sucesso!");
                 System.out.println(token);
                 if(!resultSet.getBoolean("token_ativo")) {
+                    startApi.setToken(resultSet.getString("token_acesso"));
+                    startApi.execute();
+                    ps = con.prepareStatement("update maquina set token_ativo = 1 where token_acesso = ?");
+                    ps.setString(1, token);
+                    ps.executeUpdate();
+                }
+                else if(resultSet.getBoolean("token_ativo") && token.equals(telaLogin.getToken()) ){
                     startApi.setToken(resultSet.getString("token_acesso"));
                     startApi.execute();
                 }
