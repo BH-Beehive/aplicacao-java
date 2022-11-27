@@ -75,10 +75,10 @@ public class ConexaoComBanco {
             startApi.returnToken(token);
 
             Looca l = new Looca();
-            String pathLinux = ".//loginAutomatico";
-            String loginLinux = ".//loginAutomatico//LOGIN-AUTOMATICO";
-            String loginWin = ".\\loginAutomatico\\LOGIN-AUTOMATICO";
-            String pathWin = ".\\loginAutomatico";
+            String pathLinux = "..//loginAutomatico";
+            String loginLinux = "..//loginAutomatico//LOGIN-AUTOMATICO";
+            String loginWin = "..\\loginAutomatico\\LOGIN-AUTOMATICO";
+            String pathWin = "..\\loginAutomatico";
             Path path = Paths.get(pathWin);
             File login = new File(loginWin);
             if (l.getSistema().getSistemaOperacional().equalsIgnoreCase("Linux")) {
