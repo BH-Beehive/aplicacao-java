@@ -25,6 +25,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private String email;
     private String senha;
     private String token;
+    private static TelaLogin telaLogin = new TelaLogin();
 
     /**
      * Creates new form TelaLogin
@@ -290,6 +291,26 @@ public class TelaLogin extends javax.swing.JFrame {
         }
         archiveProcess(path, login);
         con.validarAcesso(email, senha, token);
+        telaLogin.setVisible(false);
+      /*  JButton botaoSair = new JButton("Parar aplicação");
+        botaoSair.setBounds(50,100,95,30);*/
+        JFrame f=new JFrame("Button Example");
+        f.setUndecorated(true);
+        f.setBackground( new Color(0.0f,0.0f,0.0f,0.0f));
+        JButton b=new JButton("STOP");
+        b.setBounds(0,0,120, 40);
+        f.add(b);
+        f.setSize(120,120);
+        f.setLayout(null);
+        f.setVisible(true);
+
+        b.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                System.exit(0);
+            }
+        });
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     public JCheckBox getCheckBoxConectado() {
@@ -363,7 +384,7 @@ public class TelaLogin extends javax.swing.JFrame {
             String senha = "";
             String token = "";
             public void run() {
-                new TelaLogin().setVisible(true);
+                telaLogin.setVisible(true);
                 Looca l = new Looca();
                 String pathLinux = ".//loginAutomatico";
                 String loginLinux = ".//loginAutomatico//LOGIN-AUTOMATICO";
@@ -376,7 +397,6 @@ public class TelaLogin extends javax.swing.JFrame {
                     login = new File(loginLinux);
                 }
                 processFileAndSetInput(path, login);
-
             }
 
             private void processFileAndSetInput(Path path, File login) {
