@@ -7,7 +7,7 @@ package aplication;
 import com.github.britooo.looca.api.core.Looca;
 import database.ConexaoComBanco;
 import database.Queries;
-import utils.LoginAutomatic;
+import utils.LoginAutomatico;
 
 import javax.swing.*;
 import java.awt.*;
@@ -263,7 +263,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_inputSenhaActionPerformed
 
     private void CheckBoxConectadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBoxConectadoActionPerformed
-        LoginAutomatic login = new LoginAutomatic();
+        LoginAutomatico login = new LoginAutomatico();
         login.criacaoArquivoLogin(inputEmail.getText(), new String(inputSenha.getPassword()), inputToken.getText());
     }//GEN-LAST:event_CheckBoxConectadoActionPerformed
 
@@ -273,7 +273,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
-        LoginAutomatic loginA = new LoginAutomatic();
+        LoginAutomatico loginA = new LoginAutomatico();
         loginA.criacaoArquivoLogin(inputEmail.getText(), new String(inputSenha.getPassword()), inputToken.getText());
         Looca l = new Looca();
         ConexaoComBanco con = new ConexaoComBanco();

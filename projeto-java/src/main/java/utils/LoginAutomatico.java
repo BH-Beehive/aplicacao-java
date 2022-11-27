@@ -9,7 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 
-public class LoginAutomatic {
+public class LoginAutomatico {
     public void criacaoArquivoLogin(String email, String password, String token) {
         Looca looca = new Looca();
         if (!(email.equals("") && password.equals("") && token.equals(""))) {
