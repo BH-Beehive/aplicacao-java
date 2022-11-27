@@ -6,19 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="76cb4b32-9b18-4dad-afef-1eec6ed6743e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/5/15cee35b922ff99af8771eddbec4591b046ed5a8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/c/1c86be1f39e10f5ac07ed3fe26cb3ec37993fcc6" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/e/1eca45bea51dfd44c459103a7e6845b8d28cb804" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/1/511552fd7032da687e5101c1fd8c0ea8aa582c6b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/3/b3525ad39acdb44e21c335f250943e5f34415447" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/a/7aa06e6c768277291b6a98552d5ec1762de3af8f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/2/a2d19b6b02f1ca15d1d0a3f29cc461203b0c3af0" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/c/ec2ca9f26d1577265df6cacf67d1d8807335ccc7" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplication-cli/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/aplication-cli/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplication-cli/src/main/java/database/ConexaoComBanco.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplication-cli/src/main/java/database/ConexaoComBanco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projeto-java/.idea/sonarlint/issuestore/0/4/04e11777074e1fd5260b2e60d7e3dceb658248d7" beforeDir="false" afterPath="$PROJECT_DIR$/projeto-java/.idea/sonarlint/issuestore/0/4/04e11777074e1fd5260b2e60d7e3dceb658248d7" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projeto-java/.idea/sonarlint/issuestore/3/7/375e16dc284ed3a291b56b603b70297c5fea4c6e" beforeDir="false" afterPath="$PROJECT_DIR$/projeto-java/.idea/sonarlint/issuestore/3/7/375e16dc284ed3a291b56b603b70297c5fea4c6e" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projeto-java/.idea/sonarlint/issuestore/a/2/a2bdaad715af6e0d36f19c00ca4c029da8169e8a" beforeDir="false" afterPath="$PROJECT_DIR$/projeto-java/.idea/sonarlint/issuestore/a/2/a2bdaad715af6e0d36f19c00ca4c029da8169e8a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projeto-java/.idea/sonarlint/issuestore/d/7/d7e2db9548a6ce3a761bf255711b85b8ac325351" beforeDir="false" afterPath="$PROJECT_DIR$/projeto-java/.idea/sonarlint/issuestore/d/7/d7e2db9548a6ce3a761bf255711b85b8ac325351" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projeto-java/.idea/sonarlint/issuestore/f/2/f2728042d6bb9889942d3528d07b9050a0958f77" beforeDir="false" afterPath="$PROJECT_DIR$/projeto-java/.idea/sonarlint/issuestore/f/2/f2728042d6bb9889942d3528d07b9050a0958f77" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projeto-java/.idea/sonarlint/issuestore/f/2/f28d26f9565934042ab2d64e5fcc2e6686cc8324" beforeDir="false" afterPath="$PROJECT_DIR$/projeto-java/.idea/sonarlint/issuestore/f/2/f28d26f9565934042ab2d64e5fcc2e6686cc8324" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projeto-java/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/projeto-java/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projeto-java/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/projeto-java/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -40,10 +33,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/gusta/OneDrive/Ambiente de Trabalho/SPTECH/Projetos/BEEHIVE/aplicacao-java"
+    "last_opened_file_path": "C:/Users/gusta/OneDrive/Ambiente de Trabalho/Estudos/aplicacao-java/projeto-java"
   }
 }]]></component>
   <component name="RecentsManager">

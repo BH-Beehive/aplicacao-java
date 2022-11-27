@@ -7,24 +7,24 @@ package usecase;
 
 import com.github.britooo.looca.api.core.Looca;
 import database.ConexaoComBanco;
-import database.ConexãoDocker;
 import database.Queries;
 import enums.Alertas;
 import enums.TipoMaquina;
-import java.io.IOException;
 import model.Maquina;
 import org.json.JSONObject;
 import utils.Conversor;
+import utils.Log;
+
+import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import utils.Log;
 
 public class StartApi {
     static String azure = "producao";
     static String local = "desenvolvimento";
-    private static String ambiente = azure;
+    private static String ambiente = local;
     private String token;
     private String tokenFk_Maquina = "";
 
@@ -35,14 +35,11 @@ public class StartApi {
     public void execute() {
         Looca looca = new Looca();
         ConexaoComBanco con = new ConexaoComBanco();
-        ConexãoDocker conDock = new ConexãoDocker();
         Conversor conversor = new Conversor();
         Slack slack = new Slack();
         JSONObject message = new JSONObject();
         con.conectarBanco();
-        conDock.conectarBancoDocker();
         Queries queries = new Queries(con);
-        Queries queriesDock = new Queries(conDock);
         long prefixo = conversor.getMEBI();
 
         String arquitetura = "x" + looca.getSistema().getArquitetura().toString();
@@ -84,11 +81,6 @@ public class StartApi {
             Long discoTotal = null;
             Long discoDisponivel = null;
             Long discoUsado = null;
-            Long primeiroRegistroSlackCpu = null;
-            Long segundoRegistroSlackCpu = null;
-
-            Long segundoRegistroSlackMemoria = null;
-            Long primeiroRegistroSlackMemoria = null;
             String alert = "";
             Integer contadorSlack = null;
 
@@ -164,7 +156,6 @@ public class StartApi {
                 discoUsado = conversor.formatarUnidades(valorDiscoUsado, prefixo);
                 String fk_maquina = queries.selectColumn("id_maquina", tokenFk_Maquina);
                 queries.insertRegistro(fk_maquina, memoriaUsada.doubleValue(), cpuUsada.intValue(), discoUsado.doubleValue(), alert);
-                queriesDock.insertRegistro(fk_maquina, memoriaUsada.doubleValue(), cpuUsada.intValue(), discoUsado.doubleValue(), alert);
                 System.out.println("\n-------------------------------------------");
 
                 System.out.println("\nCPU USADA:" + cpuUsada + "%\n");

@@ -77,6 +77,7 @@ public class ConexaoComBanco {
                 if(!resultSet.getBoolean("token_ativo")) {
                     startApi.setToken(resultSet.getString("token_acesso"));
                     startApi.execute();
+                    return true;
                 }
                 else{
                     JOptionPane.showMessageDialog(telaLogin, "Token inválido!",

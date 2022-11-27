@@ -5,8 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4de562a-18cb-4e50-adf6-9c365219624e" name="Changes" comment="Enviando alertas para o SLACK de acordo com os estados criticos (CLI).">
+      <change beforePath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/1/5/15cee35b922ff99af8771eddbec4591b046ed5a8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/1/c/1c86be1f39e10f5ac07ed3fe26cb3ec37993fcc6" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/1/c/1c86be1f39e10f5ac07ed3fe26cb3ec37993fcc6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/7/a/7aa06e6c768277291b6a98552d5ec1762de3af8f" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/7/a/7aa06e6c768277291b6a98552d5ec1762de3af8f" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/a/2/a2d19b6b02f1ca15d1d0a3f29cc461203b0c3af0" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/a/2/a2d19b6b02f1ca15d1d0a3f29cc461203b0c3af0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/e/c/ec2ca9f26d1577265df6cacf67d1d8807335ccc7" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/e/c/ec2ca9f26d1577265df6cacf67d1d8807335ccc7" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/2/7/273d933e40a688c86a10a5c5c08c3847293c9675" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/3/0/30ea00fb0fb06e0217bbba115c4b7846232865b7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/3/7/375e16dc284ed3a291b56b603b70297c5fea4c6e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/4/c/4c9b395262943121992dea65f5a9fb8937be3fc6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/9/3/9345957403abdb7f454e7772cd1ddf53449d5dc7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/9/6/96d46542588e1dc68e381a165811e8a2daa34835" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/b/3/b34a332a0d215948d20ac37d33c40edf2ad28f73" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/b/8/b8ddf26b270b7c4b4313b76fd3bf61648ab81e3f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/f/2/f2728042d6bb9889942d3528d07b9050a0958f77" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/loginAutomatico/LOGIN-AUTOMATICO" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/loginAutomatico/LOGIN-AUTOMATICO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/database/ConexaoComBanco.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/database/ConexaoComBanco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/utils/ConfigLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/utils/ConfigLog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../aplication-cli/target/test-classes/.netbeans_automatic_build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/e/0e5552f593cfa06231cf187a1f04ab1f68154efb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/a/fad8c1a1b07d7afd29b2d04ddb5ef551f6f7e680" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginAutomatico/LOGIN-AUTOMATICO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/aplication/TelaLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aplication/TelaLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/ConexaoComBanco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/ConexaoComBanco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/ConexãoDocker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/Queries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/Queries.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/usecase/Slack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/Slack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/usecase/StartApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/StartApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Log.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/LoginAutomatico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/LoginAutomatico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/projeto-java-1.0-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/projeto-java-1.0-SNAPSHOT-jar-with-dependencies.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,24 +91,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/gusta/OneDrive/Ambiente de Trabalho/Estudos/aplicacao-java/aplication-cli&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "false",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/gusta/OneDrive/Ambiente de Trabalho/Estudos/aplicacao-java/aplication-cli",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\gusta\OneDrive\Ambiente de Trabalho\Estudos\aplicacao-java\projeto-java\src\main\java\usecase" />
@@ -139,6 +175,7 @@
       <workItem from="1669340625108" duration="9301000" />
       <workItem from="1669414172670" duration="1037000" />
       <workItem from="1669417468897" duration="15762000" />
+      <workItem from="1669508691207" duration="11000" />
     </task>
     <task id="LOCAL-00001" summary="Docker-compose adicionado">
       <created>1665953307436</created>
@@ -208,14 +245,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Enviando alertas para o SLACK de acordo com os estados criticos (CLI)." />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/aplication/TelaLogin.java</url>
-          <line>363</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.lang.Boolean" memberName="value" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

@@ -25,7 +25,7 @@ public class ConfigLog {
     public void logEstadoMaquina(String estado) throws FileNotFoundException, IOException {
         
         if(sistemaOperacional.equalsIgnoreCase("Windows")) {
-            Path path = Paths.get(".\\logs");
+            Path path = Paths.get("..\\logs");
 		
 		if(!Files.exists(path)) {
 			
@@ -34,7 +34,7 @@ public class ConfigLog {
 		}
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
                 String dataConvertida = dtf.format(LocalDateTime.now());
-		File log = new File(".\\logs\\logEstadoMaquina"+dataAgora);
+		File log = new File("..\\logs\\logEstadoMaquina"+dataAgora);
 		
 		if(!log.exists()) {
 			
@@ -53,7 +53,7 @@ public class ConfigLog {
 		bw.close();
 		fw.close();
         }else {
-            Path path = Paths.get(".\\logs");
+            Path path = Paths.get("..//logs");
 		
 		if(!Files.exists(path)) {
 			
@@ -62,7 +62,7 @@ public class ConfigLog {
 		}
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
                 String dataConvertida = dtf.format(LocalDateTime.now());
-		File log = new File(".\\logs\\logEstadoMaquina"+dataAgora);
+		File log = new File("..//logs//logEstadoMaquina"+dataAgora);
 		
 		if(!log.exists()) {
 			

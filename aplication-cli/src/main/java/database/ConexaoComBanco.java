@@ -76,7 +76,7 @@ public class ConexaoComBanco {
                 System.out.println("Login executado com sucesso!");
                 isLogado = true;
                 System.out.println(token);
-                if(resultSet.getBoolean("token_ativo")) {
+                if(!resultSet.getBoolean("token_ativo")) {
                     interacaoAPI.setToken(resultSet.getString("token_acesso"));
                     if (automaticLogin) {
                         LoginAutomatic loginAutomatic = new LoginAutomatic();

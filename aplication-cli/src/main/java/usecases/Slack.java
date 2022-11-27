@@ -11,30 +11,35 @@ import java.net.URL;
 public class Slack {
     private String url = "https://hooks.slack.com/services/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";
     public void sendMessage(JSONObject message) throws Exception {
-        URL obj = new URL(this.url);
-        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+        try {
 
-        con.setRequestMethod("POST");
-        con.setDoOutput(true);
+            URL obj = new URL(this.url);
+            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
-        DataOutputStream wr = new DataOutputStream(con.getOutputStream());
-        wr.writeBytes(message.toString());
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
 
-        wr.flush();
-        wr.close();
+            DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+            wr.writeBytes(message.toString());
+
+            wr.flush();
+            wr.close();
 
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
-        String inputLine;
+            String inputLine;
 
-        StringBuffer response = new StringBuffer();
+            StringBuffer response = new StringBuffer();
 
-        while ((inputLine = reader.readLine()) != null) {
-            response.append(inputLine);
+            while ((inputLine = reader.readLine()) != null) {
+                response.append(inputLine);
+            }
+
+            reader.close();
+        } catch (RuntimeException e) {
+             e.getStackTrace();
         }
-
-        reader.close();
     }
 }
 

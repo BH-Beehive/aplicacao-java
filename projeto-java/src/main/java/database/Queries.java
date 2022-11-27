@@ -19,21 +19,16 @@ public class Queries {
     private ResultSet resultSet = null;
     private Statement st = null;
     private ConexaoComBanco conexao = null;
-    private ConexãoDocker  conDock = null;
 
     public Queries(ConexaoComBanco conexao) {
         this.conexao = conexao;
     }
-    public Queries(ConexãoDocker conDock) {
-        this.conDock = conDock;
-    }
+
     private TelaLogin tela = new TelaLogin();
+
     public void update(Double memoriaTotal, Double discoTotal, String arquitetura, String sistemaOperacional, String processador, String tokenAcesso) {
         try {
-            ps = conexao.getCon().prepareStatement("update maquina set memoria_total = ? , "
-                    + "disco_total = ? , arquitetura = ? , "
-                    + "sistema_operacional = ? , processador = ? "
-                    + " where token_acesso = ?;");
+            ps = conexao.getCon().prepareStatement("update maquina set memoria_total = ? , " + "disco_total = ? , arquitetura = ? , " + "sistema_operacional = ? , processador = ? " + " where token_acesso = ?;");
             ps.setDouble(1, memoriaTotal);
             ps.setDouble(2, discoTotal);
             ps.setString(3, arquitetura);
@@ -51,16 +46,7 @@ public class Queries {
         try {
             resultSet = conexao.getCon().createStatement().executeQuery("select * from maquina");
             while (resultSet.next()) {
-                System.out.println("Host_name:" + resultSet.getString("host_name")
-                        + "\n Tipo:" + resultSet.getString("tipo")
-                        + "\n Arquitetura: " + resultSet.getString("arquitetura")
-                        + "\n Token: " + resultSet.getString("token_acesso")
-                        + "\n Sistema operacional: " + resultSet.getString("sistema_operacional")
-                        + "\n Mem�ria total: " + resultSet.getString("memoria_total")
-                        + "\n CPU total: " + resultSet.getString("processador")
-                        + "\n Disco total: " + resultSet.getString("disco_total")
-                        + "\n Maquina validada: " + resultSet.getString("token_ativo")
-                );
+                System.out.println("Host_name:" + resultSet.getString("host_name") + "\n Tipo:" + resultSet.getString("tipo") + "\n Arquitetura: " + resultSet.getString("arquitetura") + "\n Token: " + resultSet.getString("token_acesso") + "\n Sistema operacional: " + resultSet.getString("sistema_operacional") + "\n Mem�ria total: " + resultSet.getString("memoria_total") + "\n CPU total: " + resultSet.getString("processador") + "\n Disco total: " + resultSet.getString("disco_total") + "\n Maquina validada: " + resultSet.getString("token_ativo"));
             }
         } catch (SQLException e) {
             System.out.println("Erro ao executar o select!" + e.getMessage());
@@ -77,15 +63,6 @@ public class Queries {
                 ps.setDouble(4, discoUsado);
                 ps.setString(5, alerta);
                 ps.executeUpdate();
-
-                psDock = conexao.getCon().prepareStatement("insert into registro values (default,?,?,?,?,?);");
-                psDock.setString(1, fkMaquina);
-                psDock.setDouble(2, memoriaUsada);
-                psDock.setInt(3, cpuUsada);
-                psDock.setDouble(4, discoUsado);
-                psDock.setString(5, alerta);
-                psDock.executeUpdate();
-
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
@@ -102,7 +79,7 @@ public class Queries {
                 throw new RuntimeException(e);
             }
         }
-        }
+    }
 
     public void insertDadosMaquina(String host_name, String token, String tipo, Double memoriaTotal, Double discoTotal, String arquitetura, String so, String processador, String setor, Integer prioridade) {
         if (StartApi.getAmbiente().equals("producao")) {
@@ -142,22 +119,13 @@ public class Queries {
                 throw new RuntimeException(e);
             }
         }
-        }
+    }
 
     public void selectBySetor(String componente, String setor) {
         try {
-            resultSet = conexao.getCon().createStatement().executeQuery(
-                    "select "
-                    + componente
-                    + " ,setor from registro join maquina on id_maquina ="
-                    + " fk_maquina "
-                    + "where setor ="
-                    + "'" + setor + "'"
-                    + " order by id_registro desc limit 10;");
+            resultSet = conexao.getCon().createStatement().executeQuery("select " + componente + " ,setor from registro join maquina on id_maquina =" + " fk_maquina " + "where setor =" + "'" + setor + "'" + " order by id_registro desc limit 10;");
             while (resultSet.next()) {
-                System.out.println("\nnome componente:" + componente
-                        + "\nsetor: " + resultSet.getString("setor")
-                        + "\nuso: " + resultSet.getString(componente));
+                System.out.println("\nnome componente:" + componente + "\nsetor: " + resultSet.getString("setor") + "\nuso: " + resultSet.getString(componente));
             }
         } catch (SQLException e) {
             System.out.println("Erro ao executar o select!" + e.getMessage());
@@ -167,17 +135,9 @@ public class Queries {
 
     public void selectByMaquina(String hostname) {
         try {
-            resultSet = conexao.getCon().createStatement().executeQuery(
-                    "select host_name , memoria_uso ,"
-                    + " cpu_uso, disco_uso "
-                    + " from registro join maquina on id_maquina = fk_maquina where host_name ="
-                    + "'" + hostname + "'"
-                    + " order by id_registro desc limit 1;");
+            resultSet = conexao.getCon().createStatement().executeQuery("select host_name , memoria_uso ," + " cpu_uso, disco_uso " + " from registro join maquina on id_maquina = fk_maquina where host_name =" + "'" + hostname + "'" + " order by id_registro desc limit 1;");
             while (resultSet.next()) {
-                System.out.println("\nnome da máquina:" + hostname
-                        + "\nuso disco: " + resultSet.getString("disco_uso")
-                        + "\nuso cpu: " + resultSet.getString("cpu_uso")
-                        + "\nuso ram: " + resultSet.getString("memoria_uso"));
+                System.out.println("\nnome da máquina:" + hostname + "\nuso disco: " + resultSet.getString("disco_uso") + "\nuso cpu: " + resultSet.getString("cpu_uso") + "\nuso ram: " + resultSet.getString("memoria_uso"));
             }
         } catch (SQLException e) {
             System.out.println("Erro ao executar o select!" + e.getMessage());
@@ -186,8 +146,7 @@ public class Queries {
 
     public String selectColumn(String coluna, String token) {
         try {
-            resultSet = conexao.getCon().createStatement().executeQuery("SELECT "
-                    + coluna+" from maquina where token_acesso='" + token+"';");
+            resultSet = conexao.getCon().createStatement().executeQuery("SELECT " + coluna + " from maquina where token_acesso='" + token + "';");
 
             while (resultSet.next()) {
                 String colunaResultado = resultSet.getString(coluna);
@@ -203,11 +162,7 @@ public class Queries {
 
     public String selectSetorFromMaquina(String hostname) {
         try {
-            resultSet = conexao.getCon().createStatement().executeQuery(
-                    "select nome_setor "
-                            + " from setor join maquina on id_setor = fk_setor where host_name ="
-                            + "'" + hostname + "'"
-                            + ";");
+            resultSet = conexao.getCon().createStatement().executeQuery("select nome_setor " + " from setor join maquina on id_setor = fk_setor where host_name =" + "'" + hostname + "'" + ";");
             while (resultSet.next()) {
                 String colunaResultado = resultSet.getString("nome_setor");
                 return colunaResultado;

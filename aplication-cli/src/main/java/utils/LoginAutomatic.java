@@ -17,7 +17,7 @@ public class LoginAutomatic {
         Looca looca = new Looca();
         if (!(email.equals("") && password.equals("") && token.equals(""))) {
             if (looca.getSistema().getSistemaOperacional().equalsIgnoreCase("windows")) {
-                Path path = Paths.get(".\\loginAutomatico");
+                Path path = Paths.get("..\\loginAutomatico");
                 if (!Files.exists(path)) {
 
                     try {
@@ -25,7 +25,7 @@ public class LoginAutomatic {
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
-                    File login = new File(".\\loginAutomatico\\LOGIN-AUTOMATICO");
+                    File login = new File("..\\loginAutomatico\\LOGIN-AUTOMATICO");
                     if (!login.exists()) {
                         try {
                             login.createNewFile();
@@ -50,7 +50,7 @@ public class LoginAutomatic {
                     }
                 }
             } else {
-                Path path = Paths.get(".\\loginAutomatico");
+                Path path = Paths.get("..//loginAutomatico");
 
                 if (!Files.exists(path)) {
                     try {
@@ -61,7 +61,7 @@ public class LoginAutomatic {
 
                 }
 
-                File login = new File(".\\loginAutomatico\\LOGIN-AUTOMATICO");
+                File login = new File("..//loginAutomatico//LOGIN-AUTOMATICO");
 
                 if (!login.exists()) {
 
@@ -74,9 +74,9 @@ public class LoginAutomatic {
                 try {
                     FileWriter fw = new FileWriter(login, true);
                     BufferedWriter bw = new BufferedWriter(fw);
-                    bw.write("ola" + "\n");
-                    bw.write("tudoBem" + "\n");
-                    bw.write("Que bom" + "\n\n");
+                    bw.write(email + "\n");
+                    bw.write(password + "\n");
+                    bw.write(token + "\n\n");
                     bw.newLine();
                     bw.close();
                     fw.close();

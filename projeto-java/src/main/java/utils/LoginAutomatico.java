@@ -1,6 +1,8 @@
 package utils;
 
 import com.github.britooo.looca.api.core.Looca;
+import database.ConexaoComBanco;
+import database.Queries;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -10,11 +12,13 @@ import java.nio.file.Paths;
 
 
 public class LoginAutomatico {
+    ConexaoComBanco conexaoComBanco = new ConexaoComBanco();
+
     public void criacaoArquivoLogin(String email, String password, String token) {
         Looca looca = new Looca();
-        if (!(email.equals("") && password.equals("") && token.equals(""))) {
+        if (!(email.equals("") || password.equals("") || token.equals(""))) {
             if (looca.getSistema().getSistemaOperacional().equalsIgnoreCase("windows")) {
-                Path path = Paths.get(".\\loginAutomatico");
+                Path path = Paths.get("..\\loginAutomatico");
                 if (!Files.exists(path)) {
 
                     try {
@@ -22,7 +26,7 @@ public class LoginAutomatico {
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
-                    File login = new File(".\\loginAutomatico\\LOGIN-AUTOMATICO");
+                    File login = new File("..\\loginAutomatico\\LOGIN-AUTOMATICO");
                     if (!login.exists()) {
                         try {
                             login.createNewFile();
@@ -47,7 +51,7 @@ public class LoginAutomatico {
                     }
                 }
             } else {
-                Path path = Paths.get(".\\loginAutomatico");
+                Path path = Paths.get("..//loginAutomatico");
 
                 if (!Files.exists(path)) {
                     try {
@@ -58,7 +62,7 @@ public class LoginAutomatico {
 
                 }
 
-                File login = new File(".\\loginAutomatico\\LOGIN-AUTOMATICO");
+                File login = new File("..//loginAutomatico//LOGIN-AUTOMATICO");
 
                 if (!login.exists()) {
 

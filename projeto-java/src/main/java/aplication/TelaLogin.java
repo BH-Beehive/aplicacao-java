@@ -6,12 +6,10 @@ package aplication;
 
 import com.github.britooo.looca.api.core.Looca;
 import database.ConexaoComBanco;
-import database.ConexãoDocker;
 import database.Queries;
 import utils.LoginAutomatico;
 
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
+import javax.swing.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -260,8 +258,6 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_inputSenhaActionPerformed
 
     private void CheckBoxConectadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBoxConectadoActionPerformed
-        LoginAutomatico login = new LoginAutomatico();
-        login.criacaoArquivoLogin(inputEmail.getText(), new String(inputSenha.getPassword()), inputToken.getText());
     }//GEN-LAST:event_CheckBoxConectadoActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
@@ -274,16 +270,14 @@ public class TelaLogin extends javax.swing.JFrame {
         loginA.criacaoArquivoLogin(inputEmail.getText(), new String(inputSenha.getPassword()), inputToken.getText());
         Looca l = new Looca();
         ConexaoComBanco con = new ConexaoComBanco();
-        ConexãoDocker conDocker = new ConexãoDocker();
         con.conectarBanco();
-        Queries queries = new Queries(con);
         email = inputEmail.toString();
         senha = inputSenha.toString();
         token = inputToken.toString();
-        String pathLinux = ".//loginAutomatico";
-        String loginLinux = ".//loginAutomatico//LOGIN-AUTOMATICO";
-        String loginWin = ".\\loginAutomatico\\LOGIN-AUTOMATICO";
-        String pathWin = ".\\loginAutomatico";
+        String pathLinux = "..//loginAutomatico";
+        String loginLinux = "..//loginAutomatico//LOGIN-AUTOMATICO";
+        String loginWin = "..\\loginAutomatico\\LOGIN-AUTOMATICO";
+        String pathWin = "..\\loginAutomatico";
         Path path = Paths.get(pathWin);
         File login = new File(loginWin);
         if (l.getSistema().getSistemaOperacional().equalsIgnoreCase("Linux")) {
@@ -292,7 +286,6 @@ public class TelaLogin extends javax.swing.JFrame {
         }
         archiveProcess(path, login);
         con.validarAcesso(email, senha, token);
-        conDocker.validarAcesso(email, senha, token);
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     public JCheckBox getCheckBoxConectado() {
@@ -368,10 +361,10 @@ public class TelaLogin extends javax.swing.JFrame {
             public void run() {
                 new TelaLogin().setVisible(true);
                 Looca l = new Looca();
-                String pathLinux = ".//loginAutomatico";
-                String loginLinux = ".//loginAutomatico//LOGIN-AUTOMATICO";
-                String loginWin = ".\\loginAutomatico\\LOGIN-AUTOMATICO";
-                String pathWin = ".\\loginAutomatico";
+                String pathLinux = "..//loginAutomatico";
+                String loginLinux = "..//loginAutomatico//LOGIN-AUTOMATICO";
+                String loginWin = "..\\loginAutomatico\\LOGIN-AUTOMATICO";
+                String pathWin = "..\\loginAutomatico";
                 Path path = Paths.get(pathWin);
                 File login = new File(loginWin);
                 if (l.getSistema().getSistemaOperacional().equalsIgnoreCase("Linux")) {

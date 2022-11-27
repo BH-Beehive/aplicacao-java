@@ -1,16 +1,31 @@
 
-@
-java:S5411Q"*Use the primitive boolean expression here.(âÍÆ­
-—
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(›®Ö§
-g
-java:S1450"QRemove the "ps" field and declare it as a local variable in the relevant methods.(¼ßÞÉ
+G
+java:S5411Q"*Use the primitive boolean expression here.(âÍÆ­8ÒÆÞºË0
+ž
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(›®Ö§8…ÇÞºË0
 n
-java:S1450"XRemove the "resultSet" field and declare it as a local variable in the relevant methods.(Þþö€
-M
-java:S6126="2Replace this String concatenation with Text block.(ØžáÉýÿÿÿÿ
-Q	java:S125E"<This block of commented-out lines of code should be removed.(‰§Û¿
+java:S1450"QRemove the "ps" field and declare it as a local variable in the relevant methods.(¼ßÞÉ8‘ÇÞºË0
+u
+java:S1450"XRemove the "resultSet" field and declare it as a local variable in the relevant methods.(Þþö€8”ÇÞºË0
+Z	java:S106%"9Replace this use of System.out or System.err by a logger.(ã¢±øÿÿÿÿ8ÇÞºË0
+U	java:S106'"9Replace this use of System.out or System.err by a logger.(Çéüµ8žÇÞºË0
+Z	java:S106*"9Replace this use of System.out or System.err by a logger.(ƒ•Áþüÿÿÿÿ8¡ÇÞºË0
+U	java:S106/"9Replace this use of System.out or System.err by a logger.(æù×’8£ÇÞºË0
+U	java:S1061"9Replace this use of System.out or System.err by a logger.(­‘ìé8¥ÇÞºË0
+Z	java:S1064"9Replace this use of System.out or System.err by a logger.(÷”±Ôøÿÿÿÿ8§ÇÞºË0
+T
+java:S6126="2Replace this String concatenation with Text block.(ØžáÉýÿÿÿÿ8­ÇÞºË0
+X	java:S125E"<This block of commented-out lines of code should be removed.(‰§Û¿8±ÇÞºË0
+U	java:S106H"9Replace this use of System.out or System.err by a logger.(ÐË¦ø8³ÇÞºË0
+U	java:S106I"9Replace this use of System.out or System.err by a logger.(¤ê©‘8´ÇÞºË0
+U	java:S106J"9Replace this use of System.out or System.err by a logger.(§ìƒ8·ÇÞºË0
+U	java:S106K"9Replace this use of System.out or System.err by a logger.(ŸÞÆÍ8ºÇÞºË0
+U	java:S106L"9Replace this use of System.out or System.err by a logger.(†‡¯™8½ÇÞºË0
+U	java:S106N"9Replace this use of System.out or System.err by a logger.(ñšÔ8ÀÇÞºË0
+U	java:S106X"9Replace this use of System.out or System.err by a logger.(á»ÎÈ8ÃÇÞºË0
+Z	java:S106^"9Replace this use of System.out or System.err by a logger.(šºŸÞüÿÿÿÿ8ÄÇÞºË0
+T	java:S106a"9Replace this use of System.out or System.err by a logger.(¸ªû8ÇÇÞºË0
 J
-java:S1128"(Remove this unused import 'javax.swing'.(Ìí¿Üüÿÿÿÿ8‰•ÞƒË0
-<
-java:S1068"&Remove this unused "st" private field.(øšã”
+java:S1128"(Remove this unused import 'javax.swing'.(Ìí¿Üüÿÿÿÿ8ËÇÞºË0
+C
+java:S1068"&Remove this unused "st" private field.(øšã”8ËÇÞºË0
