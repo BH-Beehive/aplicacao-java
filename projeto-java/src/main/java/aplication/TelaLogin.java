@@ -10,6 +10,10 @@ import database.Queries;
 import utils.LoginAutomatico;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -24,6 +28,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private String email;
     private String senha;
     private String token;
+    private static TelaLogin telaLogin = new TelaLogin();
 
     /**
      * Creates new form TelaLogin
@@ -258,6 +263,8 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_inputSenhaActionPerformed
 
     private void CheckBoxConectadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBoxConectadoActionPerformed
+        LoginAutomatico login = new LoginAutomatico();
+        login.criacaoArquivoLogin(inputEmail.getText(), new String(inputSenha.getPassword()), inputToken.getText());
     }//GEN-LAST:event_CheckBoxConectadoActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
@@ -271,13 +278,14 @@ public class TelaLogin extends javax.swing.JFrame {
         Looca l = new Looca();
         ConexaoComBanco con = new ConexaoComBanco();
         con.conectarBanco();
+        Queries queries = new Queries(con);
         email = inputEmail.toString();
         senha = inputSenha.toString();
         token = inputToken.toString();
-        String pathLinux = "..//loginAutomatico";
-        String loginLinux = "..//loginAutomatico//LOGIN-AUTOMATICO";
-        String loginWin = "..\\loginAutomatico\\LOGIN-AUTOMATICO";
-        String pathWin = "..\\loginAutomatico";
+        String pathLinux = ".//loginAutomatico";
+        String loginLinux = ".//loginAutomatico//LOGIN-AUTOMATICO";
+        String loginWin = ".\\loginAutomatico\\LOGIN-AUTOMATICO";
+        String pathWin = ".\\loginAutomatico";
         Path path = Paths.get(pathWin);
         File login = new File(loginWin);
         if (l.getSistema().getSistemaOperacional().equalsIgnoreCase("Linux")) {
@@ -286,6 +294,26 @@ public class TelaLogin extends javax.swing.JFrame {
         }
         archiveProcess(path, login);
         con.validarAcesso(email, senha, token);
+        telaLogin.setVisible(false);
+      /*  JButton botaoSair = new JButton("Parar aplicação");
+        botaoSair.setBounds(50,100,95,30);*/
+        JFrame f=new JFrame("Button Example");
+        f.setUndecorated(true);
+        f.setBackground( new Color(0.0f,0.0f,0.0f,0.0f));
+        JButton b=new JButton("STOP");
+        b.setBounds(0,0,120, 40);
+        f.add(b);
+        f.setSize(120,120);
+        f.setLayout(null);
+        f.setVisible(true);
+
+        b.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                System.exit(0);
+            }
+        });
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     public JCheckBox getCheckBoxConectado() {
@@ -359,12 +387,12 @@ public class TelaLogin extends javax.swing.JFrame {
             String senha = "";
             String token = "";
             public void run() {
-                new TelaLogin().setVisible(true);
+                telaLogin.setVisible(true);
                 Looca l = new Looca();
-                String pathLinux = "..//loginAutomatico";
-                String loginLinux = "..//loginAutomatico//LOGIN-AUTOMATICO";
-                String loginWin = "..\\loginAutomatico\\LOGIN-AUTOMATICO";
-                String pathWin = "..\\loginAutomatico";
+                String pathLinux = ".//loginAutomatico";
+                String loginLinux = ".//loginAutomatico//LOGIN-AUTOMATICO";
+                String loginWin = ".\\loginAutomatico\\LOGIN-AUTOMATICO";
+                String pathWin = ".\\loginAutomatico";
                 Path path = Paths.get(pathWin);
                 File login = new File(loginWin);
                 if (l.getSistema().getSistemaOperacional().equalsIgnoreCase("Linux")) {
@@ -372,7 +400,6 @@ public class TelaLogin extends javax.swing.JFrame {
                     login = new File(loginLinux);
                 }
                 processFileAndSetInput(path, login);
-
             }
 
             private void processFileAndSetInput(Path path, File login) {

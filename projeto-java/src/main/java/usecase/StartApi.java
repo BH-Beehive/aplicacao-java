@@ -10,16 +10,15 @@ import database.ConexaoComBanco;
 import database.Queries;
 import enums.Alertas;
 import enums.TipoMaquina;
+import java.io.IOException;
 import model.Maquina;
 import org.json.JSONObject;
 import utils.Conversor;
-import utils.Log;
-
-import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import utils.Log;
 
 public class StartApi {
     static String azure = "producao";
@@ -52,7 +51,6 @@ public class StartApi {
         String arquiteturaMaq = queries.selectColumn("arquitetura", token);
         String soMaq = queries.selectColumn("sistema_operacional", token);
 //        Double discoTotalMaq = Double.valueOf(queries.selectColumn("disco_total", token));
-
         String processadorMaq = queries.selectColumn("processador", token);
         String tipo = queries.selectColumn("tipo", token);
 
@@ -81,6 +79,11 @@ public class StartApi {
             Long discoTotal = null;
             Long discoDisponivel = null;
             Long discoUsado = null;
+            Long primeiroRegistroSlackCpu = null;
+            Long segundoRegistroSlackCpu = null;
+
+            Long segundoRegistroSlackMemoria = null;
+            Long primeiroRegistroSlackMemoria = null;
             String alert = "";
             Integer contadorSlack = null;
 
