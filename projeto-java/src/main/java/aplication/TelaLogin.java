@@ -9,8 +9,11 @@ import database.ConexaoComBanco;
 import database.Queries;
 import utils.LoginAutomatic;
 
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
