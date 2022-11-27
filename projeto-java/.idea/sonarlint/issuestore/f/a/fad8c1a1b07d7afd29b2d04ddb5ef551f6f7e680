@@ -1,9 +1,0 @@
-
-n
-java:S20950"LUse try-with-resources or close this "BufferedWriter" in a "finally" clause.(ξήΐ‘ϋÿÿÿÿ8ι›ΉΛ0
-n
-java:S2095L"LUse try-with-resources or close this "BufferedWriter" in a "finally" clause.(ξήΐ‘ϋÿÿÿÿ8κ›ΉΛ0
-“
-java:S1130"xRemove the declaration of thrown exception 'java.io.FileNotFoundException' which is a subclass of 'java.io.IOException'.(Ψδ¨ώÿÿÿÿ
-\	java:S899+"BDo something with the "boolean" value returned by "createNewFile".(ΪΌϋÿÿÿÿ
-\	java:S899G"BDo something with the "boolean" value returned by "createNewFile".(ΪΌϋÿÿÿÿ

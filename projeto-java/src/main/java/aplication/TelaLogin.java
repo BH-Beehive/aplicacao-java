@@ -278,14 +278,13 @@ public class TelaLogin extends javax.swing.JFrame {
         Looca l = new Looca();
         ConexaoComBanco con = new ConexaoComBanco();
         con.conectarBanco();
-        Queries queries = new Queries(con);
         email = inputEmail.toString();
         senha = inputSenha.toString();
         token = inputToken.toString();
-        String pathLinux = ".//loginAutomatico";
-        String loginLinux = ".//loginAutomatico//LOGIN-AUTOMATICO";
-        String loginWin = ".\\loginAutomatico\\LOGIN-AUTOMATICO";
-        String pathWin = ".\\loginAutomatico";
+        String pathLinux = "..//loginAutomatico";
+        String loginLinux = "..//loginAutomatico//LOGIN-AUTOMATICO";
+        String loginWin = "..\\loginAutomatico\\LOGIN-AUTOMATICO";
+        String pathWin = "..\\loginAutomatico";
         Path path = Paths.get(pathWin);
         File login = new File(loginWin);
         if (l.getSistema().getSistemaOperacional().equalsIgnoreCase("Linux")) {
@@ -294,9 +293,6 @@ public class TelaLogin extends javax.swing.JFrame {
         }
         archiveProcess(path, login);
         con.validarAcesso(email, senha, token);
-
-      /*  JButton botaoSair = new JButton("Parar aplicação");
-        botaoSair.setBounds(50,100,95,30);*/
 
 
     }//GEN-LAST:event_btnEntrarActionPerformed
@@ -374,10 +370,10 @@ public class TelaLogin extends javax.swing.JFrame {
             public void run() {
                 telaLogin.setVisible(true);
                 Looca l = new Looca();
-                String pathLinux = ".//loginAutomatico";
-                String loginLinux = ".//loginAutomatico//LOGIN-AUTOMATICO";
-                String loginWin = ".\\loginAutomatico\\LOGIN-AUTOMATICO";
-                String pathWin = ".\\loginAutomatico";
+                String pathLinux = "..//loginAutomatico";
+                String loginLinux = "..//loginAutomatico//LOGIN-AUTOMATICO";
+                String loginWin = "..\\loginAutomatico\\LOGIN-AUTOMATICO";
+                String pathWin = "..\\loginAutomatico";
                 Path path = Paths.get(pathWin);
                 File login = new File(loginWin);
                 if (l.getSistema().getSistemaOperacional().equalsIgnoreCase("Linux")) {
