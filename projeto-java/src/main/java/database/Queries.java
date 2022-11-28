@@ -96,12 +96,13 @@ public class Queries {
                 ps.setString(5, alerta);
                 ps.executeUpdate();
                 if (conexaoDocker != null) {
-                    psDock = conexaoDocker.getConDocker().prepareStatement("insert into registro values (null,default,?,?,?,?,?);");
-                    psDock.setString(1, fkMaquina);
-                    psDock.setDouble(2, memoriaUsada);
-                    psDock.setInt(3, cpuUsada);
-                    psDock.setDouble(4, discoUsado);
-                    psDock.setString(5, alerta);
+                    psDock = conexaoDocker.getConDocker().prepareStatement("insert into registro (id_registro,data_registro" +
+                            ",memoria_uso,cpu_uso,disco_uso,tipo_alerta)" +
+                            " values (null,default,?,?,?,?);");
+                    psDock.setDouble(1, memoriaUsada);
+                    psDock.setInt(2, cpuUsada);
+                    psDock.setDouble(3, discoUsado);
+                    psDock.setString(4, alerta);
                     psDock.executeUpdate();
                 }
             } catch (SQLException e) {
