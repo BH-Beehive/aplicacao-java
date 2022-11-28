@@ -11,7 +11,3 @@ W
 'src/main/java/aplication/TelaLogin.form,f\b\fbf094bec96e6eb249cd9b8525d204f22ca17710
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-W
-'src/main/java/aplication/TelaLogin.java,d\7\d7e2db9548a6ce3a761bf255711b85b8ac325351
-[
-+src/main/java/database/ConexaoComBanco.java,f\2\f2728042d6bb9889942d3528d07b9050a0958f77

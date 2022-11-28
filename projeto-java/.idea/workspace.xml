@@ -5,39 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4de562a-18cb-4e50-adf6-9c365219624e" name="Changes" comment="Enviando alertas para o SLACK de acordo com os estados criticos (CLI).">
-      <change beforePath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/a/2/a2d19b6b02f1ca15d1d0a3f29cc461203b0c3af0" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/a/2/a2d19b6b02f1ca15d1d0a3f29cc461203b0c3af0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/e/c/ec2ca9f26d1577265df6cacf67d1d8807335ccc7" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/e/c/ec2ca9f26d1577265df6cacf67d1d8807335ccc7" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/2/7/273d933e40a688c86a10a5c5c08c3847293c9675" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/2/7/273d933e40a688c86a10a5c5c08c3847293c9675" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/3/0/30ea00fb0fb06e0217bbba115c4b7846232865b7" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/3/0/30ea00fb0fb06e0217bbba115c4b7846232865b7" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/3/7/375e16dc284ed3a291b56b603b70297c5fea4c6e" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/3/7/375e16dc284ed3a291b56b603b70297c5fea4c6e" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/9/3/9345957403abdb7f454e7772cd1ddf53449d5dc7" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/9/3/9345957403abdb7f454e7772cd1ddf53449d5dc7" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/9/6/96d46542588e1dc68e381a165811e8a2daa34835" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/9/6/96d46542588e1dc68e381a165811e8a2daa34835" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/b/3/b34a332a0d215948d20ac37d33c40edf2ad28f73" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/b/3/b34a332a0d215948d20ac37d33c40edf2ad28f73" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/b/8/b8ddf26b270b7c4b4313b76fd3bf61648ab81e3f" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/b/8/b8ddf26b270b7c4b4313b76fd3bf61648ab81e3f" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/f/2/f2728042d6bb9889942d3528d07b9050a0958f77" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/f/2/f2728042d6bb9889942d3528d07b9050a0958f77" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../aplication-cli/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/aplication/CLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/aplication/CLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/database/ConexaoComBanco.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/database/ConexaoComBanco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/InteracaoAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/InteracaoAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/Slack.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/usecases/Slack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../aplication-cli/src/main/java/utils/LoginAutomatic.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aplication-cli/src/main/java/utils/LoginAutomatic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../logs/logEstadoMaquina2022-11-27" beforeDir="false" afterPath="$PROJECT_DIR$/../logs/logEstadoMaquina2022-11-27" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_11_2022_20_12__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_11_2022_20_12__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_11_2022_20_12__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_11_2022_20_12__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/7/d7e2db9548a6ce3a761bf255711b85b8ac325351" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/2/f2728042d6bb9889942d3528d07b9050a0958f77" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/aplication/TelaLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/aplication/TelaLogin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/database/ConexaoComBanco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/ConexaoComBanco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/database/Queries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/Queries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/LoginAutomatico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/LoginAutomatico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/projeto-java-1.0-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/projeto-java-1.0-SNAPSHOT-jar-with-dependencies.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,24 +57,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "false",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/gusta/OneDrive/Ambiente de Trabalho/Estudos/aplicacao-java/projeto-java",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/gusta/OneDrive/Ambiente de Trabalho/Estudos/aplicacao-java/projeto-java&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\gusta\OneDrive\Ambiente de Trabalho\Estudos\aplicacao-java\projeto-java\src\main\java\usecase" />
