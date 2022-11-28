@@ -2,6 +2,7 @@ package database;
 
 import aplication.TelaLogin;
 import com.github.britooo.looca.api.core.Looca;
+import org.apache.commons.dbcp2.BasicDataSource;
 import usecase.StartApi;
 
 import javax.swing.*;
@@ -11,7 +12,6 @@ import java.nio.file.Paths;
 import java.sql.*;
 
 public class ConexaoComBanco {
-
 
     private StartApi startApi = new StartApi();
     private String url = "jdbc:mysql://192.168.192.2:3306/Beehive";
@@ -37,6 +37,7 @@ public class ConexaoComBanco {
                     "loginTimeout=30;";
             try {
                 System.out.println("Abrindo conexao com o banco Azure...");
+                DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
                 con = DriverManager.getConnection(url);
                 System.out.println("Conexao realizada na Azure com sucesso!");
             } catch (SQLException ex) {
@@ -45,6 +46,7 @@ public class ConexaoComBanco {
         } else {
             try {
                 System.out.println("Abrindo conexao com o banco Local...");
+                DriverManager.registerDriver(new com.mysql.jdbc.Driver());
                 con = DriverManager.getConnection(url, user, password);
                 System.out.println("Conexao local realizada com sucesso!");
             } catch (SQLException ex) {
@@ -52,8 +54,6 @@ public class ConexaoComBanco {
             }
         }
     }
-
-
     public boolean validarAcesso(String email, String senha, String token) {
         TelaLogin telaLogin = new TelaLogin();
         try {
