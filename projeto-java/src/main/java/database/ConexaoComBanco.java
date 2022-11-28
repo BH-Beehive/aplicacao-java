@@ -46,7 +46,7 @@ public class ConexaoComBanco {
         } else {
             try {
                 System.out.println("Abrindo conexao com o banco Local...");
-                DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+                DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
                 con = DriverManager.getConnection(url, user, password);
                 System.out.println("Conexao local realizada com sucesso!");
             } catch (SQLException ex) {
