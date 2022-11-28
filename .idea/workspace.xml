@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76cb4b32-9b18-4dad-afef-1eec6ed6743e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/projeto-java/loginAutomatico/LOGIN-AUTOMATICO" beforeDir="false" />
-    </list>
+    <list default="true" id="76cb4b32-9b18-4dad-afef-1eec6ed6743e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,6 +45,7 @@
       <workItem from="1667009154692" duration="201000" />
       <workItem from="1667154401334" duration="181000" />
       <workItem from="1669588540047" duration="9000" />
+      <workItem from="1669669734642" duration="28000" />
     </task>
     <servers />
   </component>

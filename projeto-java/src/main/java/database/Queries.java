@@ -19,10 +19,20 @@ public class Queries {
     private ResultSet resultSet = null;
     private Statement st = null;
     private ConexaoComBanco conexao = null;
+    private ConexaoDocker conexaoDocker = null;
 
+    public Queries(ConexaoComBanco conexao, ConexaoDocker conexaoDocker) {
+        this.conexao = conexao;
+        this.conexaoDocker = conexaoDocker;
+    }
     public Queries(ConexaoComBanco conexao) {
         this.conexao = conexao;
     }
+
+    public Queries(ConexaoDocker conexaoDocker) {
+        this.conexaoDocker = conexaoDocker;
+    }
+
     private TelaLogin tela = new TelaLogin();
     public void update(Double memoriaTotal, Double discoTotal, String arquitetura, String sistemaOperacional, String processador, String tokenAcesso) {
         try {
@@ -37,7 +47,19 @@ public class Queries {
             ps.setString(5, processador);
             ps.setString(6, tokenAcesso);
             ps.executeUpdate();
-
+            if (conexaoDocker != null) {
+                ps = conexaoDocker.getConDocker().prepareStatement("update maquina set memoria_total = ? , "
+                        + "disco_total = ? , arquitetura = ? , "
+                        + "sistema_operacional = ? , processador = ? "
+                        + " where token_acesso = ?;");
+                ps.setDouble(1, memoriaTotal);
+                ps.setDouble(2, discoTotal);
+                ps.setString(3, arquitetura);
+                ps.setString(4, sistemaOperacional);
+                ps.setString(5, processador);
+                ps.setString(6, tokenAcesso);
+                ps.executeUpdate();
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -73,15 +95,15 @@ public class Queries {
                 ps.setDouble(4, discoUsado);
                 ps.setString(5, alerta);
                 ps.executeUpdate();
-
-                psDock = conexao.getCon().prepareStatement("insert into registro values (default,?,?,?,?,?);");
-                psDock.setString(1, fkMaquina);
-                psDock.setDouble(2, memoriaUsada);
-                psDock.setInt(3, cpuUsada);
-                psDock.setDouble(4, discoUsado);
-                psDock.setString(5, alerta);
-                psDock.executeUpdate();
-
+                if (conexaoDocker != null) {
+                    psDock = conexaoDocker.getConDocker().prepareStatement("insert into registro values (null,default,?,?,?,?,?);");
+                    psDock.setString(1, fkMaquina);
+                    psDock.setDouble(2, memoriaUsada);
+                    psDock.setInt(3, cpuUsada);
+                    psDock.setDouble(4, discoUsado);
+                    psDock.setString(5, alerta);
+                    psDock.executeUpdate();
+                }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
@@ -98,7 +120,7 @@ public class Queries {
                 throw new RuntimeException(e);
             }
         }
-        }
+    }
 
     public void insertDadosMaquina(String host_name, String token, String tipo, Double memoriaTotal, Double discoTotal, String arquitetura, String so, String processador, String setor, Integer prioridade) {
         if (StartApi.getAmbiente().equals("producao")) {
@@ -116,6 +138,22 @@ public class Queries {
                 ps.setInt(10, prioridade);
                 ps.executeUpdate();
                 System.out.println("Cadastrado com sucesso!");
+
+                if (conexaoDocker != null) {
+                    ps = conexaoDocker.getConDocker().prepareStatement(" insert into maquina values (null,?,?,true,?,?,?,?,?,?,1,?,?)");
+                    ps.setString(1, host_name);
+                    ps.setString(2, token);
+                    ps.setString(3, tipo);
+                    ps.setDouble(4, memoriaTotal);
+                    ps.setDouble(5, discoTotal);
+                    ps.setString(6, arquitetura);
+                    ps.setString(7, so);
+                    ps.setString(8, processador);
+                    ps.setString(9, setor);
+                    ps.setInt(10, prioridade);
+                    ps.executeUpdate();
+                    System.out.println("Cadastrado com sucesso!");
+                }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
@@ -138,18 +176,18 @@ public class Queries {
                 throw new RuntimeException(e);
             }
         }
-        }
+    }
 
     public void selectBySetor(String componente, String setor) {
         try {
             resultSet = conexao.getCon().createStatement().executeQuery(
                     "select "
-                    + componente
-                    + " ,setor from registro join maquina on id_maquina ="
-                    + " fk_maquina "
-                    + "where setor ="
-                    + "'" + setor + "'"
-                    + " order by id_registro desc limit 10;");
+                            + componente
+                            + " ,setor from registro join maquina on id_maquina ="
+                            + " fk_maquina "
+                            + "where setor ="
+                            + "'" + setor + "'"
+                            + " order by id_registro desc limit 10;");
             while (resultSet.next()) {
                 System.out.println("\nnome componente:" + componente
                         + "\nsetor: " + resultSet.getString("setor")
@@ -165,10 +203,10 @@ public class Queries {
         try {
             resultSet = conexao.getCon().createStatement().executeQuery(
                     "select host_name , memoria_uso ,"
-                    + " cpu_uso, disco_uso "
-                    + " from registro join maquina on id_maquina = fk_maquina where host_name ="
-                    + "'" + hostname + "'"
-                    + " order by id_registro desc limit 1;");
+                            + " cpu_uso, disco_uso "
+                            + " from registro join maquina on id_maquina = fk_maquina where host_name ="
+                            + "'" + hostname + "'"
+                            + " order by id_registro desc limit 1;");
             while (resultSet.next()) {
                 System.out.println("\nnome da máquina:" + hostname
                         + "\nuso disco: " + resultSet.getString("disco_uso")

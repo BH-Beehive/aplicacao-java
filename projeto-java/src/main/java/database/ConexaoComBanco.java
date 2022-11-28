@@ -14,9 +14,9 @@ import java.sql.*;
 public class ConexaoComBanco {
 
     private StartApi startApi = new StartApi();
-    private String url = "jdbc:mysql://172.21.0.2:3306/Beehive";
-    private String user = "abelha";
-    private String password = "beehive";
+    private String url = "jdbc:mysql://localhost:3306/Beehive";
+    private String user = "root";
+    private String password = "";
     private Connection con = null;
     private PreparedStatement ps = null;
     private ResultSet resultSet = null;

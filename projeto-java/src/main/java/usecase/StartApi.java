@@ -7,6 +7,7 @@ package usecase;
 
 import com.github.britooo.looca.api.core.Looca;
 import database.ConexaoComBanco;
+import database.ConexaoDocker;
 import database.Queries;
 import enums.Alertas;
 import enums.TipoMaquina;
@@ -23,7 +24,7 @@ import utils.Log;
 public class StartApi {
     static String azure = "producao";
     static String local = "desenvolvimento";
-    private static String ambiente = local;
+    private static String ambiente = azure;
     private String token;
     private String tokenFk_Maquina = "";
 
@@ -34,11 +35,13 @@ public class StartApi {
     public void execute() {
         Looca looca = new Looca();
         ConexaoComBanco con = new ConexaoComBanco();
+        ConexaoDocker conDocker = new ConexaoDocker();
         Conversor conversor = new Conversor();
         Slack slack = new Slack();
         JSONObject message = new JSONObject();
         con.conectarBanco();
-        Queries queries = new Queries(con);
+        conDocker.conectarBancoDocker();
+        Queries queries = new Queries(con, conDocker);
         long prefixo = conversor.getMEBI();
 
         String arquitetura = "x" + looca.getSistema().getArquitetura().toString();
@@ -76,17 +79,9 @@ public class StartApi {
         TimerTask task = new TimerTask() {
             Long memoriaUsada = null;
             Long cpuUsada = null;
-            Long discoTotal = null;
-            Long discoDisponivel = null;
             Long discoUsado = null;
-            Long primeiroRegistroSlackCpu = null;
-            Long segundoRegistroSlackCpu = null;
-
-            Long segundoRegistroSlackMemoria = null;
-            Long primeiroRegistroSlackMemoria = null;
             String alert = "";
             Integer contadorSlack = null;
-
             Integer contadorAlertaCritico = 0;
 
             @Override
@@ -114,20 +109,20 @@ public class StartApi {
                     } catch (IOException ex) {
                         Logger.getLogger(StartApi.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                        if (contadorAlertaCritico > 4 && contadorSlack == null) {
-                            contadorSlack = 0;
-                            message.put("text", String.format(":red_circle: %s esta em estado critico no setor %s! ", host_name, queries.selectSetorFromMaquina(host_name)));
-                            try {
+                    if (contadorAlertaCritico > 4 && contadorSlack == null) {
+                        contadorSlack = 0;
+                        message.put("text", String.format(":red_circle: %s esta em estado critico no setor %s! ", host_name, queries.selectSetorFromMaquina(host_name)));
+                        try {
                             slack.sendMessage(message);
-                            } catch (Exception e) {
-                                throw new RuntimeException(e);
-                            }
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
                         }
-                        if (contadorSlack != null) {
-                            if (contadorSlack == 20) {
-                                contadorSlack = null;
-                            }
+                    }
+                    if (contadorSlack != null) {
+                        if (contadorSlack == 20) {
+                            contadorSlack = null;
                         }
+                    }
                 }
                 else if (cpuUsada >= 80 || memoriaPercentual >= 80) {
                     alert = Alertas.AMARELO.toString().toLowerCase();
