@@ -286,9 +286,12 @@ public class TelaLogin extends javax.swing.JFrame {
         String loginLinux = "..//loginAutomatico//LOGIN-AUTOMATICO";
         String loginWin = "..\\loginAutomatico\\LOGIN-AUTOMATICO";
         String pathWin = "..\\loginAutomatico";
-        Path path = Paths.get(pathWin);
-        File login = new File(loginWin);
-        if (l.getSistema().getSistemaOperacional().equalsIgnoreCase("Linux")) {
+        Path path = null;
+        File login= null;
+        if (l.getSistema().getSistemaOperacional().equalsIgnoreCase("Windows")) {
+             path = Paths.get(pathWin);
+             login = new File(loginWin);
+        } else {
             path = Paths.get(pathLinux);
             login = new File(loginLinux);
         }
@@ -393,9 +396,12 @@ public class TelaLogin extends javax.swing.JFrame {
                 String loginLinux = "..//loginAutomatico//LOGIN-AUTOMATICO";
                 String loginWin = "..\\loginAutomatico\\LOGIN-AUTOMATICO";
                 String pathWin = "..\\loginAutomatico";
-                Path path = Paths.get(pathWin);
-                File login = new File(loginWin);
-                if (l.getSistema().getSistemaOperacional().equalsIgnoreCase("Linux")) {
+                Path path = null;
+                File login= null;
+                if (l.getSistema().getSistemaOperacional().equalsIgnoreCase("Windows")) {
+                    path = Paths.get(pathWin);
+                    login = new File(loginWin);
+                } else {
                     path = Paths.get(pathLinux);
                     login = new File(loginLinux);
                 }
