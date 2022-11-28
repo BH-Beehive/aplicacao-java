@@ -1,15 +1,15 @@
-C:\Users\gusta\OneDrive\Ambiente de Trabalho\Estudos\aplicacao-java\projeto-java\src\main\java\enums\Alertas.java
-C:\Users\gusta\OneDrive\Ambiente de Trabalho\Estudos\aplicacao-java\projeto-java\src\main\java\utils\Conversor.java
-C:\Users\gusta\OneDrive\Ambiente de Trabalho\Estudos\aplicacao-java\projeto-java\src\main\java\utils\Log.java
-C:\Users\gusta\OneDrive\Ambiente de Trabalho\Estudos\aplicacao-java\projeto-java\src\main\java\utils\LoginAutomatico.java
-C:\Users\gusta\OneDrive\Ambiente de Trabalho\Estudos\aplicacao-java\projeto-java\src\main\java\enums\TipoMaquina.java
-C:\Users\gusta\OneDrive\Ambiente de Trabalho\Estudos\aplicacao-java\projeto-java\src\main\java\model\Registro.java
-C:\Users\gusta\OneDrive\Ambiente de Trabalho\Estudos\aplicacao-java\projeto-java\src\main\java\database\ConexaoComBanco.java
-C:\Users\gusta\OneDrive\Ambiente de Trabalho\Estudos\aplicacao-java\projeto-java\src\main\java\enums\Prioridade.java
-C:\Users\gusta\OneDrive\Ambiente de Trabalho\Estudos\aplicacao-java\projeto-java\src\main\java\database\Queries.java
-C:\Users\gusta\OneDrive\Ambiente de Trabalho\Estudos\aplicacao-java\projeto-java\src\main\java\usecase\StartApi.java
-C:\Users\gusta\OneDrive\Ambiente de Trabalho\Estudos\aplicacao-java\projeto-java\src\main\java\model\Setor.java
-C:\Users\gusta\OneDrive\Ambiente de Trabalho\Estudos\aplicacao-java\projeto-java\src\main\java\model\Maquina.java
-C:\Users\gusta\OneDrive\Ambiente de Trabalho\Estudos\aplicacao-java\projeto-java\src\main\java\usecase\Slack.java
-C:\Users\gusta\OneDrive\Ambiente de Trabalho\Estudos\aplicacao-java\projeto-java\src\main\java\usecase\TimerSchedulePeriod.java
-C:\Users\gusta\OneDrive\Ambiente de Trabalho\Estudos\aplicacao-java\projeto-java\src\main\java\aplication\TelaLogin.java
+/home/iaaaa/Desktop/PROJETOS/aplicacao-java/projeto-java/src/main/java/usecase/StartApi.java
+/home/iaaaa/Desktop/PROJETOS/aplicacao-java/projeto-java/src/main/java/database/Queries.java
+/home/iaaaa/Desktop/PROJETOS/aplicacao-java/projeto-java/src/main/java/model/Maquina.java
+/home/iaaaa/Desktop/PROJETOS/aplicacao-java/projeto-java/src/main/java/enums/Alertas.java
+/home/iaaaa/Desktop/PROJETOS/aplicacao-java/projeto-java/src/main/java/model/Setor.java
+/home/iaaaa/Desktop/PROJETOS/aplicacao-java/projeto-java/src/main/java/utils/LoginAutomatico.java
+/home/iaaaa/Desktop/PROJETOS/aplicacao-java/projeto-java/src/main/java/model/Registro.java
+/home/iaaaa/Desktop/PROJETOS/aplicacao-java/projeto-java/src/main/java/aplication/TelaLogin.java
+/home/iaaaa/Desktop/PROJETOS/aplicacao-java/projeto-java/src/main/java/enums/TipoMaquina.java
+/home/iaaaa/Desktop/PROJETOS/aplicacao-java/projeto-java/src/main/java/enums/Prioridade.java
+/home/iaaaa/Desktop/PROJETOS/aplicacao-java/projeto-java/src/main/java/utils/Conversor.java
+/home/iaaaa/Desktop/PROJETOS/aplicacao-java/projeto-java/src/main/java/usecase/TimerSchedulePeriod.java
+/home/iaaaa/Desktop/PROJETOS/aplicacao-java/projeto-java/src/main/java/usecase/Slack.java
+/home/iaaaa/Desktop/PROJETOS/aplicacao-java/projeto-java/src/main/java/utils/Log.java
+/home/iaaaa/Desktop/PROJETOS/aplicacao-java/projeto-java/src/main/java/database/ConexaoComBanco.java

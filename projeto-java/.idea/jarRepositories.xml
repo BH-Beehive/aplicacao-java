@@ -22,9 +22,19 @@
       <option name="url" value="https://repo.spring.io/release" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="default-snapshot" />
+      <option name="name" value="Default Snapshot Dependency Repository" />
+      <option name="url" value="https://artifactory.alpenet.com.br/artifactory/maven-snapshot/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="default-release" />
       <option name="name" value="Default Release Dependency Repository" />
       <option name="url" value="https://nexus.alpenet.com.br/repository/maven-release/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="default-release" />
+      <option name="name" value="Default Release Dependency Repository" />
+      <option name="url" value="https://artifactory.alpenet.com.br/artifactory/maven-release/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="central" />
