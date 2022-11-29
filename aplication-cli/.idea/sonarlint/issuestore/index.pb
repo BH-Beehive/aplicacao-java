@@ -15,3 +15,17 @@ R
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
 Q
 !src/main/java/aplication/CLI.java,9/6/96d46542588e1dc68e381a165811e8a2daa34835
+Q
+!src/main/java/usecases/Login.java,b/3/b34a332a0d215948d20ac37d33c40edf2ad28f73
+S
+#src/main/java/database/Conexao.java,b/1/b146e091310745d3e578488ed153f57262022969
+Y
+)src/main/java/database/ConexaoDocker.java,5/a/5a39f8874a62c29fb2b3044f82c05d573c6a82bd
+X
+(src/main/java/usecases/InteracaoAPI.java,b/8/b8ddf26b270b7c4b4313b76fd3bf61648ab81e3f
+Q
+!src/main/java/usecases/Slack.java,2/7/273d933e40a688c86a10a5c5c08c3847293c9675
+[
++src/main/java/database/ConexaoComBanco.java,f/2/f2728042d6bb9889942d3528d07b9050a0958f77
+S
+#src/main/java/database/Queries.java,3/7/375e16dc284ed3a291b56b603b70297c5fea4c6e

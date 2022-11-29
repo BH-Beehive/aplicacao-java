@@ -1,0 +1,42 @@
+
+`	java:S1121"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+g	java:S112]"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Ê¡ë¨Ì0
+g	java:S112i"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Ë¡ë¨Ì0
+g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Ë¡ë¨Ì0
+h	java:S112‘"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Ì¡ë¨Ì0
+v
+java:S1192E"[Define a constant instead of duplicating this literal "Erro ao executar o select!" 5 times.(«ì±Áıÿÿÿÿ
+^	java:S107n"=Method has 10 parameters, which is greater than 7 authorized.(ëİŠ¸úÿÿÿÿ8Ï¡ë¨Ì0
+r	java:S117n"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëİŠ¸úÿÿÿÿ8Ï¡ë¨Ì0
+Š
+java:S1488Ä"gImmediately return this expression instead of assigning it to the temporary variable "colunaResultado".(¼…ú‚üÿÿÿÿ8Ğ¡ë¨Ì0
+…
+java:S1488×"gImmediately return this expression instead of assigning it to the temporary variable "colunaResultado".(üïù¦8Ğ¡ë¨Ì0
+i
+java:S20957"GUse try-with-resources or close this "Statement" in a "finally" clause.(—Å§€úÿÿÿÿ8‰¨ÔŸÌ0
+j
+java:S2095­"GUse try-with-resources or close this "Statement" in a "finally" clause.(¢ÒÒúúÿÿÿÿ8¢ë¨Ì0
+j
+java:S2095Ñ"GUse try-with-resources or close this "Statement" in a "finally" clause.(¢ÒÒúúÿÿÿÿ8¢ë¨Ì0
+j
+java:S2095˜"GUse try-with-resources or close this "Statement" in a "finally" clause.(¢ÒÒúúÿÿÿÿ8œ¢ë¨Ì0
+j
+java:S2095À"GUse try-with-resources or close this "Statement" in a "finally" clause.(Ñ÷Îšøÿÿÿÿ8¢ë¨Ì0
+r
+java:S1450"URemove the "psDock" field and declare it as a local variable in the relevant methods.(ìÜ“ë8Ø€ï¨Ì0
+Z	java:S1069"9Replace this use of System.out or System.err by a logger.(¶şø¥ıÿÿÿÿ8àø×ÚË0
+Z	java:S106E"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ8æø×ÚË0
+R
+java:S2209J"5Change this instance-reference to a static reference.(³ÕÅ8„©ÔŸÌ0
+R
+java:S2209o"5Change this instance-reference to a static reference.(³ÕÅ8µ¢ë¨Ì0
+U	java:S106}"9Replace this use of System.out or System.err by a logger.(Øø…Œ8¸¢ë¨Ì0
+V	java:S106"9Replace this use of System.out or System.err by a logger.(Øø…Œ8½¢ë¨Ì0
+[	java:S106¡"9Replace this use of System.out or System.err by a logger.(î˜ìúşÿÿÿÿ8¿¢ë¨Ì0
+[	java:S106¦"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ8À¢ë¨Ì0
+[	java:S106´"9Replace this use of System.out or System.err by a logger.(ª¾†³ÿÿÿÿÿ8Â¢ë¨Ì0
+[	java:S106º"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ8Ã¢ë¨Ì0
+V	java:S106É"9Replace this use of System.out or System.err by a logger.(…™Ïÿ8Å¢ë¨Ì0
+[	java:S106Û"9Replace this use of System.out or System.err by a logger.(«ì±Áıÿÿÿÿ8È¢ë¨Ì0
+<
+java:S1068"&Remove this unused "st" private field.(øšã”
