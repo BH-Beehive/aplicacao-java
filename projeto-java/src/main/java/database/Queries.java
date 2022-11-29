@@ -48,17 +48,17 @@ public class Queries {
             ps.setString(6, tokenAcesso);
             ps.executeUpdate();
             if (conexaoDocker != null) {
-                ps = conexaoDocker.getConDocker().prepareStatement("update maquina set memoria_total = ? , "
+                psDock = conexaoDocker.getConDocker().prepareStatement("update maquina set memoria_total = ? , "
                         + "disco_total = ? , arquitetura = ? , "
                         + "sistema_operacional = ? , processador = ? "
                         + " where token_acesso = ?;");
-                ps.setDouble(1, memoriaTotal);
-                ps.setDouble(2, discoTotal);
-                ps.setString(3, arquitetura);
-                ps.setString(4, sistemaOperacional);
-                ps.setString(5, processador);
-                ps.setString(6, tokenAcesso);
-                ps.executeUpdate();
+                psDock.setDouble(1, memoriaTotal);
+                psDock.setDouble(2, discoTotal);
+                psDock.setString(3, arquitetura);
+                psDock.setString(4, sistemaOperacional);
+                psDock.setString(5, processador);
+                psDock.setString(6, tokenAcesso);
+                psDock.executeUpdate();
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -98,8 +98,6 @@ public class Queries {
                 if (conexaoDocker != null) {
                     String sql= "insert into registro (data_registro,memoria_uso,cpu_uso,disco_uso) values (default,?,?,?);";
                     psDock = conexaoDocker.getConDocker().prepareStatement(sql);
-                    System.out.println(sql);
-                    System.out.println();
                     psDock.setDouble(1, memoriaUsada);
                     psDock.setInt(2, cpuUsada);
                     psDock.setDouble(3, discoUsado);
@@ -142,18 +140,18 @@ public class Queries {
                 System.out.println("Cadastrado com sucesso!");
 
                 if (conexaoDocker != null) {
-                    ps = conexaoDocker.getConDocker().prepareStatement(" insert into maquina values (null,?,?,true,?,?,?,?,?,?,1,?,?)");
-                    ps.setString(1, host_name);
-                    ps.setString(2, token);
-                    ps.setString(3, tipo);
-                    ps.setDouble(4, memoriaTotal);
-                    ps.setDouble(5, discoTotal);
-                    ps.setString(6, arquitetura);
-                    ps.setString(7, so);
-                    ps.setString(8, processador);
-                    ps.setString(9, setor);
-                    ps.setInt(10, prioridade);
-                    ps.executeUpdate();
+                    psDock = conexaoDocker.getConDocker().prepareStatement(" insert into maquina values (null,?,?,true,?,?,?,?,?,?,1,?,?)");
+                    psDock.setString(1, host_name);
+                    psDock.setString(2, token);
+                    psDock.setString(3, tipo);
+                    psDock.setDouble(4, memoriaTotal);
+                    psDock.setDouble(5, discoTotal);
+                    psDock.setString(6, arquitetura);
+                    psDock.setString(7, so);
+                    psDock.setString(8, processador);
+                    psDock.setString(9, setor);
+                    psDock.setInt(10, prioridade);
+                    psDock.executeUpdate();
                     System.out.println("Cadastrado com sucesso!");
                 }
             } catch (SQLException e) {
