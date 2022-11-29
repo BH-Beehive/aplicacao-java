@@ -153,7 +153,7 @@ public class StartApi {
                 Long valorDiscoUsado = looca.getGrupoDeDiscos().getVolumes().get(0).getTotal() - looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel();
                 discoUsado = conversor.formatarUnidades(valorDiscoUsado, prefixo);
                 String fk_maquina = queries.selectColumn("id_maquina", tokenFk_Maquina);
-                queries.insertRegistro(fk_maquina, memoriaUsada.doubleValue(), cpuUsada.intValue(),0.0, alert);
+                queries.insertRegistro(fk_maquina, memoriaUsada.doubleValue(), cpuUsada.intValue(), discoUsado.doubleValue(), alert);
                 System.out.println("\n-------------------------------------------");
 
                 System.out.println("\nCPU USADA:" + cpuUsada + "%\n");

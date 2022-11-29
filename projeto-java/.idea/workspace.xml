@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d6c25ea9-bff2-413d-813c-f09e87ce2fb3" name="Changes" comment="bugfix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/ConexaoDocker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/ConexaoDocker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database/Queries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database/Queries.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/usecase/StartApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/usecase/StartApi.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -243,6 +245,15 @@
     <option name="LAST_COMMIT_MESSAGE" value="bugfix" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/database/Queries.java</url>
+          <line>98</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="java.lang.Boolean" memberName="value" />
