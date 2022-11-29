@@ -7,9 +7,6 @@ public class ConexaoDocker implements Conexao{
     private String userDocker = "root";
     private String passwordDocker = "123456";
     private Connection conDocker = null;
-    private PreparedStatement ps = null;
-    private ResultSet resultSet = null;
-    private Statement st = null;
 
     public void ConexaoDocker() {
     }
