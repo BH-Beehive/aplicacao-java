@@ -5,7 +5,7 @@ import java.sql.*;
 public class ConexaoDocker {
     private String urlDocker = "jdbc:mysql://172.17.0.2:3306/Beehive";
     private String userDocker = "root";
-    private String passwordDocker = "123456";
+    private String passwordDocker = "root";
     private Connection conDocker = null;
     private PreparedStatement ps = null;
     private ResultSet resultSet = null;
