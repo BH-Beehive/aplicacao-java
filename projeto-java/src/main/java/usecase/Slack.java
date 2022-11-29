@@ -10,7 +10,7 @@ import java.net.URL;
 
 public class Slack {
 
-    private String url = "https://hooks.slack.com/services/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";
+    private String url = "https://hooks.slack.com/services/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";
 
     public void sendMessage(JSONObject message) {
 

@@ -9,3 +9,17 @@ T
 $src/main/java/enums/TipoMaquina.java,3\9\399b60bc9e1ffeefaf059df4c2ad8cf804c7158b
 W
 'src/main/java/aplication/TelaLogin.form,f\b\fbf094bec96e6eb249cd9b8525d204f22ca17710
+[
++src/main/java/database/ConexaoComBanco.java,f/2/f2728042d6bb9889942d3528d07b9050a0958f77
+Y
+)src/main/java/database/ConexaoDocker.java,5/a/5a39f8874a62c29fb2b3044f82c05d573c6a82bd
+7
+pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
+S
+#src/main/java/usecase/StartApi.java,f/2/f28d26f9565934042ab2d64e5fcc2e6686cc8324
+W
+'src/main/java/aplication/TelaLogin.java,d/7/d7e2db9548a6ce3a761bf255711b85b8ac325351
+S
+#src/main/java/database/Queries.java,3/7/375e16dc284ed3a291b56b603b70297c5fea4c6e
+P
+ src/main/java/usecase/Slack.java,b/d/bdc35e54452f2cf190786e9c11f83d9359d41a84
