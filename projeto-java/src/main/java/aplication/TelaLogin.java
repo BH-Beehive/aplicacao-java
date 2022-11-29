@@ -4,20 +4,12 @@
  */
 package aplication;
 
-import com.github.britooo.looca.api.core.Looca;
 import database.ConexaoComBanco;
-import database.Queries;
-import utils.LoginAutomatico;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 /**
  *
@@ -260,29 +252,11 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
-        LoginAutomatico loginA = new LoginAutomatico();
-        loginA.criacaoArquivoLogin(inputEmail.getText(), new String(inputSenha.getPassword()), inputToken.getText());
-        Looca l = new Looca();
         ConexaoComBanco con = new ConexaoComBanco();
         con.conectarBanco();
-        Queries queries = new Queries(con);
-        email = inputEmail.toString();
-        senha = inputSenha.toString();
-        token = inputToken.toString();
-        String pathLinux = "..//loginAutomatico";
-        String loginLinux = "..//loginAutomatico//LOGIN-AUTOMATICO";
-        String loginWin = "..\\loginAutomatico\\LOGIN-AUTOMATICO";
-        String pathWin = "..\\loginAutomatico";
-        Path path = null;
-        File login= null;
-        if (l.getSistema().getSistemaOperacional().equalsIgnoreCase("Windows")) {
-             path = Paths.get(pathWin);
-             login = new File(loginWin);
-        } else {
-            path = Paths.get(pathLinux);
-            login = new File(loginLinux);
-        }
-        archiveProcess(path, login);
+        email = inputEmail.getText();
+        senha =  new String(inputSenha.getPassword());
+        token = inputToken.getText();
         if(con.validarAcesso(email, senha, token)){
             telaLogin.setVisible(false);
             JFrame f=new JFrame("Button Example");
@@ -301,8 +275,6 @@ public class TelaLogin extends javax.swing.JFrame {
                 }
             });
             f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        }else{
-            loginA.deletarArquivo();
         }
 
     }//GEN-LAST:event_btnEntrarActionPerformed
@@ -374,84 +346,11 @@ public class TelaLogin extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            String email = "";
-            String senha = "";
-            String token = "";
+
             public void run() {
                 telaLogin.setVisible(true);
-                Looca l = new Looca();
-                String pathLinux = "..//loginAutomatico";
-                String loginLinux = "..//loginAutomatico//LOGIN-AUTOMATICO";
-                String loginWin = "..\\loginAutomatico\\LOGIN-AUTOMATICO";
-                String pathWin = "..\\loginAutomatico";
-                Path path = null;
-                File login= null;
-                if (l.getSistema().getSistemaOperacional().equalsIgnoreCase("Windows")) {
-                    path = Paths.get(pathWin);
-                    login = new File(loginWin);
-                } else {
-                    path = Paths.get(pathLinux);
-                    login = new File(loginLinux);
-                }
-                processFileAndSetInput(path, login);
-            }
-
-            private void processFileAndSetInput(Path path, File login) {
-                if (Files.exists(path) && login.exists()) {
-                    try {
-                        BufferedReader br
-                                = new BufferedReader(new FileReader(login));
-                        String line;
-                        Integer contadorLinhas = 0;
-                        while((line = br.readLine()) != null){
-                            if (contadorLinhas == 0) {
-                                email = line;
-                                contadorLinhas++;
-                            } else if (contadorLinhas == 1) {
-                                senha = line;
-                                contadorLinhas++;
-                            } else if (contadorLinhas == 2){
-                                token = line;
-                                contadorLinhas++;
-                            }
-                            inputEmail.setText(email);
-                            inputSenha.setText(senha);
-                            inputToken.setText(token);
-                        }
-                    } catch (FileNotFoundException e) {
-                        throw new RuntimeException(e);
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
             }
         });
-    }
-    public void archiveProcess(Path path, File login) {
-        if (Files.exists(path) && login.exists()) {
-            try {
-                BufferedReader br
-                        = new BufferedReader(new FileReader(login));
-                String line;
-                Integer contadorLinhas = 0;
-                while((line = br.readLine()) != null){
-                    if (contadorLinhas == 0) {
-                        email = line;
-                        contadorLinhas++;
-                    } else if (contadorLinhas == 1) {
-                        senha = line;
-                        contadorLinhas++;
-                    } else if (contadorLinhas == 2){
-                        token = line;
-                        contadorLinhas++;
-                    }
-                }
-            } catch (FileNotFoundException e) {
-                throw new RuntimeException(e);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -461,9 +360,9 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel exibirEmail;
     private javax.swing.JLabel exibirSenha;
     private javax.swing.JLabel exibirToken;
-    private static javax.swing.JTextField inputEmail;
-    private static javax.swing.JPasswordField inputSenha;
-    private static javax.swing.JTextField inputToken;
+    private javax.swing.JTextField inputEmail;
+    private javax.swing.JPasswordField inputSenha;
+    private javax.swing.JTextField inputToken;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -66,24 +66,6 @@ public class ConexaoComBanco implements Conexao{
             resultSet = ps.executeQuery();
             int rowCount = 0;
             startApi.returnToken(token);
-
-            Looca l = new Looca();
-            String pathLinux = "..//loginAutomatico";
-            String loginLinux = "..//loginAutomatico//LOGIN-AUTOMATICO";
-            String loginWin = "..\\loginAutomatico\\LOGIN-AUTOMATICO";
-            String pathWin = "..\\loginAutomatico";
-            Path path = null;
-            File login= null;
-            if (l.getSistema().getSistemaOperacional().equalsIgnoreCase("Windows")) {
-                path = Paths.get(pathWin);
-                login = new File(loginWin);
-            } else {
-                path = Paths.get(pathLinux);
-                login = new File(loginLinux);
-            }
-
-            telaLogin.archiveProcess(path,login);
-
             while (resultSet.next()) {
                 rowCount++;
                 System.out.println("COUNT::" + rowCount);
@@ -95,12 +77,9 @@ public class ConexaoComBanco implements Conexao{
                 if(!resultSet.getBoolean("token_ativo")) {
                     startApi.setToken(resultSet.getString("token_acesso"));
                     startApi.execute();
-                    ps = con.prepareStatement("update maquina set token_ativo = 1 where token_acesso = ?");
-                    ps.setString(1, token);
-                    ps.executeUpdate();
                     return true;
                 }
-                else if(resultSet.getBoolean("token_ativo") && token.equals(telaLogin.getToken()) ){
+                else if(resultSet.getBoolean("token_ativo")){
                     startApi.setToken(resultSet.getString("token_acesso"));
                     startApi.execute();
                     return true;
