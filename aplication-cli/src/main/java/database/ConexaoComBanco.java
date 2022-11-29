@@ -2,6 +2,7 @@ package database;
 
 
 import com.github.britooo.looca.api.core.Looca;
+import org.checkerframework.checker.units.qual.C;
 import usecases.InteracaoAPI;
 import usecases.Login;
 import utils.LoginAutomatic;
@@ -12,14 +13,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.*;
 
-public class ConexaoComBanco {
+public class ConexaoComBanco implements Conexao {
 
 
     InteracaoAPI interacaoAPI = new InteracaoAPI();
     private Boolean isLogado = false;
-    private String url = "jdbc:mysql://172.17.0.2:3306/Beehive";
+    private String url = "jdbc:mysql://localhost:3306/beehive";
     private String user = "root";
-    private String password = "123456";
+    private String password = "1470";
     private Connection con = null;
     private PreparedStatement ps = null;
     private ResultSet resultSet = null;
@@ -42,6 +43,7 @@ public class ConexaoComBanco {
                     "loginTimeout=30;";
             try {
                 System.out.println("Abrindo conexao com o banco Azure...");
+                DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
                 con = DriverManager.getConnection(url);
                 System.out.println("Conexao realizada na Azure com sucesso!");
                 return "OK";
@@ -52,6 +54,7 @@ public class ConexaoComBanco {
         } else {
             try {
                 System.out.println("Abrindo conexao com o banco Local...");
+                DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
                 con = DriverManager.getConnection(url, user, password);
                 System.out.println("Conexao local realizada com sucesso!");
                 return "OK";

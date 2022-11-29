@@ -2,6 +2,7 @@ package usecases;
 
 import com.github.britooo.looca.api.core.Looca;
 import database.ConexaoComBanco;
+import database.ConexaoDocker;
 import database.Queries;
 import enums.Alertas;
 import enums.TipoMaquina;
@@ -28,11 +29,12 @@ public class InteracaoAPI {
         Conversor conversor = new Conversor();
         Looca looca = new Looca();
         ConexaoComBanco con = new ConexaoComBanco();
+        ConexaoDocker conexaoDocker = new ConexaoDocker();
         Slack slack = new Slack();
         JSONObject message = new JSONObject();
         con.conectarBanco();
 
-        Queries queries = new Queries(con);
+        Queries queries = new Queries(con, conexaoDocker);
         long prefixo = conversor.getMEBI();
 
         String arquitetura = "x" + looca.getSistema().getArquitetura().toString();

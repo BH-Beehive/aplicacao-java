@@ -15,12 +15,22 @@ public class Queries {
 
     InteracaoAPI interacaoAPI = new InteracaoAPI();
     private PreparedStatement ps = null;
+    private PreparedStatement psDock = null;
     private ResultSet resultSet = null;
     private Statement st = null;
     private ConexaoComBanco conexao = null;
+    private ConexaoDocker conexaoDocker = null;
 
+    public Queries(ConexaoComBanco conexao, ConexaoDocker conexaoDocker) {
+        this.conexao = conexao;
+        this.conexaoDocker = conexaoDocker;
+    }
     public Queries(ConexaoComBanco conexao) {
         this.conexao = conexao;
+    }
+
+    public Queries(ConexaoDocker conexaoDocker) {
+        this.conexaoDocker = conexaoDocker;
     }
     public void update(Double memoriaTotal, Double discoTotal, String arquitetura, String sistemaOperacional, String processador, String tokenAcesso) {
         try {
@@ -29,13 +39,25 @@ public class Queries {
                     + "sistema_operacional = ? , processador = ? "
                     + " where token_acesso = ?;");
             ps.setDouble(1, memoriaTotal);
-            ps.setDouble(2, memoriaTotal);
+            ps.setDouble(2, discoTotal);
             ps.setString(3, arquitetura);
             ps.setString(4, sistemaOperacional);
             ps.setString(5, processador);
             ps.setString(6, tokenAcesso);
             ps.executeUpdate();
-
+            if (conexaoDocker != null) {
+                psDock = conexaoDocker.getConDocker().prepareStatement("update maquina set memoria_total = ? , "
+                        + "disco_total = ? , arquitetura = ? , "
+                        + "sistema_operacional = ? , processador = ? "
+                        + " where token_acesso = ?;");
+                psDock.setDouble(1, memoriaTotal);
+                psDock.setDouble(2, discoTotal);
+                psDock.setString(3, arquitetura);
+                psDock.setString(4, sistemaOperacional);
+                psDock.setString(5, processador);
+                psDock.setString(6, tokenAcesso);
+                psDock.executeUpdate();
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -71,6 +93,15 @@ public class Queries {
                 ps.setDouble(4, discoUsado);
                 ps.setString(5, alerta);
                 ps.executeUpdate();
+                if (conexaoDocker != null) {
+                    String sql= "insert into registro (data_registro,memoria_uso,cpu_uso,disco_uso) values (default,?,?,?);";
+                    psDock = conexaoDocker.getConDocker().prepareStatement(sql);
+                    psDock.setDouble(1, memoriaUsada);
+                    psDock.setInt(2, cpuUsada);
+                    psDock.setDouble(3, discoUsado);
+
+                    psDock.executeUpdate();
+                }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
@@ -105,6 +136,22 @@ public class Queries {
                 ps.setInt(10, prioridade);
                 ps.executeUpdate();
                 System.out.println("Cadastrado com sucesso!");
+
+                if (conexaoDocker != null) {
+                    psDock = conexaoDocker.getConDocker().prepareStatement(" insert into maquina values (null,?,?,true,?,?,?,?,?,?,1,?,?)");
+                    psDock.setString(1, host_name);
+                    psDock.setString(2, token);
+                    psDock.setString(3, tipo);
+                    psDock.setDouble(4, memoriaTotal);
+                    psDock.setDouble(5, discoTotal);
+                    psDock.setString(6, arquitetura);
+                    psDock.setString(7, so);
+                    psDock.setString(8, processador);
+                    psDock.setString(9, setor);
+                    psDock.setInt(10, prioridade);
+                    psDock.executeUpdate();
+                    System.out.println("Cadastrado com sucesso!");
+                }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
