@@ -40,7 +40,7 @@ public class StartApi {
         Slack slack = new Slack();
         JSONObject message = new JSONObject();
         con.conectarBanco();
-        conDocker.conectarBancoDocker();
+        conDocker.conectarBanco();
         Queries queries = new Queries(con, conDocker);
         long prefixo = conversor.getMEBI();
 

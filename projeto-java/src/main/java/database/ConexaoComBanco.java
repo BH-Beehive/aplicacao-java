@@ -11,7 +11,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.*;
 
-public class ConexaoComBanco {
+public class ConexaoComBanco implements Conexao{
 
     private StartApi startApi = new StartApi();
     private String url = "jdbc:mysql://localhost:3306/Beehive";
@@ -98,10 +98,12 @@ public class ConexaoComBanco {
                     ps = con.prepareStatement("update maquina set token_ativo = 1 where token_acesso = ?");
                     ps.setString(1, token);
                     ps.executeUpdate();
+                    return true;
                 }
                 else if(resultSet.getBoolean("token_ativo") && token.equals(telaLogin.getToken()) ){
                     startApi.setToken(resultSet.getString("token_acesso"));
                     startApi.execute();
+                    return true;
                 }
                 else{
                     JOptionPane.showMessageDialog(telaLogin, "Token inválido!",
